@@ -5,26 +5,31 @@
   ... 
 
 }: {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../../modules/nixos
-      inputs.sops-nix.nixosModules.sops
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/nixos
+    inputs.home-manager.nixosModules.home-manager
+  ];
 
-  sops = {
-    defaultSopsFile = /home/srv/.dots/secrets.yaml;
-    defaultSopsFormat = "yaml";
-    
-    age.keyFile = "/home/srv/.config/sops/age/keys.txt";
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.srv = import ./home.nix;
+  };
 
+  age = {
+    identityPaths = [ "/home/srv/.ssh/id_ed25519 " ];
     secrets = {
-      "borgbackup/opal" = {
-        onsite = {};
-        offsite = {};
+      "borgbackup-opal-onsite" = {
+        file = ../../secrets/borgbackup-opal-onsite.age;
       };
-      api = {
-        njalla = {};
+      "borgbackup-opal-offsite" = {
+        file = ../../secrets/borgbackup-opal-offsite.age;
+      };
+      "api-porkbun" = {
+        file = ../../secrets/api-porkbun.age;
+        owner = "acme";
       };
     };
   };
@@ -40,7 +45,7 @@
     firewall = {
       enable = true;
       trustedInterfaces = [ "tailscale0" ];
-      allowedTCPPorts = [ 80 443 ];
+      interfaces."tailscale0".allowedTCPPorts = [ 80 443 ];
     };
   }; 
 
@@ -58,7 +63,6 @@
     bat
     nom
     bottom
-    sops
   ];
 
   environment.sessionVariables = {
@@ -72,10 +76,27 @@
   };
 
   services = { 
+    vaultwarden = {
+      enable = true;
+      backupDir = "/srv/vaultwarden";
+      config = {
+        ROCKET_PORT="5001";
+        DOMAIN="https://vault.fi33.buzz";
+        SIGNUPS_ALLOWED = "false";
+        INVITATIONS_ALLOWED = "false";
+        SHOW_PASSWORD_HINT="false";
+        USE_SYSLOG="true";
+        EXTENDED_LOGGING="true";
+      };
+    };
+
+    openssh.enable = true;
+
     immich = {
       enable = true;
       port = 2283;
       mediaLocation = "/srv/immich";
+
     };
 
     tailscale.enable = true;
@@ -103,7 +124,7 @@
           repo = "/repo";
           
           encryption.mode = "repokey-blake2";
-          encryption.passCommand = "cat ${config.sops.secrets."borgbackup/opal/onsite".path}";
+          encryption.passCommand = "cat ${config.age.secrets.borgbackup-opal-onsite.path}";
 
           removableDevice = true;
         };
@@ -112,51 +133,68 @@
           repo = "vuc5c3xq@vuc5c3xq.repo.borgbase.com:repo";
           
           encryption.mode = "repokey-blake2";
-          encryption.passCommand = "cat ${config.sops.secrets."borgbackup/opal/offsite".path}";
+          encryption.passCommand = "cat ${config.age.secrets.borgbackup-opal-offsite.path}";
 
           environment.BORG_RSH = "ssh -i /home/srv/.ssh/id_ed25519";
         };
       };
-    caddy = {
+    nginx = {
       enable = true;
 
-      extraConfig = ''
-        tls {
-          dns njalla {
-            api_token 
-          }
-        }
-      '';
+      recommendedProxySettings = true;
+      recommendedTlsSettings = true;
+      recommendedGzipSettings = true;
+      recommendedOptimisation = true;
 
-      # allow large immich uploads
- #     clientMaxBodySize = "50000M";
+      # immich video uploads
+      clientMaxBodySize = "50000M";
 
-      virtualHosts."dufs.clinomania.net".extraConfig = ''
-        reverse_proxy localhost:5000 
-        '';
+      tailscaleAuth.enable = true;
 
-      virtualHosts."vault.clinomania.net".extraConfig = ''
-        reverse_proxy localhost:5001 
-        '';
+      virtualHosts = {
+        "vault.fi33.buzz" = {
+          forceSSL = true;
+          useACMEHost = "fi33.buzz";
+          locations."/" = {
+            proxyPass = "http://localhost:5001";
+            proxyWebsockets = true;
+          };
+        };
 
-      virtualHosts."immich.clinomania.net".extraConfig = ''
-        reverse_proxy 0.0.0.0:2283 
-        '';
-      
-      virtualHosts."kuma.clinomania.net".extraConfig = ''
-        reverse_proxy localhost:5002
-        '';
+        "dufs.fi33.buzz" = {
+          forceSSL = true;
+          useACMEHost = "fi33.buzz";
+          locations."/" = {
+            proxyPass = "http://localhost:5000";
+          };
+        };
+
+        "immich.fi33.buzz" = {
+          forceSSL = true;
+          useACMEHost = "fi33.buzz";
+          locations."/" = {
+            proxyPass = "http://[::1]:2283";
+            proxyWebsockets = true;
+          };
+        };
+      };
     };
-#    acme = {
-#      acceptTerms = true;
-#      defaults.email = "wi11@duck.com";
-#      certs."clinomania.net" = {
-#        domain = "clinomnaia.net";
-#        extraDomainNames = [ "*.clinomania.net" ];
-#        dnsProvier = "njalla";
-#      };
-#    };
   };
+
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "wi11@duck.com";
+    certs."fi33.buzz" = {
+      domain = "fi33.buzz";
+      extraDomainNames = [ "*.fi33.buzz" ];
+      group = "nginx";
+      dnsProvider = "porkbun";
+      dnsPropagationCheck = true;
+      credentialsFile = config.age.secrets."api-porkbun".path;
+    };
+  };
+
+  users.users.nginx.extraGroups = [ "acme" ];
 
   virtualisation = {
     docker.enable = true;
@@ -182,29 +220,6 @@
             "/data"
             "-A"
           ];
-        };
-
-        vaultwarden = {
-          autoStart = true;
-
-          image = "vaultwarden/server";
-
-          ports = [
-            "5001:80"
-          ];
-
-          volumes = [
-            "/srv/vaultwarden:/data"
-          ];
-
-          environment = {
-            DOMAIN="https://vault.clinomania.net";
-            SIGNUPS_ALLOWED = "false";
-            INVITATIONS_ALLOWED = "false";
-            SHOW_PASSWORD_HINT="false";
-            USE_SYSLOG="true";
-            EXTENDED_LOGGING="true";
-          };
         };
       };
     };
