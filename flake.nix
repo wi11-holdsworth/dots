@@ -11,31 +11,55 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { 
+  outputs = inputs@{ 
     nixpkgs, 
     home-manager, 
     nixvim,	    
+    sops-nix,
     ... 
-  }: let 
-    specialArgs = import ./sysConfig.nix;
-  in {
-    nixosConfigurations.${specialArgs.host} = nixpkgs.lib.nixosSystem {
+
+  }: {
+    nixosConfigurations."opal" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      inherit specialArgs;
+      specialArgs = { inherit inputs; };
+
       modules = [
-        ./hosts/${specialArgs.host}/configuration.nix
-        home-manager.nixosModules.home-manager
-        {
+        ./hosts/opal/configuration.nix
+
+        home-manager.nixosModules.home-manager {
           home-manager = {
-            extraSpecialArgs = specialArgs;
+            extraSpecialArgs = { inherit inputs; };
             useGlobalPkgs = true;
             useUserPackages = true;
-            users."${specialArgs.user}" = import ./hosts/${specialArgs.host}/home.nix;
+            users.srv = import ./hosts/opal/home.nix;
           };
         }
+
         nixvim.nixosModules.nixvim
+
+        sops-nix.nixosModules.sops {
+
+          defaultSopsFile = /home/srv/.dots/secrets.yaml;
+          defaultSopsFormat = "yaml";
+          
+          age.keyFile = "/home/srv/.config/sops/age/keys.txt";
+
+          secrets = {
+            "borgbackup/opal" = {
+              onsite = {};
+              offsite = {};
+            };
+            api = {
+              njalla = {};
+            };
+          };
+        }
       ];
     };
   };

@@ -1,10 +1,7 @@
 { 
   pkgs,
-  host,
-  user,
-  shell,
-  editor,
-  dots,
+  config,
+  inputs,
   ... 
 
 }: {
@@ -12,7 +9,25 @@
     [
       ./hardware-configuration.nix
       ../../modules/nixos
+      inputs.sops-nix.nixosModules.sops
     ];
+
+  sops = {
+    defaultSopsFile = /home/srv/.dots/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    
+    age.keyFile = "/home/srv/.config/sops/age/keys.txt";
+
+    secrets = {
+      "borgbackup/opal" = {
+        onsite = {};
+        offsite = {};
+      };
+      api = {
+        njalla = {};
+      };
+    };
+  };
 
   boot.loader = { 
     systemd-boot.enable = true;
@@ -20,7 +35,7 @@
   };
   
   networking = {
-    hostName = host;
+    hostName = "opal";
 
     firewall = {
       enable = true;
@@ -41,11 +56,14 @@
     fd
     dust
     bat
+    nom
+    bottom
+    sops
   ];
 
   environment.sessionVariables = {
-    FLAKE = dots;
-    EDITOR = editor;
+    FLAKE = "/home/srv/.dots";
+    EDITOR = "nvim";
   };
 
   fileSystems."/repo" = {
@@ -85,7 +103,7 @@
           repo = "/repo";
           
           encryption.mode = "repokey-blake2";
-          encryption.passCommand = "cat ${dots}/hosts/${host}/secret/onsitePw";
+          encryption.passCommand = "cat ${config.sops.secrets."borgbackup/opal/onsite".path}";
 
           removableDevice = true;
         };
@@ -94,42 +112,50 @@
           repo = "vuc5c3xq@vuc5c3xq.repo.borgbase.com:repo";
           
           encryption.mode = "repokey-blake2";
-          encryption.passCommand = "cat ${dots}/hosts/${host}/secret/offsitePw";
+          encryption.passCommand = "cat ${config.sops.secrets."borgbackup/opal/offsite".path}";
 
-          environment.BORG_RSH = "ssh -i /home/${user}/.ssh/id_ed25519";
+          environment.BORG_RSH = "ssh -i /home/srv/.ssh/id_ed25519";
         };
       };
-    nginx = {
+    caddy = {
       enable = true;
 
-      recommendedProxySettings = true;
-      recommendedTlsSettings = true;
-      recommendedGzipSettings = true;
-      recommendedOptimisation = true;
+      extraConfig = ''
+        tls {
+          dns njalla {
+            api_token 
+          }
+        }
+      '';
 
-      virtualHosts."${host}.mink-codlet.ts.net" = {
-        forceSSL = true;
-        sslCertificate = "/etc/ssl/certs/${host}.mink-codlet.ts.net.crt";
-        sslCertificateKey = "/etc/ssl/certs/${host}.mink-codlet.ts.net.key";
+      # allow large immich uploads
+ #     clientMaxBodySize = "50000M";
 
-        locations = {
-          "/dufs/" = {
-            proxyPass = "http://127.0.0.1:5000";
-          };
+      virtualHosts."dufs.clinomania.net".extraConfig = ''
+        reverse_proxy localhost:5000 
+        '';
 
-          "/vaultwarden/" = {
-            proxyPass = "http://127.0.0.1:5001";
-            proxyWebsockets = true;
-          };
+      virtualHosts."vault.clinomania.net".extraConfig = ''
+        reverse_proxy localhost:5001 
+        '';
 
-          # immich doesn't support base paths yet
-          "/" = {
-            proxyPass = "http://[::1]:2283";
-            proxyWebsockets = true;
-          };
-        };
-      };
+      virtualHosts."immich.clinomania.net".extraConfig = ''
+        reverse_proxy 0.0.0.0:2283 
+        '';
+      
+      virtualHosts."kuma.clinomania.net".extraConfig = ''
+        reverse_proxy localhost:5002
+        '';
     };
+#    acme = {
+#      acceptTerms = true;
+#      defaults.email = "wi11@duck.com";
+#      certs."clinomania.net" = {
+#        domain = "clinomnaia.net";
+#        extraDomainNames = [ "*.clinomania.net" ];
+#        dnsProvier = "njalla";
+#      };
+#    };
   };
 
   virtualisation = {
@@ -155,7 +181,6 @@
           cmd = [
             "/data"
             "-A"
-            "--path-prefix=/dufs"
           ];
         };
 
@@ -173,7 +198,7 @@
           ];
 
           environment = {
-            DOMAIN="https://${host}.mink-codlet.ts.net/vaultwarden";
+            DOMAIN="https://vault.clinomania.net";
             SIGNUPS_ALLOWED = "false";
             INVITATIONS_ALLOWED = "false";
             SHOW_PASSWORD_HINT="false";
@@ -185,12 +210,12 @@
     };
   };
 
-  users.users.${user} = {
+  users.users.srv = {
     isNormalUser = true;
 
-    home = "/home/${user}";
+    home = "/home/srv";
 
-    shell = pkgs.${shell};
+    shell = pkgs.bash;
 
     extraGroups = [ "wheel" "docker" ];
   };

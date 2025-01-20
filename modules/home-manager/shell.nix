@@ -1,6 +1,4 @@
 {
-  editor,
-  dots,
   ...
 
 }: {
@@ -15,11 +13,11 @@
         ll = "la -l";
         lt = "la -T";
 
-        vi = "${editor}";
-        vim = "${editor}";
+        vi = "nvim";
+        vim = "nvim";
 
-        dots = "cd ${dots} && clear && ls -T && echo";
-        nos = "nh os switch ${dots}";
+        dots = "cd $FLAKE && clear && ls -T && echo";
+        nos = "nh os switch";
       };
     };
 
