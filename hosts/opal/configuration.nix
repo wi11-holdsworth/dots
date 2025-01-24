@@ -76,6 +76,13 @@
   };
 
   services = { 
+    jellyfin = {
+      enable = true;
+      dataDir = "/srv/jellyfin";
+    };
+
+    glances.enable = true;
+
     vaultwarden = {
       enable = true;
       backupDir = "/srv/vaultwarden";
@@ -152,6 +159,14 @@
       tailscaleAuth.enable = true;
 
       virtualHosts = {
+        "glances.fi33.buzz" = {
+          forceSSL = true;
+          useACMEHost = "fi33.buzz";
+          locations."/" = {
+            proxyPass = "http://localhost:61208";
+          };
+        };
+
         "vault.fi33.buzz" = {
           forceSSL = true;
           useACMEHost = "fi33.buzz";
