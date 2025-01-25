@@ -77,6 +77,7 @@
       "nix-command"
       "flakes"
     ];
+
     optimise.automatic = true;
   };
 
