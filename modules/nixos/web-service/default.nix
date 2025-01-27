@@ -7,5 +7,6 @@
     ./immich.nix
     ./vaultwarden.nix
     ./glances.nix
+    # ./davis.nix
   ];
 }

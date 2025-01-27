@@ -5,7 +5,9 @@ in {
   "borgbackup-opal-onsite.age".publicKeys = [ srv ];
   "borgbackup-opal-offsite.age".publicKeys = [ srv ];
   "api-porkbun.age".publicKeys = [ srv ];
-  "secret-porkbun.age".publicKeys = [ srv ];
   "davis-app.age".publicKeys = [ srv ];
   "davis-admin-password.age".publicKeys = [ srv ];
+  "api-mailjet.age".publicKeys = [ srv ];
+  "secret-mailjet.age".publicKeys = [ srv ];
+  "vaultwarden-admin.age".publicKeys = [ srv ];
 }

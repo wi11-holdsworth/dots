@@ -1,4 +1,5 @@
 {
+  config,
   ...
 
 }: let 
@@ -12,13 +13,21 @@ in {
     enable = true;
     backupDir = "/srv/${service}";
     config = {
-      ROCKET_PORT="${port}";
-      DOMAIN="https://${service}.fi33.buzz";
-      SIGNUPS_ALLOWED = "false";
-      INVITATIONS_ALLOWED = "false";
-      SHOW_PASSWORD_HINT="false";
-      USE_SYSLOG="true";
-      EXTENDED_LOGGING="true";
+      rocketPort = "${port}";
+      domain = "https://${service}.fi33.buzz";
+      signupsAllowed = false;
+      invitationsAllowed = false;
+      showPasswordHint = false;
+      useSyslog = true;
+      extendedLogging = true;
+      adminTokenFile = "${config.age.secrets.vaultwarden-admin.path}";
+      smtpHost = "in-v3.mailjet.com";
+      smtpFrom = "admin@fi33.buzz";
+      smtpPort = 587;
+      smtpSecurity = "starttls";
+      smtpAuthMechanism = "Login";
+      smtpUsernameFile = "${config.age.secrets.api-mailjet.path}";
+      smtpPasswordFile = "${config.age.secrets.secret-mailjet.path}";
     };
   };
 
@@ -32,6 +41,22 @@ in {
         proxyPass = "http://localhost:${port}";
         proxyWebsockets = true;
       };
+    };
+  };
+
+  # secrets
+  age.secrets = {
+    "api-mailjet" = {
+      file = ../../../secrets/api-mailjet.age; 
+      owner = "${service}";
+    };
+    "secret-mailjet" = {
+      file = ../../../secrets/secret-mailjet.age; 
+      owner = "${service}";
+    };
+    "vaultwarden-admin" = {
+      file = ../../../secrets/vaultwarden-admin.age; 
+      owner = "${service}";
     };
   };
 }
