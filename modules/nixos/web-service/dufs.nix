@@ -23,6 +23,11 @@ in {
       volumes = [
         "/srv/${service}:/data"
       ];
+
+      cmd = [
+        "-A"
+        "/data"
+      ];
     };
   };
 
