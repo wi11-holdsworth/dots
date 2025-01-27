@@ -12,7 +12,10 @@ in {
     inherit userEmail;
     extraConfig = {
       init.defaultBranch = "main";
-      core.editor = "nvim";
+      core = {
+        editor = "nvim";
+        pager = "delta";
+      };
       push.autoSetupRemote = true;
       pull.rebase = false;
     };
