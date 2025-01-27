@@ -47,7 +47,7 @@
     dust
     bat
     nom
-    bottom
+    delta
   ];
 
   environment.sessionVariables = {
