@@ -47,6 +47,7 @@
     bat
     nom
     delta
+    zellij
   ];
 
   environment.sessionVariables = {

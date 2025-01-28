@@ -7,6 +7,5 @@
     ./immich.nix
     ./vaultwarden.nix
     ./glances.nix
-    ./blog.nix
   ];
 }
