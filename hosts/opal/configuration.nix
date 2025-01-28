@@ -30,7 +30,6 @@
     firewall = {
       enable = true;
       trustedInterfaces = [ "tailscale0" ];
-      interfaces."tailscale0".allowedTCPPorts = [ 80 443 ];
     };
   }; 
 
