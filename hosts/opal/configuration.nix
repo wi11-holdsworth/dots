@@ -26,11 +26,7 @@
   
   networking = {
     hostName = "opal";
-
-    firewall = {
-      enable = true;
-      trustedInterfaces = [ "tailscale0" ];
-    };
+    firewall.enable = true;
   }; 
 
   time.timeZone = "Australia/Melbourne";
