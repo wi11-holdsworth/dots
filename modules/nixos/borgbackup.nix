@@ -27,6 +27,7 @@ in {
   in {
     onsite = srv // {
       repo = "/repo";
+      exclude = [ "/srv/immich" ];
       
       encryption.mode = "repokey-blake2";
       encryption.passCommand = "cat ${config.age.secrets.borgbackup-opal-onsite.path}";
