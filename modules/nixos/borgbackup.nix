@@ -49,7 +49,7 @@ in {
   services.udisks2.enable = true;
 
   fileSystems."/repo" = {
-    device = "/dev/disk/by-uuid/0AA0-99A6";
+    device = "/dev/sdb1";
     fsType = "vfat";
   };
      
