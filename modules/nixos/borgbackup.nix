@@ -30,7 +30,7 @@ in {
       exclude = [ "/srv/immich" ];
       
       encryption.mode = "repokey-blake2";
-      encryption.passCommand = "cat ${config.age.secrets.borgbackup-opal-onsite.path}";
+      encryption.passCommand = "cat ${config.age.secrets.borgbackup-server-onsite.path}";
 
       removableDevice = true;
     };
@@ -39,7 +39,7 @@ in {
       repo = "vuc5c3xq@vuc5c3xq.repo.borgbase.com:repo";
       
       encryption.mode = "repokey-blake2";
-      encryption.passCommand = "cat ${config.age.secrets.borgbackup-opal-offsite.path}";
+      encryption.passCommand = "cat ${config.age.secrets.borgbackup-server-offsite.path}";
 
       environment.BORG_RSH = "ssh -i /home/srv/.ssh/id_ed25519";
     };
@@ -56,11 +56,11 @@ in {
   # secrets
   age = {
     secrets = {
-       "${secret}-opal-onsite" = {
-        file = ../../secrets/${secret}-opal-onsite.age;
+       "${secret}-server-onsite" = {
+        file = ../../secrets/${secret}-server-onsite.age;
       };
-      "${secret}-opal-offsite" = {
-        file = ../../secrets/${secret}-opal-offsite.age;
+      "${secret}-server-offsite" = {
+        file = ../../secrets/${secret}-server-offsite.age;
       };
     };
   };

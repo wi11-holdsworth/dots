@@ -25,7 +25,7 @@
   };
   
   networking = {
-    hostName = "opal";
+    hostName = "server";
     firewall.enable = true;
   }; 
 

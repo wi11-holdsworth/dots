@@ -23,11 +23,11 @@
     ...
 
   }: {
-    nixosConfigurations."opal" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.server = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
-        ./hosts/opal/configuration.nix
+        ./hosts/server/configuration.nix
         agenix.nixosModules.default 
         {
           environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
