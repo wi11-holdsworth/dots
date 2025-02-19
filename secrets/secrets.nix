@@ -10,4 +10,5 @@ in {
   "api-mailjet.age".publicKeys = [ srv ];
   "secret-mailjet.age".publicKeys = [ srv ];
   "vaultwarden-admin.age".publicKeys = [ srv ];
+  "aria2.age".publicKeys = [ srv ];
 }

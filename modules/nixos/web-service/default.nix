@@ -8,5 +8,6 @@
     ./vaultwarden.nix
     ./glances.nix
     ./jellyfin.nix
+    ./aria2.nix
   ];
 }
