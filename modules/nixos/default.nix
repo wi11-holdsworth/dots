@@ -10,5 +10,6 @@
     ./tailscale.nix
     ./direnv.nix
     ./vscode-server.nix
+    ./transmission.nix
   ];
 }
