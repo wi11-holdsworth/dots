@@ -32,6 +32,9 @@
         
         line_break.disabled = true;
 
+        username.disabled = true;
+        hostname.disabled = true;
+
         character = {
           success_symbol = "[➜](bold green) ";
           error_symbol = "[➜](bold red) ";
