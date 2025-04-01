@@ -73,9 +73,15 @@
  
   environment.systemPackages = with pkgs; [
     brave
-    gh
-    signal-desktop
     ghostty
+    kiwix
+    obsidian
+    signal-desktop
+
+    # dev    
+    gh
+    nixfmt
+    vscode
 
     # gaming
     mangohud
@@ -92,7 +98,12 @@
     nom
     ripgrep-all
     zellij
-  ];
+  ] ++ (with pkgs.kdePackages; [
+    dragon
+    ktorrent
+    calligra
+    kzones
+  ]);
 
   services = {
     displayManager.sddm = {
