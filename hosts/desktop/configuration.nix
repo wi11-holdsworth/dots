@@ -24,6 +24,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users.will = import ./home.nix;
+    backupFileExtension = "backup";
   };
 
   boot = {
@@ -94,7 +95,10 @@
   ];
 
   services = {
-    displayManager.sddm.wayland.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
     desktopManager.plasma6.enable = true;
 
     printing.enable = true;
