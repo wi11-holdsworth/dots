@@ -19,6 +19,7 @@
     gamemode.enable = true;
   };
 
+  # TODO: remove reference to username
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     useGlobalPkgs = true;
@@ -138,6 +139,7 @@
 
   security.rtkit.enable = true;
 
+  # TODO: remove reference to username
   users.users.will = {
     isNormalUser = true;
     description = "Will Holdsworth";

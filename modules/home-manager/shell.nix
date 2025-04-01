@@ -16,7 +16,7 @@
         vi = "nvim";
         vim = "nvim";
 
-        dots = "cd /home/will/.dots && clear && ls -T && echo";
+        dots = "cd $FLAKE && clear && ls -T && echo";
         nos = "nh os switch";
       };
     };

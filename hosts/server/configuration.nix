@@ -10,6 +10,7 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
+  # TODO: remove reference to username
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     useGlobalPkgs = true;
@@ -17,6 +18,7 @@
     users.srv = import ./home.nix;
   };
 
+  # TODO: remove reference to username
   age.identityPaths = [ "/home/srv/.ssh/id_ed25519" ];
 
   boot.loader = { 
@@ -46,6 +48,7 @@
     zellij
   ];
 
+  # TODO: remove reference to username
   environment.sessionVariables = {
     FLAKE = "/home/srv/.dots";
     EDITOR = "nvim";
@@ -57,7 +60,8 @@
   };
 
   virtualisation.docker.enable = true;
-
+  
+  # TODO: remove reference to username
   users.users.srv = {
     isNormalUser = true;
 
