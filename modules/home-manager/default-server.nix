@@ -3,7 +3,7 @@
 
 }: {
   imports = [
-    ./shell.nix
     ./git.nix
+    ./shell.nix
   ];
 }
