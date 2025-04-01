@@ -10,6 +10,15 @@
       inputs.home-manager.nixosModules.home-manager
     ];
 
+  # gaming
+  programs = {
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+    };
+    gamemode.enable = true;
+  };
+
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     useGlobalPkgs = true;
@@ -22,7 +31,7 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_testing;
     initrd = {
       kernelModules = [ "amdgpu" ];
       luks.devices."luks-b164af31-c1c3-4b4e-83c8-eb39802c2027".device = "/dev/disk/by-uuid/b164af31-c1c3-4b4e-83c8-eb39802c2027";
@@ -61,6 +70,12 @@
     signal-desktop
     ghostty
 
+    # gaming
+    mangohud
+    protonup-qt
+    lutris
+    heroic
+
     # uutils
     bat
     dust
@@ -91,11 +106,14 @@
   hardware = {
     graphics = {
       enable = true;
+      enable32Bit = true;
       extraPackages = with pkgs; [
         amdvlk
       ];
     };
   };
+
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   security.rtkit.enable = true;
 
