@@ -26,6 +26,7 @@
     efi.canTouchEfiVariables = true;
   };
   
+  # TODO: remove reference to hostname
   networking = {
     hostName = "server";
     firewall.enable = true;

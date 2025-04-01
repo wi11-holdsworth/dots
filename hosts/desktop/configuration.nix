@@ -40,6 +40,7 @@
     };
   };
 
+  # TODO: remove reference to hostname
   networking = {
     hostName = "desktop";
     networkmanager.enable = true;
