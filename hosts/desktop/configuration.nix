@@ -60,6 +60,7 @@
       kiwix
       obsidian
       signal-desktop
+      vlc
 
       # dev    
       gh
@@ -81,7 +82,7 @@
       nom
       ripgrep-all
       zellij
-    ] ++ (with pkgs.kdePackages; [ dragon ktorrent calligra kzones ]);
+    ] ++ (with pkgs.kdePackages; [ ktorrent calligra kzones ]);
 
   services = {
     displayManager.sddm = {
