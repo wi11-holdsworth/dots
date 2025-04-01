@@ -36,6 +36,9 @@
       luks.devices."luks-b164af31-c1c3-4b4e-83c8-eb39802c2027".device =
         "/dev/disk/by-uuid/b164af31-c1c3-4b4e-83c8-eb39802c2027";
     };
+    extraModprobeConfig = ''
+      options snd_hda_intel power_save=0
+    '';
   };
 
   # TODO: remove reference to hostname
