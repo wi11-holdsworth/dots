@@ -3,12 +3,13 @@
 
 }: {
   imports = [
-    ./web-service/default.nix
-    ./borgbackup.nix
-    ./nginx.nix
+    #./borgbackup.nix
+    ./direnv.nix
+    ./nh.nix
+    #./nginx.nix
     ./nvim.nix
     ./tailscale.nix
-    ./direnv.nix
-    ./vscode-server.nix
+    #./vscode-server.nix
+    #./web-service/default.nix
   ];
 }
