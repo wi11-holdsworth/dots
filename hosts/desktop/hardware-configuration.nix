@@ -8,7 +8,7 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
@@ -24,6 +24,16 @@
     { device = "/dev/disk/by-uuid/3854-4FAE";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
+    };
+
+  fileSystems."/media/hoard" =
+    { device = "/dev/disk/by-uuid/fa324a89-3207-4450-958a-a2172457775c";
+      fsType = "ext4";
+    };
+
+  fileSystems."/media/games" =
+    { device = "/dev/disk/by-uuid/51790d26-9f80-4e75-bdca-58238944052a";
+      fsType = "ext4";
     };
 
   swapDevices =
