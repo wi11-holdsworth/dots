@@ -14,6 +14,7 @@
       gamescopeSession.enable = true;
     };
     gamemode.enable = true;
+    noisetorch.enable = true;
   };
 
   # TODO: remove reference to username
@@ -59,6 +60,7 @@
   environment.systemPackages = with pkgs;
     [
       brave
+      cameractrls-gtk3
       ghostty
       kiwix
       obsidian
@@ -104,6 +106,10 @@
     };
 
     pulseaudio.enable = false;
+
+    udev.extraRules = ''
+      ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="2e1a", ATTR{idProduct}=="4c03", TEST=="power/control", ATTR{power/control}="on"
+    '';
   };
 
   hardware = {
