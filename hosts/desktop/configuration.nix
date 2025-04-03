@@ -87,7 +87,7 @@
       nom
       ripgrep-all
       zellij
-    ] ++ (with pkgs.kdePackages; [ ktorrent calligra kzones ]);
+    ] ++ (with pkgs.kdePackages; [ skanlite ktorrent calligra kzones ]);
 
   services = {
     displayManager.sddm = {
@@ -96,7 +96,16 @@
     };
     desktopManager.plasma6.enable = true;
 
-    printing.enable = true;
+    # printing
+    printing = {
+      enable = true;
+      drivers = [ pkgs.hplip ];
+    };
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
 
     pipewire = {
       enable = true;
@@ -118,6 +127,12 @@
       enable32Bit = true;
       extraPackages = with pkgs; [ amdvlk ];
     };
+
+    # scanning support
+    sane = {
+      enable = true;
+      extraBackends = [ pkgs.hplip ];
+    };
   };
 
   services.xserver.videoDrivers = [ "amdgpu" ];
@@ -128,7 +143,7 @@
   users.users.will = {
     isNormalUser = true;
     description = "Will Holdsworth";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" ];
   };
 
   nix = {
