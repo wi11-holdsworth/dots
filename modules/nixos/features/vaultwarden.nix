@@ -2,7 +2,7 @@
 let
   feature = "vaultwarden";
   port = "5001";
-  cfg = config.${feature}; # TODO: dependent on agenix
+  cfg = config.${feature};
 
 in {
   options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
