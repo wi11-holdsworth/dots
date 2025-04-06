@@ -1,10 +1,15 @@
-{ lib, config, ... }: {
-  options = { shell.enable = lib.mkEnableOption "enables bash"; };
+{ config, lib, ... }:
+let
+  feature = "bash";
+  cfg = config.${feature};
 
-  config = {
+in {
+  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
+
+  config = lib.mkIf cfg.enable {
     programs = {
       # initialise bash with some aliases
-      bash = {
+      ${feature} = {
         enable = true;
 
         shellAliases = {

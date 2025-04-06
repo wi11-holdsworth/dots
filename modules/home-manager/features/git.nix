@@ -1,12 +1,15 @@
-{ lib, config, ... }: {
-  options = { git.enable = lib.mkEnableOption "enables git"; };
+{ config, lib, ... }:
+let
+  feature = "git";
+  userName = "wi11-holdsworth";
+  userEmail = "83637728+wi11-holdsworth@users.noreply.github.com";
+  cfg = config.${feature};
 
-  config = let
-    userName = "wi11-holdsworth";
-    userEmail = "83637728+wi11-holdsworth@users.noreply.github.com";
+in {
+  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 
-  in {
-    programs.git = {
+  config = lib.mkIf cfg.enable {
+    programs.${feature} = {
       enable = true;
 
       inherit userName;

@@ -1,10 +1,10 @@
-{ pkgs, inputs, ...
-
-}: {
+{ pkgs, inputs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/default-desktop.nix
+    ../../modules/nixos/default.nix
     inputs.home-manager.nixosModules.home-manager
+    inputs.agenix.nixosModules.default
+    inputs.nixvim.nixosModules.nixvim
   ];
 
   # gaming
