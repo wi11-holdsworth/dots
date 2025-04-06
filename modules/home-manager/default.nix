@@ -1,5 +1,8 @@
 { lib, ... }: {
-  imports = [ ./features/git.nix ./features/bash.nix ];
+  imports = [
+    ./features/git.nix # depends on nvim, delta, system
+    ./features/bash.nix # depends on eza, nvim, nh, system
+  ];
 
   git.enable = lib.mkDefault true;
   bash.enable = lib.mkDefault true;
