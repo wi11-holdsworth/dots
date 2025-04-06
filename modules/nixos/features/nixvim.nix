@@ -4,8 +4,6 @@ let
   cfg = config.${feature};
 
 in {
-  imports = [ ];
-
   options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 
   config = lib.mkIf cfg.enable {
