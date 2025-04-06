@@ -1,10 +1,7 @@
-{ 
-  ...
+{ ...
 
-}: { 
-  imports = [
-    ../../modules/home-manager/default-server.nix
-  ];
+}: {
+  imports = [ ../../modules/home-manager/default.nix ];
 
   # TODO: remove reference to username
   home = {
