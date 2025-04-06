@@ -46,13 +46,7 @@
 
   environment.systemPackages = with pkgs;
     [ nh gh eza ripgrep-all fd dust bat nom delta zellij ]
-    ++ ([ agenix.packages.x86_64-linux.default ]);
-
-  # TODO: remove reference to username
-  environment.sessionVariables = {
-    FLAKE = "/home/srv/.dots";
-    EDITOR = "nvim";
-  };
+    ++ ([ inputs.agenix.packages.x86_64-linux.default ]);
 
   services = {
     openssh.enable = true;
