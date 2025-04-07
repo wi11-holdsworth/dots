@@ -21,28 +21,15 @@ in {
           vi = "nvim";
           vim = "nvim";
 
+          rf =
+            "nix flake init --template 'https://flakehub.com/f/the-nix-way/dev-templates/*#rust' && direnv allow && cargo init";
           dots = "cd $FLAKE && clear && ls -T && echo";
           nos = "nh os switch";
         };
       };
 
       # initialise starship with some pretty colours and preferential defaults
-      starship = {
-        enable = true;
-
-        settings = {
-          add_newline = false;
-
-          cmd_duration.disabled = true;
-
-          line_break.disabled = true;
-
-          character = {
-            success_symbol = "[➜](bold green) ";
-            error_symbol = "[➜](bold red) ";
-          };
-        };
-      };
+      starship.enable = true;
     };
   };
 }
