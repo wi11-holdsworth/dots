@@ -2,7 +2,7 @@
 let
   # declare the module name and its local module dependencies
   feature = "feature";
-  dependencies = with config; [ core ];
+  dependencies = with config; [ core nginx ];
   port = "port";
 
   # helper functions
