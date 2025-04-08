@@ -14,7 +14,10 @@ in {
     home-manager = {
       users.${userName} = import ../../../hosts/${hostName}/home.nix;
       backupFileExtension = "backup";
-      extraSpecialArgs = { inherit userName; };
+      extraSpecialArgs = {
+        inherit userName;
+        nixosConfig = config;
+      };
       useGlobalPkgs = true;
       useUserPackages = true;
     };

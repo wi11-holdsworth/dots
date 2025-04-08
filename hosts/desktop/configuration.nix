@@ -13,7 +13,6 @@
   environment.systemPackages = with pkgs; [
     bat
     dust
-    delta
     eza
     fd
     gh

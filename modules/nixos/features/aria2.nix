@@ -2,7 +2,7 @@
 let
   # declare the module name and its local module dependencies
   feature = "aria2";
-  dependencies = with config; [ age nginx core ];
+  dependencies = with config; [ agenix nginx core ];
   port = "6800";
 
   # helper functions

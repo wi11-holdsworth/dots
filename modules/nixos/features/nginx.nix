@@ -2,7 +2,7 @@
 let
   # declare the module name and its local module dependencies
   feature = "nginx";
-  dependencies = with config; [ age core ];
+  dependencies = with config; [ agenix core ];
 
   # helper functions
   dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);

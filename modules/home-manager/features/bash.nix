@@ -1,12 +1,20 @@
-{ config, lib, ... }:
+{ config, lib, nixosConfig, ... }:
 let
+  # declare the module name and its local module dependencies
   feature = "bash";
-  cfg = config.${feature};
+  homeManagerDependencies = with config; [ ];
+  nixosDependencies = with nixosConfig; [ core nixvim ];
+
+  # helper functions
+  homeManagerDependenciesEnabled =
+    (lib.all (dep: dep.enable) homeManagerDependencies);
+  nixosDependenciesEnabled = (lib.all (dep: dep.enable) nixosDependencies);
+  featureEnabled = config.${feature}.enable;
+  enabled = featureEnabled && nixosDependenciesEnabled
+    && homeManagerDependenciesEnabled;
 
 in {
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf enabled {
     programs = {
       # initialise bash with some aliases
       ${feature} = {
@@ -22,7 +30,7 @@ in {
           vim = "nvim";
 
           rf =
-            "nix flake init --template 'https://flakehub.com/f/the-nix-way/dev-templates/*#rust' && direnv allow && cargo init";
+            "nix flake init --template 'https://flakehub.com/f/the-nix-way/dev-templates/*#rust' && direnv allow";
           dots = "cd $FLAKE && clear && ls -T && echo";
           nos = "nh os switch";
         };
@@ -38,4 +46,6 @@ in {
       };
     };
   };
+
+  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 }

@@ -1,7 +1,7 @@
 { lib, ... }: {
   imports = [
     # TODO autogenerate this
-    ./features/age.nix
+    ./features/agenix.nix
     ./features/amd-desktop.nix
     ./features/aria2.nix
     ./features/borgbackup-srv.nix

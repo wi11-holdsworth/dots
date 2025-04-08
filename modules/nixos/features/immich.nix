@@ -2,7 +2,7 @@
 let
   # declare the module name and its local module dependencies
   feature = "immich";
-  dependencies = with config; [ age nginx core ];
+  dependencies = with config; [ agenix nginx core ];
   port = "2283";
 
   # helper functions

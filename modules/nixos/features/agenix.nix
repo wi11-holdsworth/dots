@@ -1,7 +1,7 @@
 { config, inputs, lib, system, ... }:
 let
   # declare the module name and its local module dependencies
-  feature = "age";
+  feature = "agenix";
   dependencies = with config; [ core ];
 
   # helper functions

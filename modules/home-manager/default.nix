@@ -1,9 +1,8 @@
 { lib, ... }: {
   imports = [
-    # TODO dependence!
     # TODO autogenerate this
-    ./features/git.nix # depends on nvim, delta, system
-    ./features/bash.nix # depends on eza, nvim, nh, system
+    ./features/git.nix
+    ./features/bash.nix
   ];
 
   git.enable = lib.mkDefault true;

@@ -2,7 +2,7 @@
 let
   # declare the module name and its local module dependencies
   feature = "borgbackup-srv";
-  dependencies = with config; [ age core ];
+  dependencies = with config; [ agenix core ];
   secret = "borgbackup";
 
   # helper functions

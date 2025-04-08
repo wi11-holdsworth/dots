@@ -1,11 +1,9 @@
 { config, lib, nixosConfig, ... }:
 let
   # declare the module name and its local module dependencies
-  feature = "git";
+  feature = "feature";
   homeManagerDependencies = with config; [ ];
-  nixosDependencies = with nixosConfig; [ core nixvim ];
-  userName = "wi11-holdsworth";
-  userEmail = "83637728+wi11-holdsworth@users.noreply.github.com";
+  nixosDependencies = with nixosConfig; [ core ];
 
   # helper functions
   homeManagerDependenciesEnabled =
@@ -17,23 +15,10 @@ let
 
 in {
   config = lib.mkIf enabled {
-    programs.${feature} = {
-      enable = true;
 
-      inherit userName;
-      inherit userEmail;
-
-      extraConfig = {
-        init.defaultBranch = "main";
-
-        core.editor = "nvim";
-
-        push.autoSetupRemote = true;
-
-        pull.rebase = false;
-      };
-    };
   };
+
+  imports = [ ];
 
   options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 }

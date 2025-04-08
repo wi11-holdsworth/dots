@@ -2,7 +2,7 @@
   imports = [ ../../modules/nixos/default.nix ];
 
   # web services
-  age.enable = true;
+  agenix.enable = true;
   aria2.enable = true;
   borgbackup-srv.enable = true;
   dufs.enable = true;
