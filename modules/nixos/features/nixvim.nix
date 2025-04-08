@@ -4,6 +4,8 @@ let
   cfg = config.${feature};
 
 in {
+  imports = [ inputs.nixvim.nixosModules.nixvim ];
+
   options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 
   config = lib.mkIf cfg.enable {

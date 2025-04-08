@@ -1,11 +1,6 @@
-{ pkgs, inputs, hostName, ... }: {
-  imports = [
-    ./hardware-configuration.nix
-    ../../modules/nixos/default.nix
-    inputs.home-manager.nixosModules.home-manager
-    inputs.agenix.nixosModules.default
-    inputs.nixvim.nixosModules.nixvim
-  ];
+{ pkgs, hostName, inputs, userName, ... }: {
+  imports =
+    [ ../../modules/nixos/default.nix inputs.agenix.nixosModules.default ];
 
   amd-desktop.enable = true;
   gaming.enable = true;
@@ -29,22 +24,14 @@
     zellij
   ];
 
-  # TODO: remove reference to username
-  home-manager = {
-    users.will = import ./home.nix;
-    backupFileExtension = "backup";
-  };
-
   networking = {
     hostName = "${hostName}";
     networkmanager.enable = true;
   };
 
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "24.11";
 
-  # TODO: remove reference to username
-  users.users.will = {
-    description = "Will Holdsworth";
+  users.users.${userName} = {
     extraGroups = [ "networkmanager" "wheel" "scanner" "lp" ];
     isNormalUser = true;
   };

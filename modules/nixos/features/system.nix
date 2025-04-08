@@ -1,9 +1,11 @@
-{ config, inputs, lib, pkgs, ... }:
+{ config, hostName, inputs, lib, pkgs, ... }:
 let
   feature = "system";
   cfg = config.${feature};
 
 in {
+  imports = [ ../../../hosts/${hostName}/hardware-configuration.nix ];
+
   options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 
   config = lib.mkIf cfg.enable {
@@ -13,12 +15,6 @@ in {
     };
 
     fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
-
-    home-manager = {
-      extraSpecialArgs = { inherit inputs; };
-      useGlobalPkgs = true;
-      useUserPackages = true;
-    };
 
     i18n = {
       defaultLocale = "en_AU.UTF-8";

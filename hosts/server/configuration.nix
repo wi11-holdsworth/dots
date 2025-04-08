@@ -1,11 +1,6 @@
-{ pkgs, inputs, hostName, ... }: {
-  imports = [
-    ./hardware-configuration.nix
-    ../../modules/nixos/default.nix
-    inputs.home-manager.nixosModules.home-manager
-    inputs.agenix.nixosModules.default
-    inputs.nixvim.nixosModules.nixvim
-  ];
+{ pkgs, hostName, inputs, userName, ... }: {
+  imports =
+    [ ../../modules/nixos/default.nix inputs.agenix.nixosModules.default ];
 
   # web services
   aria2.enable = true;
@@ -18,15 +13,11 @@
   vscode-server.enable = true;
   vaultwarden.enable = true;
 
-  # TODO: remove reference to username
-  age.identityPaths = [ "/home/srv/.ssh/id_ed25519" ];
+  age.identityPaths = [ "/home/*/.ssh/id_ed25519" ];
 
   environment.systemPackages = with pkgs;
     [ nh gh eza ripgrep-all fd dust bat nom delta zellij ]
     ++ ([ inputs.agenix.packages.x86_64-linux.default ]);
-
-  # TODO: remove reference to username
-  home-manager.users.srv = import ./home.nix;
 
   networking.hostName = "${hostName}";
 
@@ -34,8 +25,7 @@
 
   system.stateVersion = "24.11";
 
-  # TODO: remove reference to username
-  users.users.srv = {
+  users.users.${userName} = {
     extraGroups = [ "wheel" "docker" ];
     home = "/home/srv";
     isNormalUser = true;
