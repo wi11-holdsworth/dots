@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, userName, ... }:
 let
   # declare the module name and its local module dependencies
   feature = "nh";
@@ -14,7 +14,7 @@ in {
     programs.${feature} = {
       enable = true;
       clean.enable = true;
-      flake = "/home/*/.dots";
+      flake = "/home/${userName}/.dots";
     };
   };
 
