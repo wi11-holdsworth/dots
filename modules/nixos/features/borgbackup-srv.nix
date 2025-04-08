@@ -1,8 +1,8 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, userName, ... }:
 let
   # declare the module name and its local module dependencies
   feature = "borgbackup-srv";
-  dependencies = with config; [ agenix core ];
+  dependencies = with config; [ agenix core ntfy-sh ];
   secret = "borgbackup";
 
   # helper functions
@@ -10,10 +10,27 @@ let
   featureEnabled = config.${feature}.enable;
   enabled = featureEnabled && dependenciesEnabled;
 
+  # notify using ntfy-sh
+  notify = { tag, msg, location }: ''
+    ${pkgs.curl}/bin/curl -H "X-Tags: ${tag},BorgBackup,Server,${location}"  -d "${msg}" ${config.services.ntfy-sh.settings.base-url}/backups
+  '';
+  notifySuccess = location:
+    notify {
+      tag = "tada";
+      msg = "Backup succeeded";
+      inherit location;
+    };
+  notifyFailure = location:
+    notify {
+      tag = "tada";
+      msg = "Backup failed, check logs";
+      inherit location;
+    };
+
 in {
   config = lib.mkIf enabled {
     services.borgbackup.jobs = let
-      srv = {
+      srv = location: {
         paths = "/srv";
 
         compression = "auto,zstd";
@@ -25,10 +42,18 @@ in {
           weekly = 4;
           monthly = 6;
         };
+
+        postHook = ''
+          if [ $exitStatus -eq 0 ]; then
+            ${notifySuccess location}
+          else
+            ${notifyFailure location}
+          fi
+        '';
       };
 
     in {
-      onsite = srv // {
+      onsite = srv "onsite" // {
         repo = "/repo";
         exclude = [ "/srv/immich" ];
 
@@ -39,7 +64,7 @@ in {
         removableDevice = true;
       };
 
-      offsite = srv // {
+      offsite = srv "offsite" // {
         repo = "vuc5c3xq@vuc5c3xq.repo.borgbase.com:repo";
 
         encryption.mode = "repokey-blake2";
