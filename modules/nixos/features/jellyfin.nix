@@ -1,13 +1,17 @@
 { config, lib, ... }:
 let
+  # declare the module name and its local module dependencies
   feature = "jellyfin";
+  dependencies = with config; [ nginx core ];
   port = "8096";
-  cfg = config.${feature};
+
+  # helper functions
+  dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);
+  featureEnabled = config.${feature}.enable;
+  enabled = featureEnabled && dependenciesEnabled;
 
 in {
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf enabled {
     services = {
       # service
       ${feature} = {
@@ -23,4 +27,6 @@ in {
       };
     };
   };
+
+  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 }

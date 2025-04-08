@@ -1,12 +1,16 @@
 { config, lib, ... }:
 let
+  # declare the module name and its local module dependencies
   feature = "nginx";
-  cfg = config.${feature};
+  dependencies = with config; [ age core ];
+
+  # helper functions
+  dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);
+  featureEnabled = config.${feature}.enable;
+  enabled = featureEnabled && dependenciesEnabled;
 
 in {
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf enabled {
     age.secrets."api-porkbun" = { file = ../../../secrets/api-porkbun.age; };
 
     services.${feature} = {
@@ -33,4 +37,6 @@ in {
 
     users.users.${feature}.extraGroups = [ "acme" ];
   };
+
+  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 }

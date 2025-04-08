@@ -1,17 +1,16 @@
 { config, lib, ... }:
 let
+  # declare the module name and its local module dependencies
   feature = "direnv";
-  cfg = config.${feature};
+  dependencies = with config; [ core ];
+
+  # helper functions
+  dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);
+  featureEnabled = config.${feature}.enable;
+  enabled = featureEnabled && dependenciesEnabled;
 
 in {
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature} ";
+  config = lib.mkIf enabled { programs.${feature}.enable = true; };
 
-  config = lib.mkIf cfg.enable {
-    programs.${feature}.enable = true;
-    programs.bash.shellInit = ''
-      dv() {
-        nix flake init --template "https://flakehub.com/f/the-nix-way/dev-templates/*#$1"
-      }
-    '';
-  };
+  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 }

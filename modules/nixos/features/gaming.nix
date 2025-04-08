@@ -1,12 +1,16 @@
 { config, lib, pkgs, ... }:
 let
+  # declare the module name and its local module dependencies
   feature = "gaming";
-  cfg = config.${feature};
+  dependencies = with config; [ amd-desktop core ];
+
+  # helper functions
+  dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);
+  featureEnabled = config.${feature}.enable;
+  enabled = featureEnabled && dependenciesEnabled;
 
 in {
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf enabled {
     environment.systemPackages = with pkgs; [
       mangohud
       protonup-qt
@@ -22,4 +26,6 @@ in {
       };
     };
   };
+
+  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 }

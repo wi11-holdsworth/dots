@@ -1,14 +1,16 @@
 { config, inputs, lib, ... }:
 let
+  # declare the module name and its local module dependencies
   feature = "nixvim";
-  cfg = config.${feature};
+  dependencies = with config; [ core ];
+
+  # helper functions
+  dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);
+  featureEnabled = config.${feature}.enable;
+  enabled = featureEnabled && dependenciesEnabled;
 
 in {
-  imports = [ inputs.nixvim.nixosModules.nixvim ];
-
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf enabled {
     programs.${feature} = {
       enable = true;
       opts = {
@@ -46,4 +48,8 @@ in {
       };
     };
   };
+
+  imports = [ inputs.nixvim.nixosModules.nixvim ];
+
+  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 }

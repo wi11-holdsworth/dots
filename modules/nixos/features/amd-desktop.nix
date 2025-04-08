@@ -1,12 +1,16 @@
 { config, lib, pkgs, ... }:
 let
+  # declare the module name and its local module dependencies
   feature = "amd-desktop";
-  cfg = config.${feature};
+  dependencies = with config; [ core ];
+
+  # helper functions
+  dependenciesEnabled = lib.all (dep: dep.enable) dependencies;
+  featureEnabled = config.${feature}.enable;
+  enabled = featureEnabled && dependenciesEnabled;
 
 in {
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf enabled {
 
     # load graphics drivers before anything else
     boot.initrd.kernelModules = [ "amdgpu" ];
@@ -47,4 +51,6 @@ in {
       xserver.videoDrivers = [ "amdgpu" ];
     };
   };
+
+  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 }

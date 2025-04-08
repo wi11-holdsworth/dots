@@ -1,16 +1,22 @@
 { config, lib, ... }:
 let
+  # declare the module name and its local module dependencies
   feature = "nh";
-  cfg = config.${feature};
+  dependencies = with config; [ core ];
+
+  # helper functions
+  dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);
+  featureEnabled = config.${feature}.enable;
+  enabled = featureEnabled && dependenciesEnabled;
 
 in {
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf enabled {
     programs.${feature} = {
       enable = true;
       clean.enable = true;
       flake = "/home/*/.dots";
     };
   };
+
+  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 }

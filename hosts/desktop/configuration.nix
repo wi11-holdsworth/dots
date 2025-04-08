@@ -1,6 +1,5 @@
 { pkgs, hostName, inputs, userName, ... }: {
-  imports =
-    [ ../../modules/nixos/default.nix inputs.agenix.nixosModules.default ];
+  imports = [ ../../modules/nixos/default.nix ];
 
   amd-desktop.enable = true;
   gaming.enable = true;

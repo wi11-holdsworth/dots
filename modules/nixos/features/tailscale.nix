@@ -1,12 +1,16 @@
 { config, lib, ... }:
 let
+  # declare the module name and its local module dependencies
   feature = "tailscale";
-  cfg = config.${feature};
+  dependencies = with config; [ core ];
+
+  # helper functions
+  dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);
+  featureEnabled = config.${feature}.enable;
+  enabled = featureEnabled && dependenciesEnabled;
 
 in {
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf enabled {
     services = {
       ${feature}.enable = true;
       nginx.tailscaleAuth.enable = true;
@@ -14,4 +18,6 @@ in {
 
     networking.firewall.trustedInterfaces = [ "tailscale0" ];
   };
+
+  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 }

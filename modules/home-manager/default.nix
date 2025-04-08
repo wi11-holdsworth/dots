@@ -1,6 +1,7 @@
 { lib, ... }: {
   imports = [
-    # TODO: dependence!
+    # TODO dependence!
+    # TODO autogenerate this
     ./features/git.nix # depends on nvim, delta, system
     ./features/bash.nix # depends on eza, nvim, nh, system
   ];

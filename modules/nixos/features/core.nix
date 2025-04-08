@@ -1,14 +1,14 @@
 { config, hostName, inputs, lib, pkgs, ... }:
 let
-  feature = "system";
-  cfg = config.${feature};
+  # declare the module name and its local module dependencies
+  feature = "core";
+
+  # helper functions
+  featureEnabled = config.${feature}.enable;
+  enabled = featureEnabled;
 
 in {
-  imports = [ ../../../hosts/${hostName}/hardware-configuration.nix ];
-
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf enabled {
     boot.loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -34,4 +34,8 @@ in {
 
     time.timeZone = "Australia/Melbourne";
   };
+
+  imports = [ ../../../hosts/${hostName}/hardware-configuration.nix ];
+
+  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 }

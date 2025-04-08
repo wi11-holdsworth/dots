@@ -20,22 +20,24 @@
 
   outputs = { nixpkgs, agenix, ... }@inputs:
     let
-      commonSystem = { hostName ? "nixos", userName ? "will" }:
+      commonSystem =
+        { hostName ? "nixos", userName ? "will", system ? "x86_64-linux" }:
         nixpkgs.lib.nixosSystem {
           modules = [ ./hosts/${hostName}/configuration.nix ];
           specialArgs = {
             inherit inputs;
             inherit hostName;
             inherit userName;
+            inherit system;
           };
-          system = "x86_64-linux";
+          inherit system;
         };
     in {
       nixosConfigurations = {
         desktop = commonSystem { hostName = "desktop"; };
         server = commonSystem {
           hostName = "server";
-          username = "srv";
+          userName = "srv";
         };
       };
     };

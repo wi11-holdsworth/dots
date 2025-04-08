@@ -1,14 +1,19 @@
 { config, lib, ... }:
 let
+  # declare the module name and its local module dependencies
   feature = "dufs";
+  dependencies = with config; [ nginx core ];
   image = "sigoden/dufs";
   port = "5000";
   cfg = config.${feature};
 
-in {
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
+  # helper functions
+  dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);
+  featureEnabled = config.${feature}.enable;
+  enabled = featureEnabled && dependenciesEnabled;
 
-  config = lib.mkIf cfg.enable {
+in {
+  config = lib.mkIf enabled {
     virtualisation.oci-containers = {
       backend = "docker";
 
@@ -34,4 +39,6 @@ in {
       };
     };
   };
+
+  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 }

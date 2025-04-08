@@ -1,13 +1,17 @@
 { config, lib, ... }:
 let
+  # declare the module name and its local module dependencies
   feature = "borgbackup-srv";
+  dependencies = with config; [ age core ];
   secret = "borgbackup";
-  cfg = config.${feature};
+
+  # helper functions
+  dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);
+  featureEnabled = config.${feature}.enable;
+  enabled = featureEnabled && dependenciesEnabled;
 
 in {
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf enabled {
     services.borgbackup.jobs = let
       srv = {
         paths = "/srv";
@@ -64,4 +68,6 @@ in {
       };
     };
   };
+
+  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 }

@@ -1,8 +1,8 @@
-{ config, lib, ... }:
+{ config, inputs, lib, system, ... }:
 let
   # declare the module name and its local module dependencies
-  feature = "speakers";
-  dependencies = with config; [ amd-desktop core ];
+  feature = "age";
+  dependencies = with config; [ core ];
 
   # helper functions
   dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);
@@ -11,10 +11,11 @@ let
 
 in {
   config = lib.mkIf enabled {
-    boot.extraModprobeConfig = ''
-      options snd_hda_intel power_save=0
-    '';
+    age.identityPaths = [ "/home/*/.ssh/id_ed25519" ];
+    environment.systemPackages = [ inputs.agenix.packages.${system}.default ];
   };
+
+  imports = [ inputs.agenix.nixosModules.default ];
 
   options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 }

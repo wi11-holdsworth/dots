@@ -1,8 +1,8 @@
 { pkgs, hostName, inputs, userName, ... }: {
-  imports =
-    [ ../../modules/nixos/default.nix inputs.agenix.nixosModules.default ];
+  imports = [ ../../modules/nixos/default.nix ];
 
   # web services
+  age.enable = true;
   aria2.enable = true;
   borgbackup-srv.enable = true;
   dufs.enable = true;
@@ -13,11 +13,18 @@
   vscode-server.enable = true;
   vaultwarden.enable = true;
 
-  age.identityPaths = [ "/home/*/.ssh/id_ed25519" ];
-
-  environment.systemPackages = with pkgs;
-    [ nh gh eza ripgrep-all fd dust bat nom delta zellij ]
-    ++ ([ inputs.agenix.packages.x86_64-linux.default ]);
+  environment.systemPackages = with pkgs; [
+    nh
+    gh
+    eza
+    ripgrep-all
+    fd
+    dust
+    bat
+    nom
+    delta
+    zellij
+  ];
 
   networking.hostName = "${hostName}";
 

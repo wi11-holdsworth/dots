@@ -1,13 +1,17 @@
 { config, lib, ... }:
 let
+  # declare the module name and its local module dependencies
   feature = "feature";
+  dependencies = with config; [ core ];
   port = "port";
-  cfg = config.${feature};
+
+  # helper functions
+  dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);
+  featureEnabled = config.${feature}.enable;
+  enabled = featureEnabled && dependenciesEnabled;
 
 in {
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
-
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf enabled {
     services = {
       # service
       ${feature} = { enable = true; };
@@ -25,4 +29,6 @@ in {
       };
     };
   };
+
+  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 }

@@ -1,12 +1,18 @@
 { config, inputs, lib, ... }:
 let
+  # declare the module name and its local module dependencies
   feature = "vscode-server";
-  cfg = config.${feature};
+  dependencies = with config; [ core ];
+
+  # helper functions
+  dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);
+  featureEnabled = config.${feature}.enable;
+  enabled = featureEnabled && dependenciesEnabled;
 
 in {
-  imports = [ inputs.${feature}.nixosModules.default ];
+  config = lib.mkIf enabled { services.${feature}.enable = true; };
 
   options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 
-  config = lib.mkIf cfg.enable { services.${feature}.enable = true; };
+  imports = [ inputs.${feature}.nixosModules.default ];
 }
