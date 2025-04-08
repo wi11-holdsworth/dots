@@ -17,6 +17,8 @@ in {
       ${feature} = {
         enable = true;
         databaseDir = "/srv/couchdb";
+        viewIndexDir = "/srv/couchdb";
+        configFile = "/srv/couchdb";
         port = lib.toInt port;
         extraConfig = {
           chttpd = {
