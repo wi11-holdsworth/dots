@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, hostName, ... }: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos/default.nix
@@ -35,9 +35,8 @@
     backupFileExtension = "backup";
   };
 
-  # TODO: remove reference to hostname
   networking = {
-    hostName = "desktop";
+    hostName = "${hostName}";
     networkmanager.enable = true;
   };
 

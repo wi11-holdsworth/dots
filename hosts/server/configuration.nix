@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, hostName, ... }: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos/default.nix
@@ -28,8 +28,7 @@
   # TODO: remove reference to username
   home-manager.users.srv = import ./home.nix;
 
-  # TODO: remove reference to hostname
-  networking.hostName = "server";
+  networking.hostName = "${hostName}";
 
   services.openssh.enable = true;
 
