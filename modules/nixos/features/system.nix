@@ -28,7 +28,10 @@ in {
 
     nix = {
       optimise.automatic = true;
-      settings.experimental-features = [ "nix-command" "flakes" ];
+      settings = {
+        experimental-features = [ "nix-command" "flakes" ];
+        trusted-users = [ "will" "srv" ];
+      };
     };
 
     nixpkgs.config.allowUnfree = true;
