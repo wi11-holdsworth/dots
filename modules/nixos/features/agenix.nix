@@ -1,4 +1,4 @@
-{ config, inputs, lib, system, ... }:
+{ config, inputs, lib, system, userName, ... }:
 let
   # declare the module name and its local module dependencies
   feature = "agenix";
@@ -11,7 +11,7 @@ let
 
 in {
   config = lib.mkIf enabled {
-    age.identityPaths = [ "/home/*/.ssh/id_ed25519" ];
+    age.identityPaths = [ "/home/${userName}/.ssh/id_ed25519" ];
     environment.systemPackages = [ inputs.agenix.packages.${system}.default ];
   };
 
