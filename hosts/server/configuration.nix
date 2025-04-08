@@ -10,6 +10,7 @@
   immich.enable = true;
   jellyfin.enable = true;
   nginx.enable = true;
+  ntfy-sh.enable = true;
   vscode-server.enable = true;
   vaultwarden.enable = true;
 
