@@ -29,7 +29,13 @@ in {
       };
 
       # initialise starship with some pretty colours and preferential defaults
-      starship.enable = true;
+      starship = {
+        enable = true;
+        settings.character = {
+          success_symbol = "[%](bold green) ";
+          error_symbol = "[%](bold red) ";
+        };
+      };
     };
   };
 }
