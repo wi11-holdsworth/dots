@@ -27,11 +27,12 @@ in {
         cameractrls-gtk3
         ghostty
         kiwix
+        libreoffice
         obsidian
         signal-desktop
         vlc
         vscode
-      ] ++ (with pkgs.kdePackages; [ skanlite ktorrent calligra kzones ]);
+      ] ++ (with pkgs.kdePackages; [ skanlite ktorrent kzones ]);
 
     security.rtkit.enable = true;
 
