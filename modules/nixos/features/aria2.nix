@@ -20,7 +20,7 @@ in {
         downloadDirPermission = "0775";
         settings = {
           dir = "/media";
-          rpc-listen-port = "${port}";
+          rpc-listen-port = lib.toInt "${port}";
         };
       };
 
