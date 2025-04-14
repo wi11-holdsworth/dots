@@ -16,8 +16,12 @@ in {
       ${feature} = {
         enable = true;
         rpcSecretFile = config.age.secrets."aria2".path;
+        openPorts = true;
         downloadDirPermission = "0775";
-        settings.dir = "/media";
+        settings = {
+          dir = "/media";
+          rpc-listen-port = "${port}";
+        };
       };
 
       # reverse proxy
@@ -26,7 +30,10 @@ in {
         useACMEHost = "fi33.buzz";
         locations = {
           "/".root = "${pkgs.ariang}/share/ariang";
-          "/jsonrpc".proxyPass = "http://localhost:${port}";
+          "/jsonrpc" = {
+            proxyPass = "http://localhost:${port}";
+            proxyWebsockets = true;
+          };
         };
       };
     };
