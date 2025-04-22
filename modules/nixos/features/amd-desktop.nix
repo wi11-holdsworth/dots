@@ -26,6 +26,7 @@ in {
         brave
         cameractrls-gtk3
         ghostty
+        jellyfin-media-player
         kiwix
         libreoffice
         obsidian
