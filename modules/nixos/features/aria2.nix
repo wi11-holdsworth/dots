@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, userName, ... }:
 let
   # declare the module name and its local module dependencies
   feature = "aria2";
@@ -39,6 +39,8 @@ in {
     };
 
     environment.systemPackages = [ pkgs.ariang ];
+
+    users.users.${userName}.extraGroups = [ "aria2" ];
 
     # rpc password
     age.secrets."aria2".file = ../../../secrets/aria2.age;

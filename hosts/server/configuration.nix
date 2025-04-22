@@ -9,6 +9,7 @@
   dufs.enable = true;
   glances.enable = true;
   immich.enable = true;
+  intel-desktop.enable = true;
   jellyfin.enable = true;
   nginx.enable = true;
   ntfy-sh.enable = true;
@@ -33,6 +34,8 @@
   services.openssh.enable = true;
 
   system.stateVersion = "24.11";
+
+  users.groups.${userName} = { };
 
   users.users.${userName} = {
     extraGroups = [ "wheel" "docker" ];
