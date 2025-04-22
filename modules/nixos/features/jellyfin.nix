@@ -2,7 +2,7 @@
 let
   # declare the module name and its local module dependencies
   feature = "jellyfin";
-  dependencies = with config; [ aria2 intel-desktop nginx core ];
+  dependencies = with config; [ aria2 nginx core ];
   port = "8096";
 
   # helper functions
