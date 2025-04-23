@@ -24,6 +24,7 @@ in {
     environment.systemPackages = with pkgs;
       [
         brave
+        calibre
         cameractrls-gtk3
         ghostty
         jellyfin-media-player
