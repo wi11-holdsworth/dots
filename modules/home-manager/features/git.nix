@@ -30,6 +30,23 @@ in
       inherit userName;
       inherit userEmail;
 
+      aliases = {
+        a = "add";
+        ap = "add -p";
+        c = "commit --verbose";
+        ca = "commit -a --verbose";
+        cm = "commit -m";
+        cam = "commit -a -m";
+        m = "commit --amend --verbose";
+        d = "diff";
+        ds = "diff --stat";
+        dc = "diff --cached";
+        s = "status -s";
+        co = "checkout";
+        cob = "checkout -b";
+        p = "push";
+      };
+
       extraConfig = {
         init.defaultBranch = "main";
 

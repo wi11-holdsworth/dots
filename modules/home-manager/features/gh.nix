@@ -27,21 +27,6 @@ in
       settings = {
         git_protocol = "ssh";
         editor = "nvim";
-        aliases = {
-          a = "add";
-          ap = "add -p";
-          c = "commit --verbose";
-          ca = "commit -a --verbose";
-          cm = "commit -m";
-          cam = "commit -a -m";
-          m = "commit --amend --verbose";
-          d = "diff";
-          ds = "diff --stat";
-          dc = "diff --cached";
-          s = "status -s";
-          co = "checkout";
-          cob = "checkout -b";
-        };
       };
     };
   };
