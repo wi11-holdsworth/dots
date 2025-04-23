@@ -30,6 +30,7 @@ in {
         jellyfin-media-player
         kiwix
         libreoffice
+        nixfmt-rfc-style
         obsidian
         signal-desktop
         vlc
