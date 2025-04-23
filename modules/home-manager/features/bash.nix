@@ -28,17 +28,21 @@ in
         enable = true;
 
         shellAliases = {
-          ls = "eza --group-directories-first --icons";
+          dots = "cd $FLAKE && clear && ls -T && echo";
+
+          g = "git";
+
           la = "ls -a";
           ll = "la -l";
+          ls = "eza --group-directories-first --icons";
           lt = "la -T";
+
+          nos = "nh os switch";
+
+          rf = "nix flake init --template 'https://flakehub.com/f/the-nix-way/dev-templates/*#rust' && direnv allow";
 
           vi = "nvim";
           vim = "nvim";
-
-          rf = "nix flake init --template 'https://flakehub.com/f/the-nix-way/dev-templates/*#rust' && direnv allow";
-          dots = "cd $FLAKE && clear && ls -T && echo";
-          nos = "nh os switch";
         };
       };
 
