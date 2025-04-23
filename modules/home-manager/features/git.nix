@@ -44,7 +44,8 @@ in
         s = "status -s";
         co = "checkout";
         cob = "checkout -b";
-        p = "push";
+        ps = "push";
+        pl = "push";
       };
 
       extraConfig = {
