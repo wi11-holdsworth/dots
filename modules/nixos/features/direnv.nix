@@ -9,7 +9,8 @@ let
   featureEnabled = config.${feature}.enable;
   enabled = featureEnabled && dependenciesEnabled;
 
-in {
+in
+{
   config = lib.mkIf enabled { programs.${feature}.enable = true; };
 
   options.${feature}.enable = lib.mkEnableOption "enables ${feature}";

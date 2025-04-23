@@ -2,16 +2,22 @@
 let
   # declare the module name and its local module dependencies
   feature = "nginx";
-  dependencies = with config; [ agenix core ];
+  dependencies = with config; [
+    agenix
+    core
+  ];
 
   # helper functions
   dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);
   featureEnabled = config.${feature}.enable;
   enabled = featureEnabled && dependenciesEnabled;
 
-in {
+in
+{
   config = lib.mkIf enabled {
-    age.secrets."api-porkbun" = { file = ../../../secrets/api-porkbun.age; };
+    age.secrets."api-porkbun" = {
+      file = ../../../secrets/api-porkbun.age;
+    };
 
     services.${feature} = {
       enable = true;

@@ -1,8 +1,18 @@
-{ config, lib, pkgs, userName, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  userName,
+  ...
+}:
 let
   # declare the module name and its local module dependencies
   feature = "borgbackup-srv";
-  dependencies = with config; [ agenix core ntfy-sh ];
+  dependencies = with config; [
+    agenix
+    core
+    ntfy-sh
+  ];
   secret = "borgbackup";
 
   # helper functions
@@ -11,69 +21,78 @@ let
   enabled = featureEnabled && dependenciesEnabled;
 
   # notify using ntfy-sh
-  notify = { tag, msg, location }: ''
-    ${pkgs.curl}/bin/curl -H "X-Tags: ${tag},BorgBackup,Server,${location}"  -d "${msg}" ${config.services.ntfy-sh.settings.base-url}/backups
-  '';
-  notifySuccess = location:
+  notify =
+    {
+      tag,
+      msg,
+      location,
+    }:
+    ''
+      ${pkgs.curl}/bin/curl -H "X-Tags: ${tag},BorgBackup,Server,${location}"  -d "${msg}" ${config.services.ntfy-sh.settings.base-url}/backups
+    '';
+  notifySuccess =
+    location:
     notify {
       tag = "tada";
       msg = "Backup succeeded";
       inherit location;
     };
-  notifyFailure = location:
+  notifyFailure =
+    location:
     notify {
       tag = "tada";
       msg = "Backup failed, check logs";
       inherit location;
     };
 
-in {
+in
+{
   config = lib.mkIf enabled {
-    services.borgbackup.jobs = let
-      srv = location: {
-        paths = "/srv";
+    services.borgbackup.jobs =
+      let
+        srv = location: {
+          paths = "/srv";
 
-        compression = "auto,zstd";
+          compression = "auto,zstd";
 
-        startAt = "*-*-* 04:00:00 Australia/Melbourne";
+          startAt = "*-*-* 04:00:00 Australia/Melbourne";
 
-        prune.keep = {
-          daily = 7;
-          weekly = 4;
-          monthly = 6;
+          prune.keep = {
+            daily = 7;
+            weekly = 4;
+            monthly = 6;
+          };
+
+          postHook = ''
+            if [ $exitStatus -eq 0 ]; then
+              ${notifySuccess location}
+            else
+              ${notifyFailure location}
+            fi
+          '';
         };
 
-        postHook = ''
-          if [ $exitStatus -eq 0 ]; then
-            ${notifySuccess location}
-          else
-            ${notifyFailure location}
-          fi
-        '';
+      in
+      {
+        onsite = srv "onsite" // {
+          repo = "/repo";
+          exclude = [ "/srv/immich" ];
+
+          encryption.mode = "repokey-blake2";
+          encryption.passCommand = "cat ${config.age.secrets.borgbackup-server-onsite.path}";
+
+          removableDevice = true;
+        };
+
+        offsite = srv "offsite" // {
+          repo = "vuc5c3xq@vuc5c3xq.repo.borgbase.com:repo";
+
+          encryption.mode = "repokey-blake2";
+          encryption.passCommand = "cat ${config.age.secrets.borgbackup-server-offsite.path}";
+
+          environment.BORG_RSH = "ssh -i /home/srv/.ssh/id_ed25519";
+        };
       };
-
-    in {
-      onsite = srv "onsite" // {
-        repo = "/repo";
-        exclude = [ "/srv/immich" ];
-
-        encryption.mode = "repokey-blake2";
-        encryption.passCommand =
-          "cat ${config.age.secrets.borgbackup-server-onsite.path}";
-
-        removableDevice = true;
-      };
-
-      offsite = srv "offsite" // {
-        repo = "vuc5c3xq@vuc5c3xq.repo.borgbase.com:repo";
-
-        encryption.mode = "repokey-blake2";
-        encryption.passCommand =
-          "cat ${config.age.secrets.borgbackup-server-offsite.path}";
-
-        environment.BORG_RSH = "ssh -i /home/srv/.ssh/id_ed25519";
-      };
-    };
 
     # onsite drive
     services.udisks2.enable = true;

@@ -1,8 +1,17 @@
-{ config, inputs, lib, ... }:
+{
+  config,
+  inputs,
+  lib,
+  ...
+}:
 let
   # declare the module name and its local module dependencies
   feature = "vaultwarden";
-  dependencies = with config; [ agenix nginx core ];
+  dependencies = with config; [
+    agenix
+    nginx
+    core
+  ];
   port = "5001";
 
   # helper functions
@@ -10,7 +19,8 @@ let
   featureEnabled = config.${feature}.enable;
   enabled = featureEnabled && dependenciesEnabled;
 
-in {
+in
+{
   config = lib.mkIf enabled {
     services.${feature} = {
       enable = true;

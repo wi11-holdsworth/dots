@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   # declare the module name and its local module dependencies
   feature = "cli-utils";
@@ -9,7 +14,8 @@ let
   featureEnabled = config.${feature}.enable;
   enabled = featureEnabled && dependenciesEnabled;
 
-in {
+in
+{
   config = lib.mkIf enabled {
     environment.systemPackages = with pkgs; [
       bat

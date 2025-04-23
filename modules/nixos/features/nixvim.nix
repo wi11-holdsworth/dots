@@ -1,4 +1,9 @@
-{ config, inputs, lib, ... }:
+{
+  config,
+  inputs,
+  lib,
+  ...
+}:
 let
   # declare the module name and its local module dependencies
   feature = "nixvim";
@@ -9,7 +14,8 @@ let
   featureEnabled = config.${feature}.enable;
   enabled = featureEnabled && dependenciesEnabled;
 
-in {
+in
+{
   config = lib.mkIf enabled {
     programs.${feature} = {
       enable = true;

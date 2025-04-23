@@ -1,8 +1,17 @@
-{ config, lib, userName, ... }:
+{
+  config,
+  lib,
+  userName,
+  ...
+}:
 let
   # declare the module name and its local module dependencies
   feature = "jellyfin";
-  dependencies = with config; [ aria2 nginx core ];
+  dependencies = with config; [
+    aria2
+    nginx
+    core
+  ];
   port = "8096";
 
   # helper functions
@@ -10,7 +19,8 @@ let
   featureEnabled = config.${feature}.enable;
   enabled = featureEnabled && dependenciesEnabled;
 
-in {
+in
+{
   config = lib.mkIf enabled {
     services = {
       # service

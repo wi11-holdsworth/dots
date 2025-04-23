@@ -1,15 +1,24 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   # declare the module name and its local module dependencies
   feature = "print-and-scan";
-  dependencies = with config; [ amd-desktop core ];
+  dependencies = with config; [
+    amd-desktop
+    core
+  ];
 
   # helper functions
   dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);
   featureEnabled = config.${feature}.enable;
   enabled = featureEnabled && dependenciesEnabled;
 
-in {
+in
+{
   config = lib.mkIf enabled {
     hardware.sane = {
       enable = true;

@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   # declare the module name and its local module dependencies
   feature = "amd-desktop";
@@ -9,7 +14,8 @@ let
   featureEnabled = config.${feature}.enable;
   enabled = featureEnabled && dependenciesEnabled;
 
-in {
+in
+{
   config = lib.mkIf enabled {
 
     # load graphics drivers before anything else
@@ -21,7 +27,8 @@ in {
       extraPackages = with pkgs; [ amdvlk ];
     };
 
-    environment.systemPackages = with pkgs;
+    environment.systemPackages =
+      with pkgs;
       [
         brave
         calibre
@@ -35,7 +42,12 @@ in {
         signal-desktop
         vlc
         vscode
-      ] ++ (with pkgs.kdePackages; [ skanlite ktorrent kzones ]);
+      ]
+      ++ (with pkgs.kdePackages; [
+        skanlite
+        ktorrent
+        kzones
+      ]);
 
     security.rtkit.enable = true;
 

@@ -2,7 +2,10 @@
 let
   # declare the module name and its local module dependencies
   feature = "feature";
-  dependencies = with config; [ core nginx ];
+  dependencies = with config; [
+    core
+    nginx
+  ];
   image = "image";
   port = "port";
 
@@ -11,7 +14,8 @@ let
   featureEnabled = config.${feature}.enable;
   enabled = featureEnabled && dependenciesEnabled;
 
-in {
+in
+{
   config = lib.mkIf enabled {
     virtualisation.oci-containers = {
       backend = "docker";
@@ -32,7 +36,9 @@ in {
       "${feature}.fi33.buzz" = {
         forceSSL = true;
         useACMEHost = "fi33.buzz";
-        locations."/" = { proxyPass = "http://localhost:${port}"; };
+        locations."/" = {
+          proxyPass = "http://localhost:${port}";
+        };
       };
     };
   };

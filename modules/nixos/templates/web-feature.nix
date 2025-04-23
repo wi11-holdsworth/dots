@@ -2,7 +2,10 @@
 let
   # declare the module name and its local module dependencies
   feature = "feature";
-  dependencies = with config; [ core nginx ];
+  dependencies = with config; [
+    core
+    nginx
+  ];
   port = "port";
 
   # helper functions
@@ -10,11 +13,14 @@ let
   featureEnabled = config.${feature}.enable;
   enabled = featureEnabled && dependenciesEnabled;
 
-in {
+in
+{
   config = lib.mkIf enabled {
     services = {
       # service
-      ${feature} = { enable = true; };
+      ${feature} = {
+        enable = true;
+      };
 
       # reverse proxy
       nginx = {

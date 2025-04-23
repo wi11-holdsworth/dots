@@ -1,18 +1,29 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   # declare the module name and its local module dependencies
   feature = "intel-desktop";
-  dependencies = with config; [ core jellyfin ];
+  dependencies = with config; [
+    core
+    jellyfin
+  ];
 
   # helper functions
   dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);
   featureEnabled = config.${feature}.enable;
   enabled = featureEnabled && dependenciesEnabled;
 
-in {
+in
+{
   config = lib.mkIf enabled {
     systemd.services.jellyfin.environment.LIBVA_DRIVER_NAME = "iHD";
-    environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
+    environment.sessionVariables = {
+      LIBVA_DRIVER_NAME = "iHD";
+    };
 
     hardware = {
       enableAllFirmware = true;

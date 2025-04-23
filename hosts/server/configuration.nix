@@ -1,4 +1,11 @@
-{ pkgs, hostName, inputs, userName, ... }: {
+{
+  pkgs,
+  hostName,
+  inputs,
+  userName,
+  ...
+}:
+{
   imports = [ ../../modules/nixos/default.nix ];
 
   # web services
@@ -22,13 +29,17 @@
 
   system.stateVersion = "24.11";
 
-  users.groups.${userName} = { };
-
-  users.users.${userName} = {
-    extraGroups = [ "wheel" "docker" ];
-    home = "/home/srv";
-    isNormalUser = true;
-    shell = pkgs.bash;
+  users = {
+    groups.${userName} = { };
+    users.${userName} = {
+      extraGroups = [
+        "wheel"
+        "docker"
+      ];
+      home = "/home/srv";
+      isNormalUser = true;
+      shell = pkgs.bash;
+    };
   };
 
   virtualisation.docker.enable = true;

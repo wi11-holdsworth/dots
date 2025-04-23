@@ -1,4 +1,9 @@
-{ config, lib, userName, ... }:
+{
+  config,
+  lib,
+  userName,
+  ...
+}:
 let
   # declare the module name and its local module dependencies
   feature = "nh";
@@ -9,7 +14,8 @@ let
   featureEnabled = config.${feature}.enable;
   enabled = featureEnabled && dependenciesEnabled;
 
-in {
+in
+{
   config = lib.mkIf enabled {
     programs.${feature} = {
       enable = true;

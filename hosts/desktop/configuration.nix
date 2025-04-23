@@ -1,4 +1,11 @@
-{ pkgs, hostName, inputs, userName, ... }: {
+{
+  pkgs,
+  hostName,
+  inputs,
+  userName,
+  ...
+}:
+{
   imports = [ ../../modules/nixos/default.nix ];
 
   amd-desktop.enable = true;
@@ -20,7 +27,12 @@
   i18n.extraLocaleSettings.LC_ALL = "en_AU.UTF-8";
 
   users.users.${userName} = {
-    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "scanner"
+      "lp"
+    ];
     isNormalUser = true;
   };
 }

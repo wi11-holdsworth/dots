@@ -1,7 +1,10 @@
-{ lib, ... }: {
-  imports = let featuresDir = ./features;
-  in map (name: featuresDir + "/${name}")
-  (builtins.attrNames (builtins.readDir featuresDir));
+{ lib, ... }:
+{
+  imports =
+    let
+      featuresDir = ./features;
+    in
+    map (name: featuresDir + "/${name}") (builtins.attrNames (builtins.readDir featuresDir));
 
   cli-utils.enable = lib.mkDefault true;
   core.enable = lib.mkDefault true;

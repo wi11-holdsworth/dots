@@ -1,11 +1,13 @@
 let
-  srv =
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOeV0NxqIGIXXgLYE6ntkHE4PARceZBp1FTI7kKLBbk8";
-  will =
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPHAnTQP77HQ/8nbf1oX7xftfKYtbH6MSh83wic0qdBy";
-  users = [ srv will ];
+  srv = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOeV0NxqIGIXXgLYE6ntkHE4PARceZBp1FTI7kKLBbk8";
+  will = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPHAnTQP77HQ/8nbf1oX7xftfKYtbH6MSh83wic0qdBy";
+  users = [
+    srv
+    will
+  ];
 
-in {
+in
+{
   "borgbackup-server-onsite.age".publicKeys = users;
   "borgbackup-server-offsite.age".publicKeys = users;
   "api-porkbun.age".publicKeys = users;

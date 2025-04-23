@@ -18,10 +18,15 @@
     vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
-  outputs = { nixpkgs, agenix, ... }@inputs:
+  outputs =
+    { nixpkgs, agenix, ... }@inputs:
     let
       commonSystem =
-        { hostName ? "nixos", userName ? "will", system ? "x86_64-linux" }:
+        {
+          hostName ? "nixos",
+          userName ? "will",
+          system ? "x86_64-linux",
+        }:
         nixpkgs.lib.nixosSystem {
           modules = [ ./hosts/${hostName}/configuration.nix ];
           specialArgs = {
@@ -32,7 +37,8 @@
           };
           inherit system;
         };
-    in {
+    in
+    {
       nixosConfigurations = {
         desktop = commonSystem { hostName = "desktop"; };
         server = commonSystem {

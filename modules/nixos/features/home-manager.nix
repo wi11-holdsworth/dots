@@ -1,4 +1,11 @@
-{ config, hostName, inputs, lib, userName, ... }:
+{
+  config,
+  hostName,
+  inputs,
+  lib,
+  userName,
+  ...
+}:
 let
   # declare the module name and its local module dependencies
   feature = "home-manager";
@@ -9,7 +16,8 @@ let
   featureEnabled = config.${feature}.enable;
   enabled = featureEnabled && dependenciesEnabled;
 
-in {
+in
+{
   config = lib.mkIf enabled {
     home-manager = {
       users.${userName} = import ../../../hosts/${hostName}/home.nix;

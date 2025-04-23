@@ -2,7 +2,10 @@
 let
   # declare the module name and its local module dependencies
   feature = "dufs";
-  dependencies = with config; [ nginx core ];
+  dependencies = with config; [
+    nginx
+    core
+  ];
   image = "sigoden/dufs";
   port = "5000";
   cfg = config.${feature};
@@ -12,7 +15,8 @@ let
   featureEnabled = config.${feature}.enable;
   enabled = featureEnabled && dependenciesEnabled;
 
-in {
+in
+{
   config = lib.mkIf enabled {
     virtualisation.oci-containers = {
       backend = "docker";
@@ -26,7 +30,10 @@ in {
 
         volumes = [ "/srv/${feature}:/data" ];
 
-        cmd = [ "-A" "/data" ];
+        cmd = [
+          "-A"
+          "/data"
+        ];
       };
     };
 

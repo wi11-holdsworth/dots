@@ -2,7 +2,10 @@
 let
   # declare the module name and its local module dependencies
   feature = "couchdb";
-  dependencies = with config; [ core nginx ];
+  dependencies = with config; [
+    core
+    nginx
+  ];
   port = "5984";
 
   # helper functions
@@ -10,7 +13,8 @@ let
   featureEnabled = config.${feature}.enable;
   enabled = featureEnabled && dependenciesEnabled;
 
-in {
+in
+{
   config = lib.mkIf enabled {
     services = {
       # service

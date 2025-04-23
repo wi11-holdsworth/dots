@@ -1,4 +1,11 @@
-{ config, hostName, inputs, lib, pkgs, ... }:
+{
+  config,
+  hostName,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 let
   # declare the module name and its local module dependencies
   feature = "core";
@@ -7,7 +14,8 @@ let
   featureEnabled = config.${feature}.enable;
   enabled = featureEnabled;
 
-in {
+in
+{
   config = lib.mkIf enabled {
     boot.loader = {
       systemd-boot.enable = true;
@@ -18,14 +26,23 @@ in {
 
     i18n = {
       defaultLocale = "en_AU.UTF-8";
-      supportedLocales = [ "en_US.UTF-8/UTF-8" "en_AU.UTF-8/UTF-8" ];
+      supportedLocales = [
+        "en_US.UTF-8/UTF-8"
+        "en_AU.UTF-8/UTF-8"
+      ];
     };
 
     nix = {
       optimise.automatic = true;
       settings = {
-        experimental-features = [ "nix-command" "flakes" ];
-        trusted-users = [ "will" "srv" ];
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
+        trusted-users = [
+          "will"
+          "srv"
+        ];
       };
     };
 
