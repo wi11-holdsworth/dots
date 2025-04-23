@@ -24,6 +24,7 @@ in
       fd
       nom
       ripgrep-all
+      spotdl
       zellij
     ];
   };
