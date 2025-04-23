@@ -10,18 +10,6 @@
   boot.initrd.luks.devices."luks-b164af31-c1c3-4b4e-83c8-eb39802c2027".device =
     "/dev/disk/by-uuid/b164af31-c1c3-4b4e-83c8-eb39802c2027";
 
-  environment.systemPackages = with pkgs; [
-    bat
-    dust
-    eza
-    fd
-    gh
-    nixfmt
-    nom
-    ripgrep-all
-    zellij
-  ];
-
   networking = {
     hostName = "${hostName}";
     networkmanager.enable = true;

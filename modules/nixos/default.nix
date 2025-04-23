@@ -3,6 +3,7 @@
   in map (name: featuresDir + "/${name}")
   (builtins.attrNames (builtins.readDir featuresDir));
 
+  cli-utils.enable = lib.mkDefault true;
   core.enable = lib.mkDefault true;
   direnv.enable = lib.mkDefault true;
   home-manager.enable = lib.mkDefault true;
