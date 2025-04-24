@@ -14,7 +14,7 @@
   borgbackup-srv.enable = true;
   couchdb.enable = true;
   dufs.enable = true;
-  glances.enable = true;
+  homepage-dashboard.enable = true;
   immich.enable = true;
   intel-desktop.enable = true;
   jellyfin.enable = true;
