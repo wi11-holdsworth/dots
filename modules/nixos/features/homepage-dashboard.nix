@@ -123,6 +123,7 @@ in
               tempmax = 100;
               units = "metric";
               network = true;
+              uptime = true;
             };
           }
         ];
