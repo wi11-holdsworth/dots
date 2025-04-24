@@ -20,6 +20,7 @@
   jellyfin.enable = true;
   nginx.enable = true;
   ntfy-sh.enable = true;
+  stirling-pdf.enable = true;
   vscode-server.enable = true;
   vaultwarden.enable = true;
 
