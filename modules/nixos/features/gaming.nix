@@ -25,6 +25,9 @@ in
       protonup-qt
       lutris
       heroic
+      wine
+      wine64
+      winetricks
     ];
 
     programs = {
