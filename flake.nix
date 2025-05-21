@@ -41,6 +41,7 @@
     {
       nixosConfigurations = {
         desktop = commonSystem { hostName = "desktop"; };
+        laptop = commonSystem { hostName = "laptop"; };
         server = commonSystem {
           hostName = "server";
           userName = "srv";
