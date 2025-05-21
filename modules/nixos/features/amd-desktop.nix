@@ -33,7 +33,6 @@ in
         brave
         calibre
         cameractrls-gtk3
-        ghostty
         jellyfin-media-player
         kiwix
         libreoffice
