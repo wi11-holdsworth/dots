@@ -19,7 +19,7 @@ in
   config = lib.mkIf enabled {
     programs.${feature} = {
       enable = true;
-      clean.enable = true;
+      # clean.enable = true;
       flake = "/home/${userName}/.dots";
     };
   };
