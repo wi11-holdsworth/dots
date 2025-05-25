@@ -33,6 +33,7 @@ in
         brave
         calibre
         cameractrls-gtk3
+        firefox
         jellyfin-media-player
         kiwix
         libreoffice
