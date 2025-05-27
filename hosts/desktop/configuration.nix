@@ -12,7 +12,6 @@
   gaming.enable = true;
   link2c.enable = true;
   print-and-scan.enable = true;
-  site-blocker.enable = true;
   speakers.enable = true;
 
   boot.initrd.luks.devices."luks-b164af31-c1c3-4b4e-83c8-eb39802c2027".device =
