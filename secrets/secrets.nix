@@ -13,8 +13,6 @@ in
   "api-porkbun.age".publicKeys = users;
   "davis-app.age".publicKeys = users;
   "davis-admin-password.age".publicKeys = users;
-  "api-mailjet.age".publicKeys = users;
-  "secret-mailjet.age".publicKeys = users;
   "vaultwarden-admin.age".publicKeys = users;
   "aria2.age".publicKeys = users;
 }

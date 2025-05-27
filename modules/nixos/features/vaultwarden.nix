@@ -34,13 +34,6 @@ in
         useSyslog = true;
         extendedLogging = true;
         adminTokenFile = "${config.age.secrets.vaultwarden-admin.path}";
-        smtpHost = "in-v3.mailjet.com";
-        smtpFrom = "admin@fi33.buzz";
-        smtpPort = 587;
-        smtpSecurity = "starttls";
-        smtpAuthMechanism = "Login";
-        smtpUsernameFile = "${config.age.secrets.api-mailjet.path}";
-        smtpPasswordFile = "${config.age.secrets.secret-mailjet.path}";
       };
     };
 
@@ -56,14 +49,6 @@ in
 
     # secrets
     age.secrets = {
-      "api-mailjet" = {
-        file = ../../../secrets/api-mailjet.age;
-        owner = "${feature}";
-      };
-      "secret-mailjet" = {
-        file = ../../../secrets/secret-mailjet.age;
-        owner = "${feature}";
-      };
       "vaultwarden-admin" = {
         file = ../../../secrets/vaultwarden-admin.age;
         owner = "${feature}";
