@@ -21,10 +21,11 @@ in
 {
   config = lib.mkIf enabled {
     environment.systemPackages = with pkgs; [
-      mangohud
-      protonup-qt
-      lutris
       heroic
+      lutris
+      mangohud
+      nexusmods-app
+      protonup-qt
       wine
       wine64
       winetricks
@@ -37,6 +38,9 @@ in
         gamescopeSession.enable = true;
       };
     };
+
+    # latest kernel
+    boot.kernelPackages = pkgs.linuxPackages_latest;
   };
 
   options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
