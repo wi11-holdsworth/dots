@@ -23,7 +23,6 @@
   stirling-pdf.enable = true;
   vscode-server.enable = true;
   vaultwarden.enable = true;
-  freshrss.enable = true;
 
   networking.hostName = "${hostName}";
 
