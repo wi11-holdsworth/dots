@@ -29,6 +29,7 @@ in
       wine
       wine64
       winetricks
+      prismlauncher
     ];
 
     programs = {
