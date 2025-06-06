@@ -1,17 +1,17 @@
 {
   config,
   lib,
-  userName,
+  pkgs,
   ...
 }:
 let
   # declare the module name and its local module dependencies
-  feature = "jellyfin";
+  feature = "transmission";
   dependencies = with config; [
-    nginx
     core
+    nginx
   ];
-  port = "8096";
+  port = "5008";
 
   # helper functions
   dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);
@@ -22,11 +22,17 @@ in
 {
   config = lib.mkIf enabled {
     services = {
-      # service
-      ${feature} = {
+      transmission = {
         enable = true;
-        dataDir = "/srv/jellyfin";
+        package = pkgs.transmission_4;
+        settings = {
+          download-dir = "/media/Downloads";
+          rpc-host-whitelist-enabled = false;
+          rpc-port = lib.toInt port;
+          rpc-whitelist-enable = false;
+        };
         group = "media";
+        webHome = pkgs.flood-for-transmission;
       };
 
       # reverse proxy

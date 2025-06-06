@@ -1,17 +1,13 @@
-{
-  config,
-  lib,
-  userName,
-  ...
-}:
+{ config, lib, ... }:
 let
   # declare the module name and its local module dependencies
-  feature = "jellyfin";
+  feature = "radarr";
   dependencies = with config; [
-    nginx
     core
+    nginx
+    jellyfin
   ];
-  port = "8096";
+  port = "5007";
 
   # helper functions
   dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);
@@ -25,15 +21,22 @@ in
       # service
       ${feature} = {
         enable = true;
-        dataDir = "/srv/jellyfin";
+        dataDir = "/srv/radarr";
+        settings.server.port = lib.toInt port;
         group = "media";
+
       };
 
       # reverse proxy
-      nginx.virtualHosts."${feature}.fi33.buzz" = {
-        forceSSL = true;
-        useACMEHost = "fi33.buzz";
-        locations."/".proxyPass = "http://localhost:${port}";
+      nginx = {
+        virtualHosts."${feature}.fi33.buzz" = {
+          forceSSL = true;
+          useACMEHost = "fi33.buzz";
+          locations."/" = {
+            proxyPass = "http://localhost:${port}";
+            # proxyWebsockets = true;
+          };
+        };
       };
     };
   };

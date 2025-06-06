@@ -6,7 +6,10 @@
   ...
 }:
 {
-  imports = [ ../../modules/nixos/default.nix ];
+  imports = [
+    ../../modules/nixos/default.nix
+    ../../modules/nixos/bundles/jellyfin.nix
+  ];
 
   # web services
   borgbackup-srv.enable = true;
@@ -15,7 +18,6 @@
   homepage-dashboard.enable = true;
   immich.enable = true;
   intel-desktop.enable = true;
-  jellyfin.enable = true;
   nginx.enable = true;
   ntfy-sh.enable = true;
   stirling-pdf.enable = true;
