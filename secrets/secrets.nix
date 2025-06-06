@@ -11,8 +11,6 @@ in
   "borgbackup-server-onsite.age".publicKeys = users;
   "borgbackup-server-offsite.age".publicKeys = users;
   "api-porkbun.age".publicKeys = users;
-  "davis-app.age".publicKeys = users;
-  "davis-admin-password.age".publicKeys = users;
   "vaultwarden-admin.age".publicKeys = users;
   "aria2.age".publicKeys = users;
 }
