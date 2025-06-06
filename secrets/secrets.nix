@@ -12,5 +12,4 @@ in
   "borgbackup-server-offsite.age".publicKeys = users;
   "api-porkbun.age".publicKeys = users;
   "vaultwarden-admin.age".publicKeys = users;
-  "aria2.age".publicKeys = users;
 }

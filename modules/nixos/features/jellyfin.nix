@@ -8,7 +8,6 @@ let
   # declare the module name and its local module dependencies
   feature = "jellyfin";
   dependencies = with config; [
-    aria2
     nginx
     core
   ];
@@ -38,7 +37,6 @@ in
     };
 
     users.users.${userName}.extraGroups = [ "jellyfin" ];
-    users.users.jellyfin.extraGroups = [ "aria2" ];
   };
 
   options.${feature}.enable = lib.mkEnableOption "enables ${feature}";

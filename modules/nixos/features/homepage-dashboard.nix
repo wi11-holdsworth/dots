@@ -64,12 +64,6 @@ in
           {
             Services = [
               {
-                "AriaNg" = {
-                  "icon" = "ariang.png";
-                  "href" = "https://aria2.fi33.buzz/";
-                };
-              }
-              {
                 "CouchDB" = {
                   "icon" = "couchdb.png";
                   "href" = "https://couchdb.fi33.buzz/_utils/";

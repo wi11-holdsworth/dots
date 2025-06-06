@@ -10,7 +10,6 @@
 
   # web services
   agenix.enable = true;
-  aria2.enable = true;
   borgbackup-srv.enable = true;
   couchdb.enable = true;
   dufs.enable = true;
