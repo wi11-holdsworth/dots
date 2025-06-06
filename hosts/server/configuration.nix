@@ -9,7 +9,6 @@
   imports = [ ../../modules/nixos/default.nix ];
 
   # web services
-  agenix.enable = true;
   borgbackup-srv.enable = true;
   couchdb.enable = true;
   dufs.enable = true;
