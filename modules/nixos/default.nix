@@ -1,10 +1,11 @@
 { lib, ... }:
-{
-  imports =
-    let
-      featuresDir = ./features;
-    in
+let
+  featureBundler =
+    featuresDir:
     map (name: featuresDir + "/${name}") (builtins.attrNames (builtins.readDir featuresDir));
+in
+{
+  imports = (featureBundler ./features) ++ (featureBundler ./bundles);
 
   agenix.enable = lib.mkDefault true;
   cli-utils.enable = lib.mkDefault true;

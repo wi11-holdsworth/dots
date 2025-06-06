@@ -8,20 +8,21 @@
 {
   imports = [
     ../../modules/nixos/default.nix
-    ../../modules/nixos/bundles/jellyfin.nix
   ];
 
-  # web services
   borgbackup-srv.enable = true;
+  intel-desktop.enable = true;
+  nginx.enable = true;
+  vscode-server.enable = true;
+
+  # self-hosted web services
   couchdb.enable = true;
   dufs.enable = true;
   homepage-dashboard.enable = true;
   immich.enable = true;
-  intel-desktop.enable = true;
-  nginx.enable = true;
+  jellyfin-bundle.enable = true;
   ntfy-sh.enable = true;
   stirling-pdf.enable = true;
-  vscode-server.enable = true;
   vaultwarden.enable = true;
 
   networking.hostName = "${hostName}";
