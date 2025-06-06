@@ -10,6 +10,7 @@ let
   dependencies = with config; [
     core
     nginx
+    agenix
   ];
   port = "5004";
 
@@ -33,6 +34,7 @@ let
   secrets = [
     "immich"
     "jellyfin"
+    "miniflux"
     "prowlarr"
     "radarr"
     "sonarr"
@@ -125,6 +127,17 @@ in
                   };
                 };
               }
+              {
+                "Miniflux" = {
+                  "icon" = "miniflux.png";
+                  "href" = "https://miniflux.fi33.buzz/";
+                  "widget" = {
+                    "type" = "miniflux";
+                    "url" = "https://miniflux.fi33.buzz/";
+                    "key" = "@miniflux@";
+                  };
+                };
+              }
             ];
           }
           {
@@ -177,7 +190,10 @@ in
               columns = 2;
               style = "row";
             };
-            Media = { };
+            Media = {
+              columns = 2;
+              style = "row";
+            };
             Services = {
               style = "row";
               columns = 3;

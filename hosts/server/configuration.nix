@@ -21,6 +21,7 @@
   homepage-dashboard.enable = true;
   immich.enable = true;
   jellyfin-bundle.enable = true;
+  miniflux.enable = true;
   ntfy-sh.enable = true;
   stirling-pdf.enable = true;
   vaultwarden.enable = true;
