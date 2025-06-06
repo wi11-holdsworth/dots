@@ -14,17 +14,7 @@
   intel-desktop.enable = true;
   nginx.enable = true;
   vscode-server.enable = true;
-
-  # self-hosted web services
-  couchdb.enable = true;
-  dufs.enable = true;
-  homepage-dashboard.enable = true;
-  immich.enable = true;
-  jellyfin-bundle.enable = true;
-  miniflux.enable = true;
-  ntfy-sh.enable = true;
-  stirling-pdf.enable = true;
-  vaultwarden.enable = true;
+  web-services.enable = true;
 
   networking.hostName = "${hostName}";
 
