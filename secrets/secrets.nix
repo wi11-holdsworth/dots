@@ -8,8 +8,14 @@ let
 
 in
 {
-  "borgbackup-server-onsite.age".publicKeys = users;
-  "borgbackup-server-offsite.age".publicKeys = users;
   "api-porkbun.age".publicKeys = users;
+  "borgbackup-server-offsite.age".publicKeys = users;
+  "borgbackup-server-onsite.age".publicKeys = users;
+  "immich.age".publicKeys = users;
+  "jellyfin.age".publicKeys = users;
+  "jellyseerr.age".publicKeys = users;
+  "prowlarr.age".publicKeys = users;
+  "radarr.age".publicKeys = users;
+  "sonarr.age".publicKeys = users;
   "vaultwarden-admin.age".publicKeys = users;
 }

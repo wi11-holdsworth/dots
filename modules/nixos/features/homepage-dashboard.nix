@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   # declare the module name and its local module dependencies
   feature = "homepage-dashboard";
@@ -12,10 +17,32 @@ let
   dependenciesEnabled = (lib.all (dep: dep.enable) dependencies);
   featureEnabled = config.${feature}.enable;
   enabled = featureEnabled && dependenciesEnabled;
+  genSecrets =
+    secrets:
+    lib.genAttrs secrets (secret: {
+      file = ../../../secrets/${secret}.age;
+    });
+  insertSecrets =
+    secrets:
+    lib.genAttrs secrets (secret: ''
+      secret=$(cat "${config.age.secrets.${secret}.path}")
+      configFile=/etc/homepage-dashboard/services.yaml
+      ${pkgs.gnused}/bin/sed -i "s#@${secret}@#$secret#" "$configFile"
+    '');
 
+  secrets = [
+    "immich"
+    "jellyfin"
+    "prowlarr"
+    "radarr"
+    "sonarr"
+  ];
 in
 {
   config = lib.mkIf enabled {
+    system.activationScripts = insertSecrets secrets;
+    age.secrets = genSecrets secrets;
+
     services = {
       # service
       ${feature} = {
@@ -23,6 +50,61 @@ in
         listenPort = lib.toInt port;
         allowedHosts = "${feature}.fi33.buzz";
         services = [
+          {
+            Streaming = [
+              {
+                "Jellyfin" = {
+                  "icon" = "jellyfin.png";
+                  "href" = "https://jellyfin.fi33.buzz/";
+                  "widget" = {
+                    "type" = "jellyfin";
+                    "url" = "https://jellyfin.fi33.buzz/";
+                    "key" = "@jellyfin@";
+                    "enableBlocks" = true;
+                    "enableNowPlaying" = true;
+                    "enableUser" = true;
+                    "showEpisodeNumber" = true;
+                    "expandOneStreamToTwoRows" = false;
+                  };
+                };
+              }
+              {
+                "Prowlarr" = {
+                  "icon" = "prowlarr.png";
+                  "href" = "https://prowlarr.fi33.buzz/";
+                  "widget" = {
+                    "type" = "prowlarr";
+                    "url" = "https://prowlarr.fi33.buzz/";
+                    "key" = "@prowlarr@";
+                  };
+                };
+              }
+              {
+                "Radarr" = {
+                  "icon" = "radarr.png";
+                  "href" = "https://radarr.fi33.buzz/";
+                  "widget" = {
+                    "type" = "radarr";
+                    "url" = "https://radarr.fi33.buzz/";
+                    "key" = "@radarr@";
+                    "enableQueue" = true;
+                  };
+                };
+              }
+              {
+                "Sonarr" = {
+                  "icon" = "sonarr.png";
+                  "href" = "https://sonarr.fi33.buzz/";
+                  "widget" = {
+                    "type" = "sonarr";
+                    "url" = "https://sonarr.fi33.buzz/";
+                    "key" = "@sonarr@";
+                    "enableQueue" = true;
+                  };
+                };
+              }
+            ];
+          }
           {
             Media = [
               {
@@ -39,23 +121,7 @@ in
                     ];
                     "url" = "https://immich.fi33.buzz/";
                     "version" = 2;
-                    "key" = "PjWkxJdRpsMikkT3lom6C9PjSo7ELMvgzlapJG2ufo";
-                  };
-                };
-              }
-              {
-                "Jellyfin" = {
-                  "icon" = "jellyfin.png";
-                  "href" = "https://jellyfin.fi33.buzz/";
-                  "widget" = {
-                    "type" = "jellyfin";
-                    "url" = "https://jellyfin.fi33.buzz/";
-                    "key" = "9c642feb8ee8443b83e207bd987d1684";
-                    "enableBlocks" = true;
-                    "enableNowPlaying" = true;
-                    "enableUser" = true;
-                    "showEpisodeNumber" = true;
-                    "expandOneStreamToTwoRows" = false;
+                    "key" = "@immich@";
                   };
                 };
               }
@@ -88,6 +154,12 @@ in
                 };
               }
               {
+                "Transmission" = {
+                  "icon" = "transmission.png";
+                  "href" = "https://transmission.fi33.buzz/";
+                };
+              }
+              {
                 "Vaultwarden" = {
                   "icon" = "vaultwarden.png";
                   "href" = "https://vaultwarden.fi33.buzz/";
@@ -100,11 +172,17 @@ in
           theme = "dark";
           color = "neutral";
           headerStyle = "clean";
-          layout.Services = {
-            style = "row";
-            columns = 3;
+          layout = {
+            Streaming = {
+              columns = 2;
+              style = "row";
+            };
+            Media = { };
+            Services = {
+              style = "row";
+              columns = 3;
+            };
           };
-          layout.Media = { };
         };
         widgets = [
           {
