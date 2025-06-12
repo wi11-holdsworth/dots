@@ -25,7 +25,6 @@ in
       nom
       ripgrep-all
       spotdl
-      zellij
     ];
   };
 
