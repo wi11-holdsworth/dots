@@ -21,7 +21,29 @@ in
   config = lib.mkIf enabled {
     programs.alacritty = {
       enable = true;
-      theme = "catppuccin_frappe";
+      theme = "catppuccin_mocha";
+      settings = {
+        window.startup_mode = "fullscreen";
+        font = {
+          normal = {
+            family = "JetBrainsMono Nerd Font";
+            style = "Regular";
+          };
+          bold = {
+            family = "JetBrainsMono Nerd Font";
+            style = "Bold";
+          };
+          italic = {
+            family = "JetBrainsMono Nerd Font";
+            style = "italic";
+          };
+          bold_italic = {
+            family = "JetBrainsMono Nerd Font";
+            style = "bold_italic";
+          };
+          size = 14;
+        };
+      };
     };
   };
 
