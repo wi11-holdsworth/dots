@@ -22,7 +22,10 @@ in
     programs.zellij = {
       enable = true;
       enableBashIntegration = true;
-      settings.theme = "catppuccin-mocha";
+      settings = {
+        theme = "catppuccin-mocha";
+        show_startup_tips = false;
+      };
     };
   };
 

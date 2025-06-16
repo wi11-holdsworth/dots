@@ -24,6 +24,13 @@ in
       theme = "catppuccin_mocha";
       settings = {
         window.startup_mode = "fullscreen";
+        terminal.shell = {
+          program = "zellij";
+          args = [
+            "-l"
+            "welcome"
+          ];
+        };
         font = {
           normal = {
             family = "JetBrainsMono Nerd Font";
@@ -41,7 +48,7 @@ in
             family = "JetBrainsMono Nerd Font";
             style = "bold_italic";
           };
-          size = 14;
+          size = 13;
         };
       };
     };

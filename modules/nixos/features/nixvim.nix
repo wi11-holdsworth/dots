@@ -27,7 +27,10 @@ in
         tabstop = 2;
         expandtab = true;
       };
-      colorschemes.ayu.enable = true;
+      colorschemes.catppuccin = {
+        enable = true;
+        settings.background.dark = "mocha";
+      };
       plugins = {
         cmp = {
           enable = true;
