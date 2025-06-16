@@ -17,6 +17,7 @@ let
 in
 {
   config = lib.mkIf enabled {
+    environment.variables.EDITOR = "nvim";
     programs.${feature} = {
       enable = true;
       opts = {
