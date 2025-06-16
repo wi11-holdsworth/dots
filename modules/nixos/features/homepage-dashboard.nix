@@ -34,6 +34,7 @@ let
   secrets = [
     "immich"
     "jellyfin"
+    "lidarr"
     "miniflux"
     "prowlarr"
     "radarr"
@@ -67,6 +68,18 @@ in
                     "enableUser" = true;
                     "showEpisodeNumber" = true;
                     "expandOneStreamToTwoRows" = false;
+                  };
+                };
+              }
+              {
+                "Lidarr" = {
+                  "icon" = "lidarr.png";
+                  "href" = "https://lidarr.fi33.buzz/";
+                  "widget" = {
+                    "type" = "lidarr";
+                    "url" = "https://lidarr.fi33.buzz/";
+                    "key" = "@lidarr@";
+                    "enableQueue" = true;
                   };
                 };
               }

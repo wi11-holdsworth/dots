@@ -19,6 +19,7 @@ in
   config = lib.mkIf enabled {
     flaresolverr.enable = true;
     jellyfin.enable = true;
+    lidarr.enable = true;
     prowlarr.enable = true;
     radarr.enable = true;
     sonarr.enable = true;

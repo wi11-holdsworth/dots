@@ -2,9 +2,7 @@ let
   srv = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOeV0NxqIGIXXgLYE6ntkHE4PARceZBp1FTI7kKLBbk8";
   will = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPHAnTQP77HQ/8nbf1oX7xftfKYtbH6MSh83wic0qdBy";
   users = [
-    srv
-    will
-  ];
+    srv    will];
 
 in
 {
@@ -15,6 +13,7 @@ in
   "immich.age".publicKeys = users;
   "jellyfin.age".publicKeys = users;
   "jellyseerr.age".publicKeys = users;
+  "lidarr.age".publicKeys = users;
   "miniflux-creds.age".publicKeys = users;
   "prowlarr.age".publicKeys = users;
   "radarr.age".publicKeys = users;
