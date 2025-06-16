@@ -45,7 +45,7 @@ in
         co = "checkout";
         cob = "checkout -b";
         ps = "push";
-        pl = "push";
+        pl = "pull";
       };
 
       extraConfig = {
