@@ -32,6 +32,7 @@ in
 
       aliases = {
         a = "add";
+        aa = "add .";
         ap = "add -p";
         c = "commit --verbose";
         ca = "commit -a --verbose";
