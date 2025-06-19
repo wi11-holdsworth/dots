@@ -30,6 +30,7 @@ in
     environment.systemPackages =
       with pkgs;
       [
+        beeper
         brave
         calibre
         cameractrls-gtk3
@@ -39,7 +40,6 @@ in
         libreoffice
         nixfmt-rfc-style
         obsidian
-        signal-desktop
         vlc
         vscode
       ]
