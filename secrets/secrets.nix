@@ -15,6 +15,7 @@ in
   "jellyseerr.age".publicKeys = users;
   "lidarr.age".publicKeys = users;
   "miniflux-creds.age".publicKeys = users;
+  "paperless.age".publicKeys = users;
   "prowlarr.age".publicKeys = users;
   "radarr.age".publicKeys = users;
   "sonarr.age".publicKeys = users;
