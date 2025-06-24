@@ -55,23 +55,7 @@ in
         allowedHosts = "${feature}.fi33.buzz";
         services = [
           {
-            Streaming = [
-              {
-                "Jellyfin" = {
-                  "icon" = "jellyfin.png";
-                  "href" = "https://jellyfin.fi33.buzz/";
-                  "widget" = {
-                    "type" = "jellyfin";
-                    "url" = "https://jellyfin.fi33.buzz/";
-                    "key" = "@jellyfin@";
-                    "enableBlocks" = true;
-                    "enableNowPlaying" = true;
-                    "enableUser" = true;
-                    "showEpisodeNumber" = true;
-                    "expandOneStreamToTwoRows" = false;
-                  };
-                };
-              }
+            "Media Management" = [
               {
                 "Lidarr" = {
                   "icon" = "lidarr.png";
@@ -122,7 +106,7 @@ in
             ];
           }
           {
-            Media = [
+            "Media Streaming" = [
               {
                 "Immich" = {
                   "icon" = "immich.png";
@@ -141,15 +125,19 @@ in
                   };
                 };
               }
-             {
-                "Paperless" = {
-                  "icon" = "paperlessngx.png";
-                  "href" = "https://paperless.fi33.buzz/";
+              {
+                "Jellyfin" = {
+                  "icon" = "jellyfin.png";
+                  "href" = "https://jellyfin.fi33.buzz/";
                   "widget" = {
-                    "type" = "paperlessngx";
-                    "url" = "https://paperless.fi33.buzz/";
-                    "username" = "admin";
-                    "password" = "@paperless@";
+                    "type" = "jellyfin";
+                    "url" = "https://jellyfin.fi33.buzz/";
+                    "key" = "@jellyfin@";
+                    "enableBlocks" = true;
+                    "enableNowPlaying" = true;
+                    "enableUser" = true;
+                    "showEpisodeNumber" = true;
+                    "expandOneStreamToTwoRows" = false;
                   };
                 };
               }
@@ -164,10 +152,22 @@ in
                   };
                 };
               }
+              {
+               "Paperless" = {
+                 "icon" = "paperless.png";
+                 "href" = "https://paperless.fi33.buzz/";
+                 "widget" = {
+                   "type" = "paperlessngx";
+                   "url" = "https://paperless.fi33.buzz/";
+                   "username" = "admin";
+                   "password" = "@paperless@";
+                 };
+               };
+              }
             ];
           }
           {
-            Services = [
+            "Cloud Services"= [
               {
                 "CouchDB" = {
                   "icon" = "couchdb.png";
@@ -208,25 +208,46 @@ in
           }
         ];
         settings = {
+          title = "Mission Control";
           theme = "dark";
           color = "neutral";
           headerStyle = "clean";
-          layout = {
-            Streaming = {
-              columns = 2;
-              style = "row";
-            };
-            Media = {
-              columns = 2;
-              style = "row";
-            };
-            Services = {
-              style = "row";
-              columns = 3;
-            };
-          };
+          layout = [
+           {            
+              "Media Streaming" = {
+                style = "row";
+                columns = 4;
+                useEqualHeights = true;
+              };
+            }
+            {            
+              "Media Management" = {
+                style = "row";
+                columns = 4;
+                useEqualHeights = true;
+              };
+            }
+            {
+              "Cloud Services" = {
+                style = "row";
+                columns = 3;
+              };
+            }
+          ];
+          quicklaunch.searchDescriptions = true;
+          disableUpdateCheck = true;
+          showStats = true;
+          statusStyle = "dot";
         };
         widgets = [
+          {
+            search = {
+              provider = [ "duckduckgo" "brave" ];
+              focus = true;
+              showSearchSuggestions = true;
+              target = "_blank";
+            };
+          }
           {
             resources = {
               cpu = true;
