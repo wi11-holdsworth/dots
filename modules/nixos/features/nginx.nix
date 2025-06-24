@@ -26,6 +26,12 @@ in
       recommendedTlsSettings = true;
       recommendedGzipSettings = true;
       recommendedOptimisation = true;
+
+      virtualHosts."*.fi33.buzz" = {
+        forceSSL = true;
+        useACMEHost = "fi33.buzz";
+        locations."/".index = "index.html";
+      };
     };
 
     security.acme = {
