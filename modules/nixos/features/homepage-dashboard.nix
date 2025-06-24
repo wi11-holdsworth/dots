@@ -36,6 +36,7 @@ let
     "jellyfin"
     "lidarr"
     "miniflux"
+    "paperless"
     "prowlarr"
     "radarr"
     "sonarr"
@@ -137,6 +138,18 @@ in
                     "url" = "https://immich.fi33.buzz/";
                     "version" = 2;
                     "key" = "@immich@";
+                  };
+                };
+              }
+             {
+                "Paperless" = {
+                  "icon" = "paperlessngx.png";
+                  "href" = "https://paperless.fi33.buzz/";
+                  "widget" = {
+                    "type" = "paperlessngx";
+                    "url" = "https://paperless.fi33.buzz/";
+                    "username" = "admin";
+                    "password" = "@paperless@";
                   };
                 };
               }
