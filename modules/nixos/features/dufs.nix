@@ -31,6 +31,7 @@ in
         volumes = [ "/srv/${feature}:/data" ];
 
         cmd = [
+          "-a=admin:$6$j4cVhSXlBfnJb5LI$M9zzVmLtRQdJeGByy6GlS1XBxGljOe71mFjrxPibQKDV7kbByIVFa2oH7dwdgt6aEJZctKXx0pY/JHq0lULIG0@/:rw"
           "-A"
           "/data"
         ];
