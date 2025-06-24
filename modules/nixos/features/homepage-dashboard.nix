@@ -175,12 +175,6 @@ in
                 };
               }
               {
-                "Dufs" = {
-                  "icon" = "proton-drive.png";
-                  "href" = "https://dufs.fi33.buzz/";
-                };
-              }
-              {
                 "Ntfy" = {
                   "icon" = "ntfy.png";
                   "href" = "https://ntfy-sh.fi33.buzz/";
