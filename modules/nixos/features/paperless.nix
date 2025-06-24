@@ -21,11 +21,13 @@ in
       # service
       ${feature} = {
         enable = true;
-        address = "https://paperless.fi33.buzz";
         dataDir = "/srv/paperless";
         database.createLocally = true;
-        passwordFile = config.age.secrets.paperless.file;
+        passwordFile = config.age.secrets.paperless.path;
         port = lib.toInt port;
+        settings = {
+          PAPERLESS_URL = "https://paperless.fi33.buzz";
+        };
       };
 
       # reverse proxy

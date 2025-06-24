@@ -24,6 +24,7 @@ in
     jellyfin-bundle.enable = true;
     miniflux.enable = true;
     ntfy-sh.enable = true;
+    paperless.enable = true;
     stirling-pdf.enable = true;
     vaultwarden.enable = true;
   };
