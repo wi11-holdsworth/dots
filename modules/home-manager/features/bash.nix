@@ -28,8 +28,6 @@ in
         enable = true;
 
         shellAliases = {
-          dots = "cd $FLAKE && clear && ls -T && echo";
-
           g = "git";
 
           la = "ls -a";
