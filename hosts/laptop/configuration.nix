@@ -15,12 +15,13 @@
 
   amd-gpu.enable = true;
   desktop.enable = true;
-  networkmanager.enable = true;
 
   # config
 
   boot.initrd.luks.devices."luks-433a5889-6f18-4c9a-8d99-db02af39bdee".device =
     "/dev/disk/by-uuid/433a5889-6f18-4c9a-8d99-db02af39bdee";
+
+  networking.networkmanager.enable = true;
 
   system.stateVersion = "24.11";
 

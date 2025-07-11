@@ -16,6 +16,7 @@ in
   fonts.enable = lib.mkDefault true;
   home-manager.enable = lib.mkDefault true;
   localisation.enable = lib.mkDefault true;
+  network.enable = lib.mkDefault true;
   nh.enable = lib.mkDefault true;
   nix-settings.enable = lib.mkDefault true;
   nixpkgs.enable = lib.mkDefault true;

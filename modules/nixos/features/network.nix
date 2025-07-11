@@ -5,14 +5,11 @@
   ...
 }:
 let
-  feature = "networkmanager";
+  feature = "network";
 in
 {
   config = lib.mkIf config.${feature}.enable {
-    networking = {
-      hostName = "${hostName}";
-      networkmanager.enable = true;
-    };
+    networking.hostName = "${hostName}";
   };
 
   imports = [ ];
