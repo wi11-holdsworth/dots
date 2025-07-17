@@ -9,7 +9,10 @@ let
 in
 {
   config = lib.mkIf config.${feature}.enable {
-    networking.hostName = "${hostName}";
+    networking = {
+      hostName = "${hostName}";
+      networkmanager.enable = true;
+    };
   };
 
   imports = [ ];
