@@ -22,6 +22,8 @@ in
     vaultwarden.enable = true;
     vscode-server.enable = true;
     webdav.enable = true;
+
+    users.groups.media = {};
   };
 
   imports = [ ];
