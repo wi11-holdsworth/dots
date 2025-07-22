@@ -4,7 +4,7 @@ let
 in
 {
   config = lib.mkIf config.${feature}.enable {
-    couchdb.enable = true;
+#    couchdb.enable = true;
     flaresolverr.enable = true;
     homepage-dashboard.enable = true;
     immich.enable = true;
