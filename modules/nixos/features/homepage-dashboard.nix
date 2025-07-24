@@ -170,15 +170,15 @@ in
                 };
               }
               {
-                "Stirling PDF" = {
-                  "icon" = "stirling-pdf.png";
-                  "href" = "https://stirling-pdf.fi33.buzz/";
+                "qBittorrent" = {
+                  "icon" = "qbittorrent.png";
+                  "href" = "https://qbittorrent.fi33.buzz/";
                 };
               }
               {
-                "Transmission" = {
-                  "icon" = "transmission.png";
-                  "href" = "https://transmission.fi33.buzz/";
+                "Stirling PDF" = {
+                  "icon" = "stirling-pdf.png";
+                  "href" = "https://stirling-pdf.fi33.buzz/";
                 };
               }
               {

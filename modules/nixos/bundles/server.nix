@@ -18,7 +18,7 @@ in
     radarr.enable = true;
     sonarr.enable = true;
     stirling-pdf.enable = true;
-    transmission.enable = true;
+    qbittorrent.enable = true;
     vaultwarden.enable = true;
     vscode-server.enable = true;
     webdav.enable = true;
