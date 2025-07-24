@@ -47,6 +47,7 @@ in
             "Media Management" = [
               {
                 "Lidarr" = {
+                  "description" = "Music collection manager";
                   "icon" = "lidarr.png";
                   "href" = "https://lidarr.fi33.buzz/";
                   "widget" = {
@@ -59,6 +60,7 @@ in
               }
               {
                 "Prowlarr" = {
+                  "description" = "Indexer management tool";
                   "icon" = "prowlarr.png";
                   "href" = "https://prowlarr.fi33.buzz/";
                   "widget" = {
@@ -70,6 +72,7 @@ in
               }
               {
                 "Radarr" = {
+                  "description" = "Movie collection manager";
                   "icon" = "radarr.png";
                   "href" = "https://radarr.fi33.buzz/";
                   "widget" = {
@@ -82,6 +85,7 @@ in
               }
               {
                 "Sonarr" = {
+                  "description" = "TV show collection manager";
                   "icon" = "sonarr.png";
                   "href" = "https://sonarr.fi33.buzz/";
                   "widget" = {
@@ -98,6 +102,7 @@ in
             "Media Streaming" = [
               {
                 "Immich" = {
+                  "description" = "Photo backup";
                   "icon" = "immich.png";
                   "href" = "https://immich.fi33.buzz/";
                   "widget" = {
@@ -116,6 +121,7 @@ in
               }
               {
                 "Jellyfin" = {
+                  "description" = "Media streaming";
                   "icon" = "jellyfin.png";
                   "href" = "https://jellyfin.fi33.buzz/";
                   "widget" = {
@@ -132,6 +138,7 @@ in
               }
               {
                 "Miniflux" = {
+                  "description" = "RSS aggregator";
                   "icon" = "miniflux.png";
                   "href" = "https://miniflux.fi33.buzz/";
                   "widget" = {
@@ -143,6 +150,7 @@ in
               }
               {
                 "Paperless" = {
+                  "description" = "Digital filing cabinet";
                   "icon" = "paperless.png";
                   "href" = "https://paperless.fi33.buzz/";
                   "widget" = {
@@ -159,30 +167,35 @@ in
             "Cloud Services" = [
               {
                 "CouchDB" = {
+                  "description" = "Obsidian sync database";
                   "icon" = "couchdb.png";
                   "href" = "https://couchdb.fi33.buzz/_utils/";
                 };
               }
               {
                 "Ntfy" = {
+                  "description" = "Notification service";
                   "icon" = "ntfy.png";
                   "href" = "https://ntfy-sh.fi33.buzz/";
                 };
               }
               {
                 "qBittorrent" = {
+                  "description" = "BitTorrent client";
                   "icon" = "qbittorrent.png";
                   "href" = "https://qbittorrent.fi33.buzz/";
                 };
               }
               {
                 "Stirling PDF" = {
+                  "description" = "PDF toolbox";
                   "icon" = "stirling-pdf.png";
                   "href" = "https://stirling-pdf.fi33.buzz/";
                 };
               }
               {
                 "Vaultwarden" = {
+                  "description" = "Password manager";
                   "icon" = "vaultwarden.png";
                   "href" = "https://vaultwarden.fi33.buzz/";
                 };
