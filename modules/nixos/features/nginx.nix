@@ -8,8 +8,8 @@ let
 in
 {
   config = lib.mkIf config.${feature}.enable {
-    age.secrets."api-porkbun" = {
-      file = ../../../secrets/api-porkbun.age;
+    age.secrets."porkbun-api" = {
+      file = ../../../secrets/porkbun-api.age;
     };
 
     services.${feature} = {
@@ -36,7 +36,7 @@ in
         group = "${feature}";
         dnsProvider = "porkbun";
         dnsPropagationCheck = true;
-        credentialsFile = config.age.secrets."api-porkbun".path;
+        credentialsFile = config.age.secrets."porkbun-api".path;
       };
     };
 
