@@ -11,7 +11,7 @@ in
   config = lib.mkIf config.${feature}.enable {
     services = {
       # service
-      ${feature} = {
+      radarr = {
         enable = true;
         dataDir = "/srv/radarr";
         settings.server.port = lib.toInt port;

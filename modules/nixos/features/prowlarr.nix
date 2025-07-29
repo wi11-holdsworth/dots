@@ -11,7 +11,7 @@ in
   config = lib.mkIf config.${feature}.enable {
     services = {
       # service
-      ${feature} = {
+      prowlarr = {
         enable = true;
         dataDir = "/srv/prowlarr";
         settings.server.port = lib.toInt port;

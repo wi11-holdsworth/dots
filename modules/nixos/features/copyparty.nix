@@ -13,17 +13,9 @@ in
   imports = [ inputs.copyparty.nixosModules.default ];
 
   config = lib.mkIf config.${feature}.enable {
-    environment.systemPackages = [ pkgs.copyparty ];
-    nixpkgs.overlays = [ inputs.copyparty.overlays.default ];
-
-    age.secrets."copyparty-will" = {
-      file = ../../../secrets/copyparty-will.age;
-      owner = "copyparty";
-    };
-
     services = {
       # service
-      ${feature} = {
+      copyparty = {
         enable = true;
         settings = {
           z = true;
@@ -62,6 +54,15 @@ in
         };
       };
     };
+
+    # secrets
+    age.secrets."copyparty-will" = {
+      file = ../../../secrets/copyparty-will.age;
+      owner = "copyparty";
+    };
+
+    environment.systemPackages = [ pkgs.copyparty ];
+    nixpkgs.overlays = [ inputs.copyparty.overlays.default ];
   };
 
   options.${feature}.enable = lib.mkEnableOption "enables ${feature}";

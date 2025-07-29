@@ -8,11 +8,7 @@ let
 in
 {
   config = lib.mkIf config.${feature}.enable {
-    age.secrets."porkbun-api" = {
-      file = ../../../secrets/porkbun-api.age;
-    };
-
-    services.${feature} = {
+    services.nginx = {
       enable = true;
 
       recommendedProxySettings = true;
@@ -33,14 +29,19 @@ in
       certs."fi33.buzz" = {
         domain = "fi33.buzz";
         extraDomainNames = [ "*.fi33.buzz" ];
-        group = "${feature}";
+        group = "nginx";
         dnsProvider = "porkbun";
         dnsPropagationCheck = true;
         credentialsFile = config.age.secrets."porkbun-api".path;
       };
     };
 
-    users.users.${feature}.extraGroups = [ "acme" ];
+    # secrets
+    age.secrets."porkbun-api" = {
+      file = ../../../secrets/porkbun-api.age;
+    };
+
+    users.users.nginx.extraGroups = [ "acme" ];
   };
 
   options.${feature}.enable = lib.mkEnableOption "enables ${feature}";

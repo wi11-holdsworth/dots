@@ -11,10 +11,10 @@ in
   config = lib.mkIf config.${feature}.enable {
     services = {
       # service
-      ${feature} = {
+      ntfy-sh = {
         enable = true;
         settings = {
-          base-url = "https://${feature}.fi33.buzz";
+          base-url = "https://ntfy-sh.fi33.buzz";
           listen-http = ":${port}";
           behind-proxy = true;
         };

@@ -9,11 +9,9 @@ let
 in
 {
   config = lib.mkIf config.${feature}.enable {
-    age.secrets.miniflux-creds.file = ../../../secrets/miniflux-creds.age;
-
     services = {
       # service
-      ${feature} = {
+      miniflux = {
         enable = true;
         adminCredentialsFile = config.age.secrets.miniflux-creds.path;
         config = {
@@ -34,6 +32,10 @@ in
         };
       };
     };
+
+    # secrets
+    age.secrets."miniflux-creds".file = ../../../secrets/miniflux-creds.age;
+
   };
 
   options.${feature}.enable = lib.mkEnableOption "enables ${feature}";

@@ -12,7 +12,7 @@ in
   config = lib.mkIf config.${feature}.enable {
     services = {
       # service
-      ${feature} = {
+      jellyfin = {
         enable = true;
         dataDir = "/srv/jellyfin";
         group = "media";

@@ -11,7 +11,7 @@ in
   config = lib.mkIf config.${feature}.enable {
     services = {
       # service
-      ${feature} = {
+      paperless = {
         enable = true;
         dataDir = "/srv/paperless";
         database.createLocally = true;
@@ -35,7 +35,10 @@ in
       };
     };
 
-    age.secrets.paperless.file = ../../../secrets/paperless.age;
+    age.secrets."paperless" = {
+      file = ../../../secrets/paperless.age;
+      owner = "paperless";
+    };
   };
 
   options.${feature}.enable = lib.mkEnableOption "enables ${feature}";

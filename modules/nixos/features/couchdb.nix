@@ -11,7 +11,7 @@ in
   config = lib.mkIf config.${feature}.enable {
     services = {
       # service
-      ${feature} = {
+      couchdb = {
         enable = true;
         databaseDir = "/srv/couchdb";
         viewIndexDir = "/srv/couchdb";

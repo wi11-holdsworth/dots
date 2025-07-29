@@ -15,7 +15,5 @@ in
     };
   };
 
-  imports = [ ];
-
   options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
 }

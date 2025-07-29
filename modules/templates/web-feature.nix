@@ -7,7 +7,7 @@ in
   config = lib.mkIf config.${feature}.enable {
     services = {
       # service
-      ${feature} = {
+      feature = {
         enable = true;
       };
 

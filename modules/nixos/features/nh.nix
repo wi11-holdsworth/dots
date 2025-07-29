@@ -9,7 +9,7 @@ let
 in
 {
   config = lib.mkIf config.${feature}.enable {
-    programs.${feature} = {
+    programs.nh = {
       enable = true;
       # clean.enable = true;
       flake = "/home/${userName}/.dots";

@@ -11,7 +11,7 @@ in
   config = lib.mkIf config.${feature}.enable {
     services = {
       # service
-      ${feature} = {
+      lidarr = {
         enable = true;
         dataDir = "/srv/lidarr";
         settings.server.port = lib.toInt port;

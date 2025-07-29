@@ -10,18 +10,20 @@ let
 in
 {
   config = lib.mkIf config.${feature}.enable {
-    services.${feature} = {
-      enable = true;
-      backupDir = "/srv/${feature}";
-      config = {
-        rocketPort = "${port}";
-        domain = "https://${feature}.fi33.buzz";
-        signupsAllowed = false;
-        invitationsAllowed = false;
-        showPasswordHint = false;
-        useSyslog = true;
-        extendedLogging = true;
-        adminTokenFile = "${config.age.secrets.vaultwarden-admin.path}";
+    services = {
+      vaultwarden = {
+        enable = true;
+        backupDir = "/srv/vaultwarden";
+        config = {
+          rocketPort = "${port}";
+          domain = "https://vaultwarden.fi33.buzz";
+          signupsAllowed = false;
+          invitationsAllowed = false;
+          showPasswordHint = false;
+          useSyslog = true;
+          extendedLogging = true;
+          adminTokenFile = "${config.age.secrets.vaultwarden-admin.path}";
+        };
       };
     };
 
@@ -36,11 +38,9 @@ in
     };
 
     # secrets
-    age.secrets = {
-      "vaultwarden-admin" = {
-        file = ../../../secrets/vaultwarden-admin.age;
-        owner = "${feature}";
-      };
+    age.secrets."vaultwarden-admin" = {
+      file = ../../../secrets/vaultwarden-admin.age;
+      owner = "vaultwarden";
     };
   };
 

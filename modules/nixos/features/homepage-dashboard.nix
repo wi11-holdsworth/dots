@@ -33,15 +33,12 @@ let
 in
 {
   config = lib.mkIf config.${feature}.enable {
-    system.activationScripts = insertSecrets secrets;
-    age.secrets = genSecrets secrets;
-
     services = {
       # service
-      ${feature} = {
+      homepage-dashboard = {
         enable = true;
         listenPort = lib.toInt port;
-        allowedHosts = "${feature}.fi33.buzz";
+        allowedHosts = "homepage-dashboard.fi33.buzz";
         services = [
           {
             "Media Management" = [
@@ -275,6 +272,10 @@ in
         };
       };
     };
+
+    # secrets
+    age.secrets = genSecrets secrets;
+    system.activationScripts = insertSecrets secrets;
   };
 
   options.${feature}.enable = lib.mkEnableOption "enables ${feature}";

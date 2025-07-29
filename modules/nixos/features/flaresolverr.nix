@@ -11,7 +11,7 @@ in
   config = lib.mkIf config.${feature}.enable {
     services = {
       # service
-      ${feature} = {
+      flaresolverr = {
         enable = true;
         port = lib.toInt port;
       };

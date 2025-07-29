@@ -11,7 +11,7 @@ in
   config = lib.mkIf config.${feature}.enable {
     services = {
       # service
-      ${feature} = {
+      sonarr = {
         enable = true;
         dataDir = "/srv/sonarr";
         settings.server.port = lib.toInt port;

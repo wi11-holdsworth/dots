@@ -10,7 +10,7 @@ in
 {
   config = lib.mkIf config.${feature}.enable {
     environment.variables.EDITOR = "nvim";
-    programs.${feature} = {
+    programs.nixvim = {
       enable = true;
       opts = {
         shiftwidth = 2;
