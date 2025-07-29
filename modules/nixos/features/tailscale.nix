@@ -10,7 +10,6 @@ in
   config = lib.mkIf config.${feature}.enable {
     services = {
       ${feature}.enable = true;
-      nginx.tailscaleAuth.enable = true;
     };
 
     networking.firewall.trustedInterfaces = [ "tailscale0" ];
