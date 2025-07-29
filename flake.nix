@@ -15,11 +15,12 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    copyparty.url = "github:9001/copyparty";
     vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
   outputs =
-    { nixpkgs, agenix, ... }@inputs:
+    { nixpkgs, ... }@inputs:
     let
       commonSystem =
         {

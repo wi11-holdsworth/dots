@@ -10,6 +10,7 @@ in
   "api-miniflux.age".publicKeys = users;
   "borgbackup-server-offsite.age".publicKeys = users;
   "borgbackup-server-onsite.age".publicKeys = users;
+  "copyparty-will.age".publicKeys = users;
   "immich.age".publicKeys = users;
   "jellyfin.age".publicKeys = users;
   "jellyseerr.age".publicKeys = users;

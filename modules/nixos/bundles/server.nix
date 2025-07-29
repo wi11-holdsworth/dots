@@ -5,6 +5,7 @@ in
 {
   config = lib.mkIf config.${feature}.enable {
 #    couchdb.enable = true;
+    copyparty.enable = true;
     flaresolverr.enable = true;
     homepage-dashboard.enable = true;
     immich.enable = true;
@@ -20,7 +21,6 @@ in
     qbittorrent.enable = true;
     vaultwarden.enable = true;
     vscode-server.enable = true;
-    webdav.enable = true;
 
     users.groups.media = {};
   };

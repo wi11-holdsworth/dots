@@ -166,6 +166,13 @@ in
           {
             "Cloud Services" = [
               {
+                "copyparty" = {
+                  "description" = "Cloud file manager";
+                  "icon" = "sh-copyparty.png";
+                  "href" = "https://copyparty.fi33.buzz/";
+                };
+              }
+              {
                 "CouchDB" = {
                   "description" = "Obsidian sync database";
                   "icon" = "couchdb.png";
