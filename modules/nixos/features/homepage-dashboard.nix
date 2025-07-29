@@ -187,13 +187,6 @@ in
                 };
               }
               {
-                "Stirling PDF" = {
-                  "description" = "PDF toolbox";
-                  "icon" = "stirling-pdf.png";
-                  "href" = "https://stirling-pdf.fi33.buzz/";
-                };
-              }
-              {
                 "Vaultwarden" = {
                   "description" = "Password manager";
                   "icon" = "vaultwarden.png";
