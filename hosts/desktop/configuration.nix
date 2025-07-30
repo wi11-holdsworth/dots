@@ -18,6 +18,7 @@
   external-speakers.enable = true;
   gaming.enable = true;
   link2c.enable = true;
+  plasma.enable = true;
 
   # config
 

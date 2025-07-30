@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   feature = "plasma";
 in
@@ -11,6 +11,12 @@ in
         wayland.enable = true;
       };
     };
+
+    environment.systemPackages = with pkgs.kdePackages; [
+      skanlite
+      ktorrent
+      kzones
+    ];
   };
 
   options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
