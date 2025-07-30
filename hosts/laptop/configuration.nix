@@ -15,11 +15,11 @@
 
   amd-gpu.enable = true;
   desktop.enable = true;
+  gnome.enable = true;
 
   # config
 
-  boot.initrd.luks.devices."luks-433a5889-6f18-4c9a-8d99-db02af39bdee".device =
-    "/dev/disk/by-uuid/433a5889-6f18-4c9a-8d99-db02af39bdee";
+  boot.initrd.luks.devices."luks-a7726a9d-535f-44bc-9c0e-adc501fad371".device = "/dev/disk/by-uuid/a7726a9d-535f-44bc-9c0e-adc501fad371";
 
   system.stateVersion = "24.11";
 
