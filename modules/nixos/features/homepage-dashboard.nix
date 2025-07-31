@@ -45,7 +45,7 @@ in
               {
                 "Lidarr" = {
                   "description" = "Music collection manager";
-                  "icon" = "lidarr.png";
+                  "icon" = "lidarr.svg";
                   "href" = "https://lidarr.fi33.buzz/";
                   "widget" = {
                     "type" = "lidarr";
@@ -58,7 +58,7 @@ in
               {
                 "Prowlarr" = {
                   "description" = "Indexer management tool";
-                  "icon" = "prowlarr.png";
+                  "icon" = "prowlarr.svg";
                   "href" = "https://prowlarr.fi33.buzz/";
                   "widget" = {
                     "type" = "prowlarr";
@@ -70,7 +70,7 @@ in
               {
                 "Radarr" = {
                   "description" = "Movie collection manager";
-                  "icon" = "radarr.png";
+                  "icon" = "radarr.svg";
                   "href" = "https://radarr.fi33.buzz/";
                   "widget" = {
                     "type" = "radarr";
@@ -83,7 +83,7 @@ in
               {
                 "Sonarr" = {
                   "description" = "TV show collection manager";
-                  "icon" = "sonarr.png";
+                  "icon" = "sonarr.svg";
                   "href" = "https://sonarr.fi33.buzz/";
                   "widget" = {
                     "type" = "sonarr";
@@ -100,7 +100,7 @@ in
               {
                 "Immich" = {
                   "description" = "Photo backup";
-                  "icon" = "immich.png";
+                  "icon" = "immich.svg";
                   "href" = "https://immich.fi33.buzz/";
                   "widget" = {
                     "type" = "immich";
@@ -119,7 +119,7 @@ in
               {
                 "Jellyfin" = {
                   "description" = "Media streaming";
-                  "icon" = "jellyfin.png";
+                  "icon" = "jellyfin.svg";
                   "href" = "https://jellyfin.fi33.buzz/";
                   "widget" = {
                     "type" = "jellyfin";
@@ -136,7 +136,7 @@ in
               {
                 "Miniflux" = {
                   "description" = "RSS aggregator";
-                  "icon" = "miniflux.png";
+                  "icon" = "miniflux.svg";
                   "href" = "https://miniflux.fi33.buzz/";
                   "widget" = {
                     "type" = "miniflux";
@@ -148,7 +148,7 @@ in
               {
                 "Paperless" = {
                   "description" = "Digital filing cabinet";
-                  "icon" = "paperless.png";
+                  "icon" = "paperless.svg";
                   "href" = "https://paperless.fi33.buzz/";
                   "widget" = {
                     "type" = "paperlessngx";
@@ -165,35 +165,35 @@ in
               {
                 "copyparty" = {
                   "description" = "Cloud file manager";
-                  "icon" = "sh-copyparty.png";
+                  "icon" = "sh-copyparty.svg";
                   "href" = "https://copyparty.fi33.buzz/";
                 };
               }
               {
                 "CouchDB" = {
                   "description" = "Obsidian sync database";
-                  "icon" = "couchdb.png";
+                  "icon" = "couchdb.svg";
                   "href" = "https://couchdb.fi33.buzz/_utils/";
                 };
               }
               {
                 "ntfy" = {
                   "description" = "Notification service";
-                  "icon" = "ntfy.png";
+                  "icon" = "ntfy.svg";
                   "href" = "https://ntfy-sh.fi33.buzz/";
                 };
               }
               {
                 "qBittorrent" = {
                   "description" = "BitTorrent client";
-                  "icon" = "qbittorrent.png";
+                  "icon" = "qbittorrent.svg";
                   "href" = "https://qbittorrent.fi33.buzz/";
                 };
               }
               {
                 "Vaultwarden" = {
                   "description" = "Password manager";
-                  "icon" = "vaultwarden.png";
+                  "icon" = "vaultwarden.svg";
                   "href" = "https://vaultwarden.fi33.buzz/";
                 };
               }
