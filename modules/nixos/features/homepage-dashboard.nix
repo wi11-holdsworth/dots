@@ -199,6 +199,17 @@ in
               }
             ];
           }
+          {
+            "Utilities" = [
+              {
+                "NanoKVM" = {
+                  "description" = "Remote KVM switch";
+                  "icon" = "mdi-console.svg";
+                  "href" = "http://nano-kvm/";
+                };
+              }
+            ];
+          }
         ];
         settings = {
           title = "Mission Control";
@@ -222,6 +233,12 @@ in
             }
             {
               "Cloud Services" = {
+                style = "row";
+                columns = 3;
+              };
+            }
+            {
+              "Utilities" = {
                 style = "row";
                 columns = 3;
               };
