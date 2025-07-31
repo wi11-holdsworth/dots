@@ -9,6 +9,7 @@ let
 in
 {
   config = lib.mkIf config.${feature}.enable {
+    dev.enable = true;
     pipewire.enable = true;
     print-and-scan.enable = true;
 
@@ -22,7 +23,6 @@ in
       libreoffice
       obsidian
       vlc
-      vscode
     ];
   };
 
