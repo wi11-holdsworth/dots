@@ -35,6 +35,5 @@ in
     lazygit
     nom
     ripgrep-all
-    spotdl
   ];
 }
