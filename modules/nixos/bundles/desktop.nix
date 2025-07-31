@@ -20,7 +20,6 @@ in
       jellyfin-media-player
       kiwix
       libreoffice
-      nixfmt-rfc-style
       obsidian
       vlc
       vscode

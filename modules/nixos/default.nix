@@ -35,5 +35,6 @@ in
     lazygit
     nom
     ripgrep-all
+    nixfmt-rfc-style
   ];
 }
