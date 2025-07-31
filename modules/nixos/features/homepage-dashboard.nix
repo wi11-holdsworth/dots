@@ -177,7 +177,7 @@ in
                 };
               }
               {
-                "Ntfy" = {
+                "ntfy" = {
                   "description" = "Notification service";
                   "icon" = "ntfy.png";
                   "href" = "https://ntfy-sh.fi33.buzz/";
