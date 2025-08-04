@@ -12,6 +12,7 @@ in
     environment.systemPackages = with pkgs; [
       swi-prolog
       vscode
+      devenv
     ];
   };
 
