@@ -8,7 +8,12 @@ let
 in
 {
   config = lib.mkIf config.${feature}.enable {
-    services.tailscale.enable = true;
+    services.tailscale = {
+      enable = true;
+      extraSetFlags = [
+        "--accept-dns=false"
+      ];
+    };
 
     networking.firewall.trustedInterfaces = [ "tailscale0" ];
   };
