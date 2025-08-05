@@ -184,6 +184,13 @@ in
                 };
               }
               {
+                "Radicale" = {
+                  "description" = "CalDAV/CardDav sync server";
+                  "icon" = "radicale.svg";
+                  "href" = "https://radicale.fi33.buzz/";
+                };
+              }
+              {
                 "qBittorrent" = {
                   "description" = "BitTorrent client";
                   "icon" = "qbittorrent.svg";
