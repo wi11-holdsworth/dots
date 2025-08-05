@@ -21,6 +21,7 @@ in
   "porkbun-api.age".publicKeys = users;
   "prowlarr.age".publicKeys = users;
   "radarr.age".publicKeys = users;
+  "radicale.age".publicKeys = users;
   "sonarr.age".publicKeys = users;
   "vaultwarden-admin.age".publicKeys = users;
 }

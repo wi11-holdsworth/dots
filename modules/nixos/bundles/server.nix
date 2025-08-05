@@ -17,12 +17,13 @@ in
     paperless.enable = true;
     prowlarr.enable = true;
     radarr.enable = true;
+    radicale.enable = true;
     sonarr.enable = true;
     qbittorrent.enable = true;
     vaultwarden.enable = true;
     vscode-server.enable = true;
 
-    users.groups.media = {};
+    users.groups.media = { };
   };
 
   imports = [ ];
