@@ -10,6 +10,7 @@ in
 {
   config = lib.mkIf config.${feature}.enable {
     environment.systemPackages = with pkgs; [
+      devenv
       swi-prolog
       vscode
       devenv
