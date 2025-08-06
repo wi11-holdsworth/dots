@@ -19,10 +19,7 @@ in
       calibre
       cameractrls-gtk3
       jellyfin-media-player
-      kiwix
-      libreoffice
       obsidian
-      vlc
     ];
   };
 
