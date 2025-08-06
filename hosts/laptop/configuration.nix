@@ -16,6 +16,7 @@
   amd-gpu.enable = true;
   desktop.enable = true;
   gnome.enable = true;
+  tlp.enable = true;
 
   # config
 
