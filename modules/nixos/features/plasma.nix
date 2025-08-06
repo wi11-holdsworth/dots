@@ -22,7 +22,6 @@ in
       [
         kontact
         calligra
-        kdeconnect-kde
         ktorrent
         kget
         kzones
