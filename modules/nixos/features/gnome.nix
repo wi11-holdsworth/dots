@@ -15,10 +15,6 @@ in
     };
 
     environment = {
-      systemPackages = with pkgs; [
-        endeavour # todo app
-      ];
-
       # https://discourse.nixos.org/t/howto-disable-most-gnome-default-applications-and-what-they-are/13505
       gnome.excludePackages = with pkgs; [
         # baobab # disk usage analyzer
