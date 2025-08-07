@@ -11,6 +11,11 @@ in
     programs.${feature} = {
       enable = true;
 
+      delta = {
+        enable = true;
+        options.theme = "Dracula";
+      };
+
       userName = "wi11-holdsworth";
       userEmail = "83637728+wi11-holdsworth@users.noreply.github.com";
 
