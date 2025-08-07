@@ -21,7 +21,6 @@ in
   nix-settings.enable = lib.mkDefault true;
   nixpkgs.enable = lib.mkDefault true;
   nixvim.enable = lib.mkDefault true;
-  starship.enable = lib.mkDefault true;
   systemd-boot.enable = lib.mkDefault true;
   tailscale.enable = lib.mkDefault true;
 

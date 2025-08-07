@@ -12,6 +12,7 @@ in
   fish.enable = lib.mkDefault true;
   gh.enable = lib.mkDefault true;
   git.enable = lib.mkDefault true;
+  starship.enable = lib.mkDefault true;
   yazi.enable = lib.mkDefault true;
   zoxide.enable = lib.mkDefault true;
 }
