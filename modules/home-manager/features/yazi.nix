@@ -1,0 +1,35 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  feature = "yazi";
+in
+{
+  config = lib.mkIf config.${feature}.enable {
+    programs.yazi = {
+      enable = true;
+      plugins = {
+        diff = pkgs.yaziPlugins.diff;
+        git = pkgs.yaziPlugins.git;
+        mediainfo = pkgs.yaziPlugins.mediainfo;
+        mount = pkgs.yaziPlugins.mount;
+        ouch = pkgs.yaziPlugins.ouch;
+        relative-motions = pkgs.yaziPlugins.relative-motions;
+        restore = pkgs.yaziPlugins.restore;
+        rich-preview = pkgs.yaziPlugins.rich-preview;
+        starship = pkgs.yaziPlugins.starship;
+        vcs-files = pkgs.yaziPlugins.vcs-files;
+        yatline-githead = pkgs.yaziPlugins.yatline-githead;
+      };
+      # flavors = {};
+      # themes = {};
+    };
+  };
+
+  imports = [ ];
+
+  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
+}
