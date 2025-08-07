@@ -1,21 +1,18 @@
 { config, lib, ... }:
 let
-  feature = "nushell";
+  feature = "fish";
 in
 {
   config = lib.mkIf config.${feature}.enable {
-    home.shell.enableNushellIntegration = true;
-    programs.nushell = {
+    home.shell.enableFishIntegration = true;
+    programs.fish = {
       enable = true;
-      environmentVariables = {
-
-      };
-      settings = {
-
-      };
+      interactiveShellInit = ''
+        set fish_greeting
+      '';
       shellAliases = {
         cat = "bat";
-        cd = "zoxide";
+        cd = "j";
         g = "lazygit";
         l = "eza";
         la = "eza -a";

@@ -34,7 +34,7 @@
       ];
       home = "/home/srv";
       isNormalUser = true;
-      shell = pkgs.bash;
+      shell = pkgs.fish;
     };
   };
 
