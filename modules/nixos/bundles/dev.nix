@@ -10,10 +10,16 @@ in
 {
   config = lib.mkIf config.${feature}.enable {
     environment.systemPackages = with pkgs; [
+      # general
       devenv
-      swi-prolog
+      just
+      mask
       vscode
-      devenv
+
+      # rust
+      bacon
+      cargo-info
+      rusty-man
     ];
   };
 
