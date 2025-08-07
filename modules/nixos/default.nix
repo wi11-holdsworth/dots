@@ -31,15 +31,16 @@ in
     nixfmt-rfc-style
 
     # rust replacements
-    # fish # shell
-    fd # find
-    xh # curl
-    dua # disk use analyser
-    hyperfine # benchmarking tool
     # delta # pager
-    ripgrep-all # grep
-    wiki-tui # wikipedia tui
+    # fish # shell
+    dua # disk use analyser
+    fd # find
+    hyperfine # benchmarking tool
+    lazygit # git tui
     mprocs # run long running commands and monitor output
     presenterm # presentations
+    ripgrep-all # grep
+    wiki-tui # wikipedia tui
+    xh # curl
   ];
 }
