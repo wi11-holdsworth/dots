@@ -4,7 +4,7 @@ let
 in
 {
   config = lib.mkIf config.${feature}.enable {
-    alacritty.enable = true;
+    kitty.enable = true;
     zellij.enable = true;
   };
 
