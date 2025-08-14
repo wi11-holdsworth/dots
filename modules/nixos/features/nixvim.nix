@@ -39,7 +39,10 @@ in
         cmp-calc.enable = true;
         lsp = {
           enable = true;
-          servers.nixd.enable = true;
+          servers = {
+            nixd.enable = true;
+            rust_analyzer.enable = true;
+          };
         };
         lsp-format.enable = true;
         autoclose.enable = true;
