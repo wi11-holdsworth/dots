@@ -12,7 +12,6 @@ in
   imports = (featureBundler ./bundles) ++ (featureBundler ./features);
 
   agenix.enable = lib.mkDefault true;
-  direnv.enable = lib.mkDefault true;
   fonts.enable = lib.mkDefault true;
   home-manager.enable = lib.mkDefault true;
   localisation.enable = lib.mkDefault true;
