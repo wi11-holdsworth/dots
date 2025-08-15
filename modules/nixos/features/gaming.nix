@@ -19,7 +19,6 @@ in
       wine64
       winetricks
       prismlauncher
-      nexusmods-app-unfree
     ];
 
     programs = {
