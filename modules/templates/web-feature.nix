@@ -1,13 +1,13 @@
 { config, lib, ... }:
 let
-  feature = "feature";
+  feature = "replace";
   port = "port";
 in
 {
   config = lib.mkIf config.${feature}.enable {
     services = {
       # service
-      feature = {
+      replace = {
         enable = true;
       };
 

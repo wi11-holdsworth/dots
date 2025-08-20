@@ -1,6 +1,6 @@
 { config, lib, ... }:
 let
-  feature = "feature";
+  feature = "replace";
 in
 {
   config = lib.mkIf config.${feature}.enable {
