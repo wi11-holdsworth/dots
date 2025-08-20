@@ -2,11 +2,47 @@
   config,
   lib,
   userName,
+  hostName,
   ...
 }:
 let
   feature = "syncthing";
   port = "5008";
+
+  devicesList = [
+    {
+      device = "desktop";
+      id = "";
+    }
+    {
+      device = "laptop";
+      id = "";
+    }
+    {
+      device = "phone";
+      id = "DF56S5M-2EDKAML-LZBB35J-MNNK7UE-WAYE2QW-EKUGKXN-U5JW3RX-S3FUGA4";
+    }
+    {
+      device = "server";
+      id = "OP7EU3A-7A4CCMY-D4T3ND7-YWMRBNJ-KVE34FG-ZJQFSLS-WMLRWB4-FL2O7AZ";
+    }
+  ];
+
+  devices = builtins.listToAttrs (
+    map (
+      { device, id }:
+      {
+        name = device;
+        value = {
+          addresses = [
+            "tcp://${device}:22000"
+          ];
+          autoAcceptFolders = true;
+          inherit id;
+        };
+      }
+    ) (builtins.filter (deviceSet: deviceSet.device != hostName) devicesList)
+  );
 in
 {
   config = lib.mkIf config.${feature}.enable {
@@ -14,8 +50,14 @@ in
       # service
       syncthing = {
         enable = true;
-        guiAddress = "127.0.0.1:${port}";
+        guiAddress = "0.0.0.0:${port}";
         openDefaultPorts = true;
+        user = "${userName}";
+        dataDir = "/home/${userName}";
+        overrideDevices = true;
+        settings = {
+          inherit devices;
+        };
       };
 
       # reverse proxy
