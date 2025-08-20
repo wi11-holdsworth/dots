@@ -41,6 +41,7 @@ in
           paths = [
             "/srv"
             "/home/srv/.config/syncthing"
+            "/home/srv/Sync"
           ];
 
           compression = "auto,zstd";
