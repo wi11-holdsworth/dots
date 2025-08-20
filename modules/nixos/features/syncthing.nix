@@ -12,7 +12,7 @@ let
   devicesList = [
     {
       device = "desktop";
-      id = "";
+      id = "SKDADYB-DQVC2EG-BZ67OJR-DO25ZUR-URP2G5U-FXRNC65-OWPEKHN-STTRRQG";
     }
     {
       device = "laptop";
