@@ -38,7 +38,11 @@ in
     services.borgbackup.jobs =
       let
         srv = location: {
-          paths = "/srv";
+          paths = [
+            "/srv"
+            "/home/srv/.config/syncthing"
+            "/home/srv/Sync"
+          ];
 
           compression = "auto,zstd";
 

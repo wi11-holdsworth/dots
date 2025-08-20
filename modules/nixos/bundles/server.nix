@@ -19,6 +19,7 @@ in
     radarr.enable = true;
     radicale.enable = true;
     sonarr.enable = true;
+    syncthing.enable = true;
     qbittorrent.enable = true;
     vaultwarden.enable = true;
     vscode-server.enable = true;

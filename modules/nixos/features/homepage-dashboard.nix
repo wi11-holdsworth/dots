@@ -191,6 +191,13 @@ in
                 };
               }
               {
+                "Syncthing" = {
+                  "description" = "Decentralised file synchronisation";
+                  "icon" = "syncthing.svg";
+                  "href" = "https://syncthing.fi33.buzz/";
+                };
+              }
+              {
                 "qBittorrent" = {
                   "description" = "BitTorrent client";
                   "icon" = "qbittorrent.svg";
