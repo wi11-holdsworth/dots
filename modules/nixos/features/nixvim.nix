@@ -73,6 +73,8 @@ in
           inlayHints = true;
           servers = {
             nixd.enable = true;
+          }
+          // lib.optionalAttrs config.dev.enable {
             rust_analyzer = {
               enable = true;
               installCargo = true;
