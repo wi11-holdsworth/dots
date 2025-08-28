@@ -21,6 +21,7 @@ in
       settings = {
         shell = "zellij -l welcome";
         remember_window_size = true;
+        confirm_os_window_close = 0;
       };
     };
   };
