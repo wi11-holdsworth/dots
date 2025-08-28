@@ -33,6 +33,7 @@ in
         relativenumber = true;
         shiftwidth = 2;
         tabstop = 2;
+        colorcolumn = "80";
       };
       plugins = {
         # autoclose brackets
@@ -76,6 +77,10 @@ in
               enable = true;
               installCargo = true;
               installRustc = true;
+            };
+            hls = {
+              enable = true;
+              installGhc = true;
             };
           };
         };

@@ -17,7 +17,6 @@ in
     paperless.enable = true;
     prowlarr.enable = true;
     radarr.enable = true;
-    radicale.enable = true;
     sonarr.enable = true;
     syncthing.enable = true;
     qbittorrent.enable = true;
