@@ -96,6 +96,9 @@ in
 
         # syntax highlighting
         treesitter.enable = true;
+      }
+      // lib.optionalAttrs config.dev.enable {
+        typescript-tools.enable = true;
       };
     };
   };
