@@ -21,7 +21,6 @@ in
       with pkgs.kdePackages;
       [
         kontact
-        calligra
         ktorrent
         kget
         kzones
@@ -29,6 +28,7 @@ in
       ++ (with pkgs; [
         kile
         haruna
+        onlyoffice-desktopeditors
       ]);
   };
 
