@@ -66,13 +66,10 @@ in
       in
       {
         onsite = srv "onsite" // {
-          repo = "/repo";
-          exclude = [ "/srv/immich" ];
+          repo = "/backup/repo";
 
           encryption.mode = "repokey-blake2";
           encryption.passCommand = "cat ${config.age.secrets.borgbackup-server-onsite.path}";
-
-          removableDevice = true;
         };
 
         offsite = srv "offsite" // {
@@ -88,9 +85,9 @@ in
     # onsite drive
     services.udisks2.enable = true;
 
-    fileSystems."/repo" = {
-      device = "/dev/sdb1";
-      fsType = "vfat";
+    fileSystems."/backup" = {
+      device = "/dev/disk/by-uuid/d3b3d7dc-d634-4327-9ea2-9d8daa4ecf4e";
+      fsType = "ext4";
     };
 
     # secrets
