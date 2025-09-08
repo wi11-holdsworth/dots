@@ -27,7 +27,7 @@ let
   notifyFailure =
     location:
     notify {
-      tag = "tada";
+      tag = "rotating_light";
       msg = "Backup failed, check logs";
       inherit location;
     };
