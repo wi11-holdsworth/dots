@@ -272,7 +272,10 @@ in
             resources = {
               cpu = true;
               memory = true;
-              disk = "/";
+              disk = [
+                "/"
+                "/backup"
+              ];
               cputemp = true;
               tempmin = 0;
               tempmax = 100;
