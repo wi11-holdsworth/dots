@@ -61,7 +61,6 @@ in
       owner = "copyparty";
     };
 
-    environment.systemPackages = [ pkgs.copyparty ];
     nixpkgs.overlays = [ inputs.copyparty.overlays.default ];
   };
 
