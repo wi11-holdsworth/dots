@@ -28,7 +28,6 @@ in
       ++ (with pkgs; [
         kile
         haruna
-        onlyoffice-desktopeditors
       ]);
   };
 

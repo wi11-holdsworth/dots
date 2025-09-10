@@ -20,6 +20,7 @@ in
       cameractrls-gtk3
       jellyfin-media-player
       obsidian
+      onlyoffice-desktopeditors
       sleek-todo
     ];
   };
