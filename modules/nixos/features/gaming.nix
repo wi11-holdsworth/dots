@@ -11,6 +11,7 @@ in
   config = lib.mkIf config.${feature}.enable {
     environment.systemPackages = with pkgs; [
       heroic
+      # TODO: break out into separate module
       lutris
       mangohud
       nexusmods-app
