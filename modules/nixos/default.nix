@@ -26,19 +26,16 @@ in
 
   # cli utils
   environment.systemPackages = with pkgs; [
-    nom
-    nixfmt-rfc-style
-
-    # rust replacements
-    # delta # pager
-    # fish # shell
     dua # disk use analyser
     fd # find
     hyperfine # benchmarking tool
     lazygit # git tui
     mprocs # run long running commands and monitor output
+    nom
+    nixfmt-rfc-style
     presenterm # presentations
     ripgrep-all # grep
+    ripunzip
     wiki-tui # wikipedia tui
     xh # curl
   ];
