@@ -22,7 +22,6 @@ in
       };
       dependencies = {
         tree-sitter.enable = true;
-        nodejs.enable = true;
         gcc.enable = true;
       };
       diagnostic.settings.virtual_lines = true;
@@ -96,9 +95,6 @@ in
 
         # syntax highlighting
         treesitter.enable = true;
-      }
-      // lib.optionalAttrs config.dev.enable {
-        typescript-tools.enable = true;
       };
     };
   };
