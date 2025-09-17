@@ -26,6 +26,7 @@ in
 
   environment.systemPackages = with pkgs; [
     # keep-sorted start
+    keep-sorted
     dua # disk use analyser
     fd # find
     hyperfine # benchmarking tool
