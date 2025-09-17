@@ -22,18 +22,16 @@ in
         # cheese # photo booth
         # eog # image viewer
         epiphany # web browser
-        gedit # text editor
-        # simple-scan # document scanner
-        totem # video player
-        yelp # help viewer
         evince # document viewer
         # file-roller # archive manager
         geary # email client
-        seahorse # password manager
+        gedit # text editor
         gnome-calculator
         gnome-calendar
         gnome-characters
         gnome-clocks
+        # gnome-disk-utility
+        gnome-connections
         gnome-contacts
         gnome-font-viewer
         gnome-logs
@@ -44,8 +42,10 @@ in
         # gnome-system-monitor
         gnome-terminal
         gnome-weather
-        # gnome-disk-utility
-        gnome-connections
+        seahorse # password manager
+        # simple-scan # document scanner
+        totem # video player
+        yelp # help viewer
         # keep-sorted end 
       ];
     };

@@ -3,20 +3,20 @@
 
   inputs = {
     # keep-sorted start block=yes
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     copyparty.url = "github:9001/copyparty";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     vscode-server.url = "github:nix-community/nixos-vscode-server";
     # keep-sorted end
   };

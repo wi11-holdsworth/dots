@@ -30,8 +30,8 @@
     users.${userName} = {
       extraGroups = [
         # keep-sorted start
-        "wheel"
         "docker"
+        "wheel"
         # keep-sorted end
       ];
       home = "/home/srv";

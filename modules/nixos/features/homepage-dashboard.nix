@@ -44,6 +44,52 @@ in
         services = [
           # keep-sorted start block=yes
           {
+            "Cloud Services" = [
+              {
+                "copyparty" = {
+                  "description" = "Cloud file manager";
+                  "icon" = "sh-copyparty.svg";
+                  "href" = "https://copyparty.fi33.buzz/";
+                };
+              }
+              {
+                "CouchDB" = {
+                  "description" = "Obsidian sync database";
+                  "icon" = "couchdb.svg";
+                  "href" = "https://couchdb.fi33.buzz/_utils/";
+                };
+              }
+              {
+                "ntfy" = {
+                  "description" = "Notification service";
+                  "icon" = "ntfy.svg";
+                  "href" = "https://ntfy-sh.fi33.buzz/";
+                };
+              }
+              {
+                "Syncthing" = {
+                  "description" = "Decentralised file synchronisation";
+                  "icon" = "syncthing.svg";
+                  "href" = "https://syncthing.fi33.buzz/";
+                };
+              }
+              {
+                "qBittorrent" = {
+                  "description" = "BitTorrent client";
+                  "icon" = "qbittorrent.svg";
+                  "href" = "https://qbittorrent.fi33.buzz/";
+                };
+              }
+              {
+                "Vaultwarden" = {
+                  "description" = "Password manager";
+                  "icon" = "vaultwarden.svg";
+                  "href" = "https://vaultwarden.fi33.buzz/";
+                };
+              }
+            ];
+          }
+          {
             "Media Management" = [
               {
                 "Lidarr" = {
@@ -159,52 +205,6 @@ in
                     "username" = "admin";
                     "password" = "@paperless@";
                   };
-                };
-              }
-            ];
-          }
-          {
-            "Cloud Services" = [
-              {
-                "copyparty" = {
-                  "description" = "Cloud file manager";
-                  "icon" = "sh-copyparty.svg";
-                  "href" = "https://copyparty.fi33.buzz/";
-                };
-              }
-              {
-                "CouchDB" = {
-                  "description" = "Obsidian sync database";
-                  "icon" = "couchdb.svg";
-                  "href" = "https://couchdb.fi33.buzz/_utils/";
-                };
-              }
-              {
-                "ntfy" = {
-                  "description" = "Notification service";
-                  "icon" = "ntfy.svg";
-                  "href" = "https://ntfy-sh.fi33.buzz/";
-                };
-              }
-              {
-                "Syncthing" = {
-                  "description" = "Decentralised file synchronisation";
-                  "icon" = "syncthing.svg";
-                  "href" = "https://syncthing.fi33.buzz/";
-                };
-              }
-              {
-                "qBittorrent" = {
-                  "description" = "BitTorrent client";
-                  "icon" = "qbittorrent.svg";
-                  "href" = "https://qbittorrent.fi33.buzz/";
-                };
-              }
-              {
-                "Vaultwarden" = {
-                  "description" = "Password manager";
-                  "icon" = "vaultwarden.svg";
-                  "href" = "https://vaultwarden.fi33.buzz/";
                 };
               }
             ];

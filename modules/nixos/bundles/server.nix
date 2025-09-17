@@ -5,8 +5,8 @@ in
 {
   config = lib.mkIf config.${feature}.enable {
     # keep-sorted start
-    couchdb.enable = true;
     copyparty.enable = true;
+    couchdb.enable = true;
     flaresolverr.enable = true;
     homepage-dashboard.enable = true;
     immich.enable = true;
@@ -17,10 +17,10 @@ in
     ntfy-sh.enable = true;
     paperless.enable = true;
     prowlarr.enable = true;
+    qbittorrent.enable = true;
     radarr.enable = true;
     sonarr.enable = true;
     syncthing.enable = true;
-    qbittorrent.enable = true;
     vaultwarden.enable = true;
     vscode-server.enable = true;
     # keep-sorted end

@@ -33,10 +33,10 @@
   users.users.${userName} = {
     extraGroups = [
       # keep-sorted start
-      "networkmanager"
-      "wheel"
-      "scanner"
       "lp"
+      "networkmanager"
+      "scanner"
+      "wheel"
       # keep-sorted end
     ];
     isNormalUser = true;

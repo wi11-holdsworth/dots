@@ -26,14 +26,14 @@ in
         };
         communityPlugins = [
           # keep-sorted start
-          "obsidian-livesync"
-          "oz-clear-unused-images"
           "obsidian-editor-shortcuts"
+          "obsidian-excalidraw-plugin"
+          "obsidian-livesync"
+          "obsidian-relative-line-numbers"
+          "oz-clear-unused-images"
+          "pdf-plus"
           "tag-wrangler"
           "virtual-linker"
-          "pdf-plus"
-          "obsidian-excalidraw-plugin"
-          "obsidian-relative-line-numbers"
           # keep-sorted end
         ];
         corePlugins = [

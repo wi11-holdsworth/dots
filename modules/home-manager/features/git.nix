@@ -26,17 +26,17 @@ in
         ap = "add -p";
         c = "commit --verbose";
         ca = "commit -a --verbose";
-        cm = "commit -m";
         cam = "commit -a -m";
-        m = "commit --amend --verbose";
-        d = "diff";
-        ds = "diff --stat";
-        dc = "diff --cached";
-        s = "status -s";
+        cm = "commit -m";
         co = "checkout";
         cob = "checkout -b";
-        ps = "push";
+        d = "diff";
+        dc = "diff --cached";
+        ds = "diff --stat";
+        m = "commit --amend --verbose";
         pl = "pull";
+        ps = "push";
+        s = "status -s";
         # keep-sorted end
       };
 

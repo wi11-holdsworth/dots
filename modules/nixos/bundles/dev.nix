@@ -14,13 +14,13 @@ in
       (
         [
           # keep-sorted start
+          bacon
+          cargo-info
           devenv
           just
           mask
-          vscode
-          bacon
-          cargo-info
           rusty-man
+          vscode
           # keep-sorted end
         ]
         ++ (with jetbrains; [

@@ -15,11 +15,11 @@ in
       lutris
       mangohud
       nexusmods-app
+      prismlauncher
       protonup-qt
       wine
       wine64
       winetricks
-      prismlauncher
       # keep-sorted end 
     ];
 

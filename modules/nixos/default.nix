@@ -26,14 +26,14 @@ in
 
   environment.systemPackages = with pkgs; [
     # keep-sorted start
-    keep-sorted
     dua # disk use analyser
     fd # find
     hyperfine # benchmarking tool
+    keep-sorted
     lazygit # git tui
     mprocs # run long running commands and monitor output
-    nom
     nixfmt-rfc-style
+    nom
     presenterm # presentations
     ripgrep-all # grep
     ripunzip

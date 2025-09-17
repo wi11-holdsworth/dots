@@ -15,11 +15,11 @@ in
         enable = true;
         extraPackages = with pkgs; [
           # keep-sorted start 
-          intel-media-driver
-          libva-vdpau-driver
           intel-compute-runtime
-          vpl-gpu-rt
+          intel-media-driver
           intel-ocl
+          libva-vdpau-driver
+          vpl-gpu-rt
           # keep-sorted end 
         ];
       };
