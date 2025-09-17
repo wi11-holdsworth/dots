@@ -20,6 +20,7 @@ in
       userEmail = "83637728+wi11-holdsworth@users.noreply.github.com";
 
       aliases = {
+        # keep-sorted start
         a = "add";
         aa = "add .";
         ap = "add -p";
@@ -36,6 +37,7 @@ in
         cob = "checkout -b";
         ps = "push";
         pl = "pull";
+        # keep-sorted end
       };
 
       extraConfig = {

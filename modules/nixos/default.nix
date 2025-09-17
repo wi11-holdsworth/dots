@@ -24,8 +24,8 @@ in
   systemd-boot.enable = lib.mkDefault true;
   tailscale.enable = lib.mkDefault true;
 
-  # cli utils
   environment.systemPackages = with pkgs; [
+    # keep-sorted start
     dua # disk use analyser
     fd # find
     hyperfine # benchmarking tool
@@ -38,5 +38,6 @@ in
     ripunzip
     wiki-tui # wikipedia tui
     xh # curl
+    # keep-sorted end
   ];
 }

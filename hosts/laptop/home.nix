@@ -7,7 +7,9 @@
 
   # reusable modules
 
+  # keep-sorted start
   desktop.enable = true;
+  # keep-sorted end
 
   # config
 

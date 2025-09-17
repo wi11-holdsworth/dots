@@ -7,6 +7,7 @@ in
 {
   imports = (featureBundler ./bundles) ++ (featureBundler ./features);
 
+  # keep-sorted start
   bat.enable = lib.mkDefault true;
   direnv.enable = lib.mkDefault true;
   eza.enable = lib.mkDefault true;
@@ -16,4 +17,5 @@ in
   starship.enable = lib.mkDefault true;
   yazi.enable = lib.mkDefault true;
   zoxide.enable = lib.mkDefault true;
+  # keep-sorted end
 }

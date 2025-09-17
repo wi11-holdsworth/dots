@@ -4,6 +4,7 @@ let
 in
 {
   config = lib.mkIf config.${feature}.enable {
+    # keep-sorted start
     couchdb.enable = true;
     copyparty.enable = true;
     flaresolverr.enable = true;
@@ -22,6 +23,7 @@ in
     qbittorrent.enable = true;
     vaultwarden.enable = true;
     vscode-server.enable = true;
+    # keep-sorted end
 
     users.groups.media = { };
   };

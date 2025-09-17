@@ -1,13 +1,18 @@
 let
+  # keep-sorted start
   srv = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOeV0NxqIGIXXgLYE6ntkHE4PARceZBp1FTI7kKLBbk8";
   will = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPHAnTQP77HQ/8nbf1oX7xftfKYtbH6MSh83wic0qdBy";
+  # keep-sorted end
   users = [
+    # keep-sorted start
     srv
     will
+    # keep-sorted end
   ];
 
 in
 {
+  # keep-sorted start
   "api-miniflux.age".publicKeys = users;
   "borgbackup-server-offsite.age".publicKeys = users;
   "borgbackup-server-onsite.age".publicKeys = users;
@@ -24,4 +29,5 @@ in
   "radicale.age".publicKeys = users;
   "sonarr.age".publicKeys = users;
   "vaultwarden-admin.age".publicKeys = users;
+  # keep-sorted end
 }

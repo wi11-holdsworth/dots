@@ -16,6 +16,7 @@ in
         set fish_greeting
       '';
       shellAliases = {
+        # keep-sorted start
         cat = "bat";
         cd = "j";
         g = "lazygit";
@@ -25,6 +26,7 @@ in
         ns = "nh os switch";
         vi = "nvim";
         vim = "nvim";
+        # keep-sorted end
       };
     };
 

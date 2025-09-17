@@ -17,6 +17,7 @@ in
     environment = {
       # https://discourse.nixos.org/t/howto-disable-most-gnome-default-applications-and-what-they-are/13505
       gnome.excludePackages = with pkgs; [
+        # keep-sorted start
         # baobab # disk usage analyzer
         # cheese # photo booth
         # eog # image viewer
@@ -29,8 +30,6 @@ in
         # file-roller # archive manager
         geary # email client
         seahorse # password manager
-
-        # these should be self explanatory
         gnome-calculator
         gnome-calendar
         gnome-characters
@@ -47,6 +46,7 @@ in
         gnome-weather
         # gnome-disk-utility
         gnome-connections
+        # keep-sorted end 
       ];
     };
   };

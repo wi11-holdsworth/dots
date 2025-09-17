@@ -14,14 +14,15 @@ in
     print-and-scan.enable = true;
 
     environment.systemPackages = with pkgs; [
+      # keep-sorted start
       beeper
       brave
       calibre
       cameractrls-gtk3
       jellyfin-media-player
-      # TODO: break out into separate configuration module
       onlyoffice-desktopeditors
       sleek-todo
+      # keep-sorted end
     ];
   };
 

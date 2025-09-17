@@ -25,6 +25,7 @@ in
           showRibbon = false;
         };
         communityPlugins = [
+          # keep-sorted start
           "obsidian-livesync"
           "oz-clear-unused-images"
           "obsidian-editor-shortcuts"
@@ -33,8 +34,10 @@ in
           "pdf-plus"
           "obsidian-excalidraw-plugin"
           "obsidian-relative-line-numbers"
+          # keep-sorted end
         ];
         corePlugins = [
+          # keep-sorted start
           "backlink"
           "bases"
           "bookmarks"
@@ -61,6 +64,7 @@ in
           "word-count"
           "workspaces"
           "zk-prefixer"
+          # keep-sorted end
         ];
         hotkeys = {
           "editor:swap-line-down" = [

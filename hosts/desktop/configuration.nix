@@ -1,7 +1,4 @@
 {
-  pkgs,
-  hostName,
-  inputs,
   userName,
   ...
 }:
@@ -13,12 +10,14 @@
 
   # reusable modules
 
+  # keep-sorted start
   amd-gpu.enable = true;
   desktop.enable = true;
   external-speakers.enable = true;
   gaming.enable = true;
   link2c.enable = true;
   plasma.enable = true;
+  # keep-sorted end
 
   # config
 
@@ -33,10 +32,12 @@
 
   users.users.${userName} = {
     extraGroups = [
+      # keep-sorted start
       "networkmanager"
       "wheel"
       "scanner"
       "lp"
+      # keep-sorted end
     ];
     isNormalUser = true;
   };

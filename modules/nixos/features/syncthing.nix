@@ -10,6 +10,7 @@ let
   port = "5008";
 
   devicesList = [
+    # keep-sorted start block=yes
     {
       device = "desktop";
       id = "SKDADYB-DQVC2EG-BZ67OJR-DO25ZUR-URP2G5U-FXRNC65-OWPEKHN-STTRRQG";
@@ -26,6 +27,7 @@ let
       device = "server";
       id = "OP7EU3A-7A4CCMY-D4T3ND7-YWMRBNJ-KVE34FG-ZJQFSLS-WMLRWB4-FL2O7AZ";
     }
+    # keep-sorted end
   ];
 
   devices = builtins.listToAttrs (

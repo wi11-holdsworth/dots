@@ -1,7 +1,5 @@
 {
-  pkgs,
   hostName,
-  inputs,
   userName,
   ...
 }:
@@ -13,9 +11,11 @@
 
   # reusable modules
 
+  # keep-sorted start
   borgbackup-srv.enable = true;
   intel-gpu.enable = true;
   server.enable = true;
+  # keep-sorted end
 
   # config
 
@@ -29,8 +29,10 @@
     groups.${userName} = { };
     users.${userName} = {
       extraGroups = [
+        # keep-sorted start
         "wheel"
         "docker"
+        # keep-sorted end
       ];
       home = "/home/srv";
       isNormalUser = true;

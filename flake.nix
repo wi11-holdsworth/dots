@@ -2,6 +2,7 @@
   description = "NixOS configuration";
 
   inputs = {
+    # keep-sorted start block=yes
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -17,6 +18,7 @@
     };
     copyparty.url = "github:9001/copyparty";
     vscode-server.url = "github:nix-community/nixos-vscode-server";
+    # keep-sorted end
   };
 
   outputs =

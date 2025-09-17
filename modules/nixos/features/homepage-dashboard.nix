@@ -21,6 +21,7 @@ let
     '');
 
   secrets = [
+    # keep-sorted start
     "immich"
     "jellyfin"
     "lidarr"
@@ -29,6 +30,7 @@ let
     "prowlarr"
     "radarr"
     "sonarr"
+    # keep-sorted end
   ];
 in
 {
@@ -40,6 +42,7 @@ in
         listenPort = lib.toInt port;
         allowedHosts = "homepage-dashboard.fi33.buzz";
         services = [
+          # keep-sorted start block=yes
           {
             "Media Management" = [
               {
@@ -217,6 +220,7 @@ in
               }
             ];
           }
+          # keep-sorted end
         ];
         settings = {
           title = "Mission Control";

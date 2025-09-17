@@ -13,16 +13,15 @@ in
       with pkgs;
       (
         [
-          # general
+          # keep-sorted start
           devenv
           just
           mask
           vscode
-
-          # rust
           bacon
           cargo-info
           rusty-man
+          # keep-sorted end
         ]
         ++ (with jetbrains; [
           rider

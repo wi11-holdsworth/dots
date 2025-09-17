@@ -20,14 +20,18 @@ in
     environment.systemPackages =
       with pkgs.kdePackages;
       [
+        # keep-sorted start
         kontact
         ktorrent
         kget
         kzones
+        # keep-sorted end
       ]
       ++ (with pkgs; [
+        # keep-sorted start
         kile
         haruna
+        # keep-sorted end
       ]);
   };
 

@@ -10,8 +10,8 @@ in
 {
   config = lib.mkIf config.${feature}.enable {
     environment.systemPackages = with pkgs; [
+      # keep-sorted start
       heroic
-      # TODO: break out into separate module
       lutris
       mangohud
       nexusmods-app
@@ -20,6 +20,7 @@ in
       wine64
       winetricks
       prismlauncher
+      # keep-sorted end 
     ];
 
     programs = {

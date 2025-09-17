@@ -12,6 +12,7 @@ in
     programs.yazi = {
       enable = true;
       plugins = {
+        # keep-sorted start
         diff = pkgs.yaziPlugins.diff;
         git = pkgs.yaziPlugins.git;
         mediainfo = pkgs.yaziPlugins.mediainfo;
@@ -23,9 +24,8 @@ in
         starship = pkgs.yaziPlugins.starship;
         vcs-files = pkgs.yaziPlugins.vcs-files;
         yatline-githead = pkgs.yaziPlugins.yatline-githead;
+        # keep-sorted end 
       };
-      # flavors = {};
-      # themes = {};
     };
   };
 
