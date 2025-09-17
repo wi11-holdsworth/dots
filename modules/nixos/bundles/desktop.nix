@@ -20,8 +20,6 @@ in
       cameractrls-gtk3
       jellyfin-media-player
       # TODO: break out into separate configuration module
-      obsidian
-      # TODO: break out into separate configuration module
       onlyoffice-desktopeditors
       sleek-todo
     ];
