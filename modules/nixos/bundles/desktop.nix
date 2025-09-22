@@ -19,7 +19,8 @@ in
       brave
       calibre
       cameractrls-gtk3
-      jellyfin-media-player
+      # https://github.com/NixOS/nixpkgs/issues/437865
+      # jellyfin-media-player
       onlyoffice-desktopeditors
       sleek-todo
       textsnatcher
