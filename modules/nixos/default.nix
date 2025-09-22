@@ -29,6 +29,8 @@ in
     bottom # process viewer
     broot # large directory browser
     chawan # browser
+    cheat
+    cointop
     dogdns # dns
     dua # disk use analyser
     duf # df alternative
@@ -44,7 +46,6 @@ in
     hyperfine # benchmarking tool
     keep-sorted # alphabetical formatter
     lazygit # git tui
-    lolcat # funny terminal colours
     mprocs # run long running commands and monitor output
     navi # cheatsheet browser
     nb # note taking
@@ -55,9 +56,9 @@ in
     sd # sed
     slides # presentations
     ticker # stock ticker
+    tldr
     tmpmail # temporary email address
     tt # typing test
-    wiki-tui # wikipedia tui
     wtfutil # terminal homepage
     xh # curl
     # keep-sorted end
