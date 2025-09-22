@@ -22,6 +22,7 @@ in
       jellyfin-media-player
       onlyoffice-desktopeditors
       sleek-todo
+      textsnatcher
       # keep-sorted end
     ];
   };
