@@ -26,18 +26,39 @@ in
 
   environment.systemPackages = with pkgs; [
     # keep-sorted start
+    bottom # process viewer
+    broot # large directory browser
+    chawan # browser
+    dogdns # dns
     dua # disk use analyser
+    duf # df alternative
+    fastfetch # neofetch
     fd # find
+    fselect # find with sql syntax
+    fx # json processor and viewer
+    fzf # fuzzy finder
+    glow # markdown viewer
+    gping # pretty ping
+    grex # regular expression generator
+    hexyl # hexadecimal viewer
     hyperfine # benchmarking tool
-    keep-sorted
+    keep-sorted # alphabetical formatter
     lazygit # git tui
+    lolcat # funny terminal colours
     mprocs # run long running commands and monitor output
-    nixfmt-rfc-style
-    nom
-    presenterm # presentations
+    navi # cheatsheet browser
+    nb # note taking
+    nom # stylistic nix dependency graphs
+    procs # ps
     ripgrep-all # grep
-    ripunzip
+    ripunzip # unzip
+    sd # sed
+    slides # presentations
+    ticker # stock ticker
+    tmpmail # temporary email address
+    tt # typing test
     wiki-tui # wikipedia tui
+    wtfutil # terminal homepage
     xh # curl
     # keep-sorted end
   ];
