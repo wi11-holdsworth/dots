@@ -19,6 +19,8 @@ in
         # keep-sorted start
         cat = "bat";
         cd = "j";
+        df = "duf";
+        du = "dua";
         g = "lazygit";
         l = "eza";
         la = "eza -a";
