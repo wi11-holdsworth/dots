@@ -18,7 +18,7 @@ in
       shellAliases = {
         # keep-sorted start
         cat = "bat";
-        cd = "j";
+        # cd = "j";
         df = "duf";
         du = "dua";
         g = "lazygit";
