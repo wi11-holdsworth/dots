@@ -28,7 +28,14 @@ in
     # keep-sorted start
     bottom # top
     broot # large directory browser
+    choose # cut
+    circumflex # hacker news browsing
+    cointop # crypto ticker
+    ddgr # web search
     dogdns # dns
+    dua # du
+    duf # df
+    epy # ebook reading
     fd # find
     fselect # find with sql syntax
     fx # json processor and viewer
@@ -45,7 +52,11 @@ in
     nb # note taking
     nixfmt-rfc-style # nix file formatting
     nom # stylistic nix dependency graphs
+    pastel # colour generation
+    pdd # datetime calculations
+    pirate-get # torrenting
     procs # ps
+    rates # currency conversion
     ripgrep-all # grep
     ripunzip # unzip
     sd # sed
@@ -56,6 +67,7 @@ in
     tt # typing test
     wtfutil # terminal homepage
     xh # curl
+    xxh # use shell config in remote sessions
     # keep-sorted end
   ];
 }
