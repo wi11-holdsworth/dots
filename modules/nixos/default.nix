@@ -26,7 +26,7 @@ in
 
   environment.systemPackages = with pkgs; [
     # keep-sorted start
-    bottom # process viewer
+    bottom # top
     broot # large directory browser
     dogdns # dns
     fd # find
@@ -43,7 +43,7 @@ in
     mprocs # run long running commands and monitor output
     navi # cheatsheet browser
     nb # note taking
-    nixfmt-rfc-style
+    nixfmt-rfc-style # nix file formatting
     nom # stylistic nix dependency graphs
     procs # ps
     ripgrep-all # grep
@@ -51,7 +51,7 @@ in
     sd # sed
     slides # presentations
     ticker # stock ticker
-    tldr
+    tldr # cheat sheets
     tmpmail # temporary email address
     tt # typing test
     wtfutil # terminal homepage
