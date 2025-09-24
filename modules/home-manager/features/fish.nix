@@ -19,13 +19,22 @@ in
         # keep-sorted start
         cat = "bat";
         # cd = "j";
+        cut = "choose";
         df = "duf";
         du = "dua";
+        # find = "fd";
         g = "lazygit";
         l = "eza";
         la = "eza -a";
         ls = "eza";
         ns = "nh os switch";
+        # curl = "xh";
+        ping = "gping";
+        ps = "procs";
+        # sed = "sd";
+        # grep = "rga";
+        top = "btm";
+        unzip = "ripunzip";
         vi = "nvim";
         vim = "nvim";
         # keep-sorted end
