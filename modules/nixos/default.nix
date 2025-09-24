@@ -28,13 +28,7 @@ in
     # keep-sorted start
     bottom # process viewer
     broot # large directory browser
-    chawan # browser
-    cheat
-    cointop
     dogdns # dns
-    dua # disk use analyser
-    duf # df alternative
-    fastfetch # neofetch
     fd # find
     fselect # find with sql syntax
     fx # json processor and viewer
