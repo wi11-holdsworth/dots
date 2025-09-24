@@ -20,7 +20,7 @@ in
       wine
       wine64
       winetricks
-      # keep-sorted end 
+      # keep-sorted end
     ];
 
     programs = {
@@ -29,6 +29,11 @@ in
         enable = true;
         gamescopeSession.enable = true;
       };
+    };
+
+    services.lact = {
+      enable = true;
+      settings = { };
     };
 
     # latest kernel

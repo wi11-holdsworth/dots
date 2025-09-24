@@ -18,11 +18,12 @@
   link2c.enable = true;
   plasma.enable = true;
   # keep-sorted end
-
   # config
 
   boot.initrd.luks.devices."luks-b164af31-c1c3-4b4e-83c8-eb39802c2027".device =
     "/dev/disk/by-uuid/b164af31-c1c3-4b4e-83c8-eb39802c2027";
+
+  hardware.amdgpu.overdrive.enable = true;
 
   services.btrfs.autoScrub.enable = true;
 
