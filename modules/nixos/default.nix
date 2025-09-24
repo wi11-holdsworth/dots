@@ -49,6 +49,7 @@ in
     mprocs # run long running commands and monitor output
     navi # cheatsheet browser
     nb # note taking
+    nixfmt-rfc-style
     nom # stylistic nix dependency graphs
     procs # ps
     ripgrep-all # grep
