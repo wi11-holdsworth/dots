@@ -8,6 +8,7 @@ in
   imports = (featureBundler ./bundles) ++ (featureBundler ./features);
 
   # keep-sorted start
+  agenix.enable = lib.mkDefault true;
   bat.enable = lib.mkDefault true;
   direnv.enable = lib.mkDefault true;
   eza.enable = lib.mkDefault true;

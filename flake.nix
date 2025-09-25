@@ -43,6 +43,7 @@
               home-manager = {
                 users.${userName}.imports = [
                   ./hosts/${hostName}/home.nix
+                  agenix.homeManagerModules.default
                 ];
                 backupFileExtension = "backup";
                 extraSpecialArgs = {
