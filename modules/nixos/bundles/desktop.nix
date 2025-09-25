@@ -13,6 +13,7 @@ in
     dev.enable = true;
     pipewire.enable = true;
     print-and-scan.enable = true;
+    protonmail-bridge.enable = true;
     # keep-sorted end
 
     environment.systemPackages = with pkgs; [
