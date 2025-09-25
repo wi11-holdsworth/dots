@@ -3,7 +3,6 @@
   inputs,
   lib,
   system,
-  userName,
   ...
 }:
 let
@@ -11,7 +10,6 @@ let
 in
 {
   config = lib.mkIf config.${feature}.enable {
-    age.identityPaths = [ "/home/${userName}/.ssh/id_ed25519" ];
     environment.systemPackages = [ inputs.agenix.packages.${system}.default ];
   };
 
