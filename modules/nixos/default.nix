@@ -66,6 +66,7 @@ in
       ticker # stock ticker
       tldr # cheat sheets
       tmpmail # temporary email address
+      topydo # todo.txt helper tool
       tt # typing test
       wtfutil # terminal homepage
       xh # curl
