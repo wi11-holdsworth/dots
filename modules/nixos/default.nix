@@ -10,7 +10,7 @@ let
 in
 {
   imports = (featureBundler ./bundles) ++ (featureBundler ./features);
-
+  # keep-sorted start
   agenix.enable = lib.mkDefault true;
   fonts.enable = lib.mkDefault true;
   home-manager.enable = lib.mkDefault true;
@@ -23,6 +23,7 @@ in
   syncthing.enable = lib.mkDefault true;
   systemd-boot.enable = lib.mkDefault true;
   tailscale.enable = lib.mkDefault true;
+  # keep-sorted end
 
   environment.systemPackages =
     with pkgs;

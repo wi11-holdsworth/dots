@@ -9,9 +9,11 @@ let
 in
 {
   config = lib.mkIf config.${feature}.enable {
+    # keep-sorted start
     dev.enable = true;
     pipewire.enable = true;
     print-and-scan.enable = true;
+    # keep-sorted end
 
     environment.systemPackages = with pkgs; [
       # keep-sorted start
