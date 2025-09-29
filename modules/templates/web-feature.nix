@@ -16,14 +16,12 @@ in
       };
 
       # reverse proxy
-      nginx = {
-        virtualHosts."${feature}.fi33.buzz" = {
-          forceSSL = true;
-          useACMEHost = "fi33.buzz";
-          locations."/" = {
-            proxyPass = "http://localhost:${port}";
-            # proxyWebsockets = true;
-          };
+      nginx.virtualHosts."${feature}.fi33.buzz" = {
+        forceSSL = true;
+        useACMEHost = "fi33.buzz";
+        locations."/" = {
+          proxyPass = "http://localhost:${port}";
+          # proxyWebsockets = true;
         };
       };
     };
