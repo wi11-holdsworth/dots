@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   userName,
   hostName,
   ...
@@ -61,6 +62,27 @@ in
           inherit devices;
         };
       };
+
+      # backup
+      borgbackup.jobs =
+        # we only need one syncthing host to be backed up
+        # choose server because borgbackup is the most fleshed out
+        # on srv currently
+        if userName == "srv" then
+          import ../backup.nix feature
+            {
+              paths = [
+                "/home/srv/.config/syncthing"
+                "/home/srv/Sync"
+              ];
+            }
+            {
+              inherit config;
+              inherit lib;
+              inherit pkgs;
+            }
+        else
+          null;
 
       # reverse proxy
       nginx = {

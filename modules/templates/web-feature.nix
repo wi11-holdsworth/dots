@@ -15,6 +15,9 @@ in
         enable = true;
       };
 
+      # backup
+      borgbackup.jobs = feature { };
+
       # reverse proxy
       nginx.virtualHosts."${feature}.fi33.buzz" = {
         forceSSL = true;
