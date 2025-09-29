@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   feature = "server";
 in
@@ -26,6 +31,17 @@ in
     # keep-sorted end
 
     users.groups.media = { };
+
+    services.borgbackup.jobs =
+      import ../backup.nix "srv"
+        {
+          paths = [ "/srv" ];
+        }
+        {
+          inherit config;
+          inherit lib;
+          inherit pkgs;
+        };
   };
 
   imports = [ ];
