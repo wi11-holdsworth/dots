@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -32,16 +31,7 @@ in
 
     users.groups.media = { };
 
-    services.borgbackup.jobs =
-      import ../backup.nix "srv"
-        {
-          paths = [ "/srv" ];
-        }
-        {
-          inherit config;
-          inherit lib;
-          inherit pkgs;
-        };
+    services.borgmatic.settings.source_directories = [ "/srv" ];
   };
 
   imports = [ ];
