@@ -16,6 +16,18 @@ in
         mediaLocation = "/srv/immich";
       };
 
+      # database backup
+      borgmatic.settings = {
+        postgresql_databases = [
+          {
+            name = "immich";
+            hostname = "localhost";
+            username = "root";
+            password = "{credential systemd borgmatic-pg}";
+          }
+        ];
+      };
+
       nginx = {
         clientMaxBodySize = "50000M";
         virtualHosts."${feature}.fi33.buzz" = {

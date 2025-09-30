@@ -22,6 +22,18 @@ in
         };
       };
 
+      # database backup
+      borgmatic.settings = {
+        postgresql_databases = [
+          {
+            name = "paperless";
+            hostname = "localhost";
+            username = "root";
+            password = "{credential systemd borgmatic-pg}";
+          }
+        ];
+      };
+
       # reverse proxy
       nginx = {
         virtualHosts."${feature}.fi33.buzz" = {
