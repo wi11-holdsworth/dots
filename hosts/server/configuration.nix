@@ -12,7 +12,7 @@
   # reusable modules
 
   # keep-sorted start
-  borgbackup-srv.enable = true;
+  borgmatic.enable = true;
   intel-gpu.enable = true;
   server.enable = true;
   # keep-sorted end
