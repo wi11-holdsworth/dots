@@ -17,7 +17,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    vscode-server.url = "github:nix-community/nixos-vscode-server";
     # keep-sorted end
   };
 
