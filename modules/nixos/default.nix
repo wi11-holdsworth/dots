@@ -57,6 +57,7 @@ in
       pastel # colour generation
       pdd # datetime calculations
       pirate-get # torrenting
+      pre-commit # declarative pre-commit installer and runner
       procs # ps
       rates # currency conversion
       ripgrep-all # grep
