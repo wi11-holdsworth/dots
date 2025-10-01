@@ -20,7 +20,7 @@ in
           just
           mask
           rusty-man
-          vscode
+          zed-editor
           # keep-sorted end
         ]
         ++ (with jetbrains; [

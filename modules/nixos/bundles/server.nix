@@ -26,7 +26,6 @@ in
     sonarr.enable = true;
     syncthing.enable = true;
     vaultwarden.enable = true;
-    vscode-server.enable = true;
     # keep-sorted end
 
     users.groups.media = { };
