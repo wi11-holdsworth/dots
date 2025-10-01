@@ -14,24 +14,11 @@ in
       settings = {
         # keep-sorted start block=yes
         compression = "auto,zlib";
-        keep_daily = 7;
-        keep_weekly = 4;
-        keep_monthly = 6;
-        keep_yearly = 1;
-        repositories = [
-          {
-            path = "/backup/repo";
-            label = "onsite";
-            # encryption = "repokey-blake2";
-          }
-          {
-            path = "ssh://vuc5c3xq@vuc5c3xq.repo.borgbase.com/./repo";
-            label = "offsite";
-            # encryption = "repokey-blake2";
-          }
-        ];
         encryption_passcommand = "cat ${config.age.secrets.borgmatic.path}";
-        ssh_command = "ssh -i /home/srv/.ssh/id_ed25519";
+        keep_daily = 7;
+        keep_monthly = 6;
+        keep_weekly = 4;
+        keep_yearly = 1;
         ntfy = {
           topic = "backups";
           server = config.services.ntfy-sh.settings.base-url;
@@ -50,8 +37,21 @@ in
             "fail"
           ];
         };
+        repositories = [
+          {
+            path = "/backup/repo";
+            label = "onsite";
+            # encryption = "repokey-blake2";
+          }
+          {
+            path = "ssh://vuc5c3xq@vuc5c3xq.repo.borgbase.com/./repo";
+            label = "offsite";
+            # encryption = "repokey-blake2";
+          }
+        ];
         retries = 3;
         retry_wait = 10;
+        ssh_command = "ssh -i /home/srv/.ssh/id_ed25519";
         # keep-sorted end
       };
     };
