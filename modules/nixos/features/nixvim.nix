@@ -93,6 +93,9 @@ in
         # status bar
         lualine.enable = true;
 
+        # perform file system operations inside of neovim
+        oil.enable = true;
+
         # syntax highlighting
         treesitter.enable = true;
       };
