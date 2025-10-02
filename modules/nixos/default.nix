@@ -53,6 +53,8 @@ in
       navi # cheatsheet browser
       nb # note taking
       nixfmt-rfc-style # nix file formatting
+      nil # nix language server
+      nixd # nix language server
       nom # stylistic nix dependency graphs
       pastel # colour generation
       pdd # datetime calculations
