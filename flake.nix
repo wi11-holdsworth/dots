@@ -17,6 +17,10 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # keep-sorted end
   };
 
@@ -25,6 +29,7 @@
       nixpkgs,
       home-manager,
       agenix,
+      zen-browser,
       ...
     }@inputs:
     let
@@ -43,6 +48,7 @@
                 users.${userName}.imports = [
                   ./hosts/${hostName}/home.nix
                   agenix.homeManagerModules.default
+                  zen-browser.homeModules.twilight
                 ];
                 backupFileExtension = "backup";
                 extraSpecialArgs = {

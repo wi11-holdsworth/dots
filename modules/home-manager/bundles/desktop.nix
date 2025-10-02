@@ -14,6 +14,7 @@ in
     mail.enable = true;
     obsidian.enable = true;
     zellij.enable = true;
+    zen-browser.enable = true;
     # keep-sorted end
   };
 
