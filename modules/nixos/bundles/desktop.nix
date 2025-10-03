@@ -19,7 +19,6 @@ in
     environment.systemPackages = with pkgs; [
       # keep-sorted start
       beeper
-      brave
       calibre
       cameractrls-gtk3
       # https://github.com/NixOS/nixpkgs/issues/437865
