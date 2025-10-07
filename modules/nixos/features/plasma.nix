@@ -21,8 +21,6 @@ in
       with pkgs.kdePackages;
       [
         # keep-sorted start
-        kget
-        kontact
         ktorrent
         kzones
         # keep-sorted end
@@ -30,7 +28,6 @@ in
       ++ (with pkgs; [
         # keep-sorted start
         haruna
-        kile
         # keep-sorted end
       ]);
   };
