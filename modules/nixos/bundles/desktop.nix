@@ -19,10 +19,12 @@ in
     environment.systemPackages = with pkgs; [
       # keep-sorted start
       beeper
+      # TODO: replace with lue/epy
       calibre
       cameractrls-gtk3
       # https://github.com/NixOS/nixpkgs/issues/437865
       # jellyfin-media-player
+      # TODO: replace with sc-im/visidata
       onlyoffice-desktopeditors
       sleek-todo
       textsnatcher

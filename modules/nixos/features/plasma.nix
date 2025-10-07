@@ -23,6 +23,7 @@ in
         # keep-sorted start
         kget
         kontact
+        # TODO: replace with transmission
         ktorrent
         kzones
         # keep-sorted end
