@@ -46,7 +46,11 @@ in
         # simple-scan # document scanner
         totem # video player
         yelp # help viewer
-        # keep-sorted end 
+        # keep-sorted end
+      ];
+      systemPackages = with pkgs; [
+        gnome-tweaks
+        bibata-cursors
       ];
     };
   };
