@@ -17,7 +17,6 @@ in
       just
       mask
       rusty-man
-      zed-editor
       # keep-sorted end
     ];
   };
