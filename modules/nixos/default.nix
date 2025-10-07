@@ -52,9 +52,9 @@ in
       mprocs # run long running commands and monitor output
       navi # cheatsheet browser
       nb # note taking
-      nixfmt-rfc-style # nix file formatting
       nil # nix language server
       nixd # nix language server
+      nixfmt-rfc-style # nix file formatting
       nom # stylistic nix dependency graphs
       pastel # colour generation
       pdd # datetime calculations

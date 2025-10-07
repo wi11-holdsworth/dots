@@ -28,17 +28,10 @@ in
         {
           # keep-sorted start block=yes
           AutofillCreditCardEnabled = false;
-          NoDefaultBookmarks = true;
-          OfferToSaveLogins = false;
           EnableTrackingProtection = {
             Value = true;
             Category = "strict";
           };
-          RequestedLocales = [
-            "en-AU"
-            "en-GB"
-            "en-US"
-          ];
           ExtensionSettings = mkExtensionSettings {
             "uBlock0@raymondhill.net" = "ublock-origin";
             "{446900e4-71c2-419f-a6a7-df9c091e268b}" = "bitwarden-password-manager";
@@ -46,10 +39,9 @@ in
             "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = "return-youtube-dislikes";
             "deArrow@ajay.app" = "dearrow";
           };
-          SearchEngines = {
-            Default = "duckduckgo";
-            DefaultPrivate = "duckduckgo";
-          };
+          HttpsOnlyMode = "enabled";
+          NoDefaultBookmarks = true;
+          OfferToSaveLogins = false;
           Preferences = mkLockedAttrs {
             "intl.accept_languages" = "en-AU,en-GB,en-US,en";
             "general.autoScroll" = true;
@@ -61,7 +53,15 @@ in
             # continue where you left off
             "browser.startup.page" = 3;
           };
-          HttpsOnlyMode = "enabled";
+          RequestedLocales = [
+            "en-AU"
+            "en-GB"
+            "en-US"
+          ];
+          SearchEngines = {
+            Default = "duckduckgo";
+            DefaultPrivate = "duckduckgo";
+          };
           SearchSuggestEnabled = true;
           # keep-sorted end
         };
