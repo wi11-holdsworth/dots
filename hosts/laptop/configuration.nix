@@ -13,6 +13,7 @@
   # keep-sorted start
   amd-gpu.enable = true;
   desktop.enable = true;
+  dev.enable = true;
   gnome.enable = true;
   tlp.enable = true;
   # keep-sorted end

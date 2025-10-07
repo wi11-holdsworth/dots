@@ -10,7 +10,6 @@ in
 {
   config = lib.mkIf config.${feature}.enable {
     # keep-sorted start
-    dev.enable = true;
     pipewire.enable = true;
     print-and-scan.enable = true;
     protonmail-bridge.enable = true;

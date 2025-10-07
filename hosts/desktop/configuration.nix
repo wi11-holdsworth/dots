@@ -13,6 +13,7 @@
   # keep-sorted start
   amd-gpu.enable = true;
   desktop.enable = true;
+  dev.enable = true;
   external-speakers.enable = true;
   gaming.enable = true;
   link2c.enable = true;
