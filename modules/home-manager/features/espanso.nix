@@ -10,7 +10,18 @@ in
   config = lib.mkIf config.${feature}.enable {
     services.espanso = {
       enable = true;
-      configs = { };
+      matches.base.matches = [
+        # keep-sorted start block=yes
+        {
+          trigger = ":tdtdy";
+          replace = "ls -x -s priority 't:<=today'";
+        }
+        {
+          trigger = ":tdtmrw";
+          replace = "ls -x -s priority 't:<=tomorrow'";
+        }
+        # keep-sorted end
+      ];
     };
   };
 

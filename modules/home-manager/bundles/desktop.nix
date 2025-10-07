@@ -10,6 +10,7 @@ in
   config = lib.mkIf config.${feature}.enable {
     # keep-sorted start
     aerc.enable = true;
+    espanso.enable = true;
     kitty.enable = true;
     mail.enable = true;
     obsidian.enable = true;
