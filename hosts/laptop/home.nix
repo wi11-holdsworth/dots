@@ -9,6 +9,7 @@
 
   # keep-sorted start
   desktop.enable = true;
+  dev.enable = true;
   # keep-sorted end
 
   # config
