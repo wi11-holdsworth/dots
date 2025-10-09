@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  hostName,
   ...
 }:
 let
@@ -41,7 +42,7 @@ in
                 inherit host;
               };
               inherit address;
-              passwordCommand = "cat ${config.age.secrets.protonmail-password.path}";
+              passwordCommand = "cat ${config.age.secrets."protonmail-${hostName}-password".path}";
               primary = true;
               realName = "Will Holdsworth";
               smtp = {
@@ -55,13 +56,7 @@ in
             };
           };
       };
-
-    age.secrets = {
-      # keep-sorted start
-      "protonmail-cert".file = ../../../secrets/protonmail-cert.age;
-      "protonmail-password".file = ../../../secrets/protonmail-password.age;
-      # keep-sorted end
-    };
+    age.secrets."protonmail-cert".file = ../../../secrets/protonmail-cert.age;
   };
 
   imports = [ ];

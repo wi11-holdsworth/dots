@@ -14,6 +14,8 @@
 
   # config
 
+  age.secrets."protonmail-laptop-password".file = ../../secrets/protonmail-laptop-password.age;
+
   home = {
     username = "${userName}";
     homeDirectory = "/home/will";

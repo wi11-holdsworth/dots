@@ -53,6 +53,7 @@
                 backupFileExtension = "backup";
                 extraSpecialArgs = {
                   inherit userName;
+                  inherit hostName;
                 };
                 useGlobalPkgs = true;
                 useUserPackages = true;

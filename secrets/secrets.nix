@@ -25,7 +25,8 @@ in
   "paperless.age".publicKeys = users;
   "porkbun-api.age".publicKeys = users;
   "protonmail-cert.age".publicKeys = users;
-  "protonmail-password.age".publicKeys = users;
+  "protonmail-desktop-password.age".publicKeys = users;
+  "protonmail-laptop-password.age".publicKeys = users;
   "prowlarr.age".publicKeys = users;
   "radarr.age".publicKeys = users;
   "radicale.age".publicKeys = users;
