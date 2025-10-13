@@ -17,6 +17,7 @@ in
       just
       mask
       rusty-man
+      vscode
       # keep-sorted end
     ];
   };
