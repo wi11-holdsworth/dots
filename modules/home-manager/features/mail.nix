@@ -32,9 +32,6 @@ in
             personal = {
               enable = true;
               # keep-sorted start block=yes
-              aerc = {
-                enable = true;
-              };
               imap = {
                 port = 1143;
                 inherit tls;

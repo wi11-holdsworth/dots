@@ -10,7 +10,6 @@ in
   config = lib.mkIf config.${feature}.enable {
     programs.aerc = {
       enable = true;
-      extraConfig.general.unsafe-accounts-conf = true;
     };
   };
 
