@@ -11,7 +11,7 @@ in
     accounts.email.accounts.personal.aerc.enable = true;
     programs.aerc = {
       enable = true;
-      extraAccounts = {
+      extraAccounts.personal = {
         default = "INBOX";
         folders-sort = "INBOX, Starred, Drafts, Sent, Trash, Archive, Spam";
       };
