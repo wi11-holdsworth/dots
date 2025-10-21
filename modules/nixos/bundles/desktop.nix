@@ -1,34 +1,28 @@
 {
-  config,
-  lib,
+  # keep-sorted start
   pkgs,
+  util,
+  # keep-sorted end
   ...
 }:
-let
-  feature = "desktop";
-in
 {
-  config = lib.mkIf config.${feature}.enable {
+  imports = util.toImports ../features [
     # keep-sorted start
-    pipewire.enable = true;
-    print-and-scan.enable = true;
-    protonmail-bridge.enable = true;
+    "pipewire"
+    "print-and-scan"
+    "protonmail-bridge"
     # keep-sorted end
+  ];
 
-    environment.systemPackages = with pkgs; [
-      # keep-sorted start
-      beeper
-      calibre
-      cameractrls-gtk3
-      # https://github.com/NixOS/nixpkgs/issues/437865
-      # jellyfin-media-player
-      onlyoffice-desktopeditors
-      textsnatcher
-      # keep-sorted end
-    ];
-  };
-
-  imports = [ ];
-
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
+  environment.systemPackages = with pkgs; [
+    # keep-sorted start
+    beeper
+    calibre
+    cameractrls-gtk3
+    # https://github.com/NixOS/nixpkgs/issues/437865
+    # jellyfin-media-player
+    onlyoffice-desktopeditors
+    textsnatcher
+    # keep-sorted end
+  ];
 }

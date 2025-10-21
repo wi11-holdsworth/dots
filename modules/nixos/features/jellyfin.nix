@@ -1,36 +1,24 @@
-{
-  config,
-  lib,
-  ...
-}:
 let
-  feature = "jellyfin";
   port = "8096";
 in
 {
-  config = lib.mkIf config.${feature}.enable {
-    services = {
-      # service
-      jellyfin = {
-        enable = true;
-        dataDir = "/srv/jellyfin";
-        group = "media";
-      };
-
-      # reverse proxy
-      nginx.virtualHosts."${feature}.fi33.buzz" = {
-        forceSSL = true;
-        useACMEHost = "fi33.buzz";
-        locations."/".proxyPass = "http://localhost:${port}";
-      };
+  services = {
+    jellyfin = {
+      enable = true;
+      dataDir = "/srv/jellyfin";
+      group = "media";
     };
 
-    # use intel iGP
-    systemd.services.jellyfin.environment.LIBVA_DRIVER_NAME = "iHD";
-    environment.sessionVariables = {
-      LIBVA_DRIVER_NAME = "iHD";
+    nginx.virtualHosts."jellyfin.fi33.buzz" = {
+      forceSSL = true;
+      useACMEHost = "fi33.buzz";
+      locations."/".proxyPass = "http://localhost:${port}";
     };
   };
 
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
+  # use intel iGP
+  systemd.services.jellyfin.environment.LIBVA_DRIVER_NAME = "iHD";
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  };
 }

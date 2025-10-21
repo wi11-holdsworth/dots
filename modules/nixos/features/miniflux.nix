@@ -1,54 +1,36 @@
 {
   config,
-  lib,
   ...
 }:
 let
-  feature = "miniflux";
   port = "5010";
 in
 {
-  config = lib.mkIf config.${feature}.enable {
-    services = {
-      # service
-      miniflux = {
-        enable = true;
-        adminCredentialsFile = config.age.secrets.miniflux-creds.path;
-        config = {
-          BASE_URL = "https://miniflux.fi33.buzz";
-          LISTEN_ADDR = "localhost:${port}";
-        };
-      };
-
-      # database backup
-      borgmatic.settings = {
-        postgresql_databases = [
-          {
-            name = "miniflux";
-            hostname = "localhost";
-            username = "root";
-            password = "{credential systemd borgmatic-pg}";
-          }
-        ];
-      };
-
-      # reverse proxy
-      nginx = {
-        virtualHosts."${feature}.fi33.buzz" = {
-          forceSSL = true;
-          useACMEHost = "fi33.buzz";
-          locations."/" = {
-            proxyPass = "http://localhost:${port}";
-            # proxyWebsockets = true;
-          };
-        };
+  services = {
+    miniflux = {
+      enable = true;
+      adminCredentialsFile = config.age.secrets.miniflux-creds.path;
+      config = {
+        BASE_URL = "https://miniflux.fi33.buzz";
+        LISTEN_ADDR = "localhost:${port}";
       };
     };
 
-    # secrets
-    age.secrets."miniflux-creds".file = ../../../secrets/miniflux-creds.age;
+    borgmatic.settings.postgresql_databases = [
+      {
+        name = "miniflux";
+        hostname = "localhost";
+        username = "root";
+        password = "{credential systemd borgmatic-pg}";
+      }
+    ];
 
+    nginx.virtualHosts."miniflux.fi33.buzz" = {
+      forceSSL = true;
+      useACMEHost = "fi33.buzz";
+      locations."/".proxyPass = "http://localhost:${port}";
+    };
   };
 
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
+  age.secrets."miniflux-creds".file = ../../../secrets/miniflux-creds.age;
 }

@@ -1,24 +1,16 @@
 {
-  config,
-  lib,
+  util,
   ...
 }:
-let
-  feature = "desktop";
-in
 {
-  config = lib.mkIf config.${feature}.enable {
+  imports = util.toImports ../features [
     # keep-sorted start
-    aerc.enable = true;
-    kitty.enable = true;
-    mail.enable = true;
-    obsidian.enable = true;
-    zellij.enable = true;
-    zen-browser.enable = true;
+    "aerc"
+    "kitty"
+    "mail"
+    "obsidian"
+    "zellij"
+    "zen-browser"
     # keep-sorted end
-  };
-
-  imports = [ ];
-
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
+  ];
 }

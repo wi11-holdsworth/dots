@@ -3,7 +3,9 @@
   ...
 }:
 {
-  imports = [ ../../modules/home-manager/default.nix ];
+  imports = [
+    ../../modules/home-manager/default.nix
+  ];
 
   home = {
     username = "${userName}";
