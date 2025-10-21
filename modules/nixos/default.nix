@@ -1,28 +1,26 @@
 {
-  lib,
+  # keep-sorted start
   pkgs,
+  util,
+  # keep-sorted end
   ...
 }:
-let
-  featureBundler =
-    featuresDir:
-    map (name: featuresDir + "/${name}") (builtins.attrNames (builtins.readDir featuresDir));
-in
 {
-  imports = (featureBundler ./bundles) ++ (featureBundler ./features);
-  # keep-sorted start
-  agenix.enable = lib.mkDefault true;
-  fonts.enable = lib.mkDefault true;
-  localisation.enable = lib.mkDefault true;
-  network.enable = lib.mkDefault true;
-  nh.enable = lib.mkDefault true;
-  nix-settings.enable = lib.mkDefault true;
-  nixpkgs.enable = lib.mkDefault true;
-  nixvim.enable = lib.mkDefault true;
-  syncthing.enable = lib.mkDefault true;
-  systemd-boot.enable = lib.mkDefault true;
-  tailscale.enable = lib.mkDefault true;
-  # keep-sorted end
+  imports = util.toImports ./features [
+    # keep-sorted start
+    "agenix"
+    "fonts"
+    "localisation"
+    "network"
+    "nh"
+    "nix-settings"
+    "nixpkgs"
+    "nixvim"
+    "syncthing"
+    "systemd-boot"
+    "tailscale"
+    # keep-sorted end
+  ];
 
   environment.systemPackages =
     with pkgs;

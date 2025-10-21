@@ -1,39 +1,31 @@
 {
-  config,
-  lib,
+  util,
   ...
 }:
-let
-  feature = "server";
-in
 {
-  config = lib.mkIf config.${feature}.enable {
+  imports = util.toImports ../features [
     # keep-sorted start
-    copyparty.enable = true;
-    couchdb.enable = true;
-    flaresolverr.enable = true;
-    homepage-dashboard.enable = true;
-    immich.enable = true;
-    jellyfin.enable = true;
-    lidarr.enable = true;
-    miniflux.enable = true;
-    nginx.enable = true;
-    ntfy-sh.enable = true;
-    paperless.enable = true;
-    prowlarr.enable = true;
-    qbittorrent.enable = true;
-    radarr.enable = true;
-    sonarr.enable = true;
-    syncthing.enable = true;
-    vaultwarden.enable = true;
+    "copyparty"
+    "couchdb"
+    "flaresolverr"
+    "homepage-dashboard"
+    "immich"
+    "jellyfin"
+    "lidarr"
+    "miniflux"
+    "nginx"
+    "ntfy-sh"
+    "paperless"
+    "prowlarr"
+    "qbittorrent"
+    "radarr"
+    "sonarr"
+    "syncthing"
+    "vaultwarden"
     # keep-sorted end
+  ];
 
-    users.groups.media = { };
+  users.groups.media = { };
 
-    services.borgmatic.settings.source_directories = [ "/srv" ];
-  };
-
-  imports = [ ];
-
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
+  services.borgmatic.settings.source_directories = [ "/srv" ];
 }

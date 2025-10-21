@@ -39,6 +39,9 @@
           userName ? "will",
           system ? "x86_64-linux",
         }:
+        let
+          util = import ./util.nix;
+        in
         nixpkgs.lib.nixosSystem {
           modules = [
             ./hosts/${hostName}/configuration.nix
@@ -52,8 +55,7 @@
                 ];
                 backupFileExtension = "backup";
                 extraSpecialArgs = {
-                  inherit userName;
-                  inherit hostName;
+                  inherit userName hostName util;
                 };
                 useGlobalPkgs = true;
                 useUserPackages = true;
@@ -61,10 +63,13 @@
             }
           ];
           specialArgs = {
-            inherit inputs;
-            inherit hostName;
-            inherit userName;
-            inherit system;
+            inherit
+              inputs
+              hostName
+              userName
+              system
+              util
+              ;
           };
           inherit system;
         };

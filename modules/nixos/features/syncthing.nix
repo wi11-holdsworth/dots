@@ -1,15 +1,10 @@
 {
-  config,
-  lib,
-  pkgs,
   userName,
   hostName,
   ...
 }:
 let
-  feature = "syncthing";
   port = "5008";
-
   devicesList = [
     # keep-sorted start block=yes
     {
@@ -30,7 +25,6 @@ let
     }
     # keep-sorted end
   ];
-
   devices = builtins.listToAttrs (
     map (
       { device, id }:
@@ -48,45 +42,34 @@ let
   );
 in
 {
-  config = lib.mkIf config.${feature}.enable {
-    services = {
-      # service
-      syncthing = {
-        enable = true;
-        guiAddress = "0.0.0.0:${port}";
-        openDefaultPorts = true;
-        user = "${userName}";
-        dataDir = "/home/${userName}";
-        overrideDevices = true;
-        settings = {
-          inherit devices;
-        };
-      };
-
-      borgmatic.settings =
-        if userName == "srv" then
-          {
-            source_directories = [
-              "/home/srv/.config/syncthing"
-              "/home/srv/Sync"
-            ];
-          }
-        else
-          null;
-
-      # reverse proxy
-      nginx = {
-        virtualHosts."${feature}.fi33.buzz" = {
-          forceSSL = true;
-          useACMEHost = "fi33.buzz";
-          locations."/" = {
-            proxyPass = "http://localhost:${port}";
-            # proxyWebsockets = true;
-          };
-        };
+  services = {
+    syncthing = {
+      enable = true;
+      guiAddress = "0.0.0.0:${port}";
+      openDefaultPorts = true;
+      user = "${userName}";
+      dataDir = "/home/${userName}";
+      overrideDevices = true;
+      settings = {
+        inherit devices;
       };
     };
-  };
 
-  options.${feature}.enable = lib.mkEnableOption "enables ${feature}";
+    borgmatic.settings =
+      if userName == "srv" then
+        {
+          source_directories = [
+            "/home/srv/.config/syncthing"
+            "/home/srv/Sync"
+          ];
+        }
+      else
+        null;
+
+    nginx.virtualHosts."syncthing.fi33.buzz" = {
+      forceSSL = true;
+      useACMEHost = "fi33.buzz";
+      locations."/".proxyPass = "http://localhost:${port}";
+    };
+  };
 }

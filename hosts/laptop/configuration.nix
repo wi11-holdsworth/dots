@@ -1,24 +1,30 @@
 {
+  # keep-sorted start
   userName,
+  util,
+  # keep-sorted end
   ...
 }:
 {
   imports = [
+    # keep-sorted start
     ../../modules/nixos/default.nix
     ./hardware-configuration.nix
-  ];
-
-  # reusable modules
-
-  # keep-sorted start
-  amd-gpu.enable = true;
-  desktop.enable = true;
-  dev.enable = true;
-  gnome.enable = true;
-  tlp.enable = true;
-  # keep-sorted end
-
-  # config
+    # keep-sorted end
+  ]
+  ++ (util.toImports ../../modules/nixos/features [
+    # keep-sorted start
+    "amd-gpu"
+    "gnome"
+    "tlp"
+    # keep-sorted end
+  ])
+  ++ (util.toImports ../../modules/nixos/bundles [
+    # keep-sorted start
+    "desktop"
+    "dev"
+    # keep-sorted end
+  ]);
 
   boot.initrd.luks.devices."luks-a7726a9d-535f-44bc-9c0e-adc501fad371".device =
     "/dev/disk/by-uuid/a7726a9d-535f-44bc-9c0e-adc501fad371";

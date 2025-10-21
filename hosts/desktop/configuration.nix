@@ -1,25 +1,32 @@
 {
+  # keep-sorted start
   userName,
+  util,
+  # keep-sorted end
   ...
 }:
 {
   imports = [
+    # keep-sorted start
     ../../modules/nixos/default.nix
     ./hardware-configuration.nix
-  ];
-
-  # reusable modules
-
-  # keep-sorted start
-  amd-gpu.enable = true;
-  desktop.enable = true;
-  dev.enable = true;
-  external-speakers.enable = true;
-  gaming.enable = true;
-  link2c.enable = true;
-  plasma.enable = true;
-  # keep-sorted end
-  # config
+    # keep-sorted end
+  ]
+  ++ (util.toImports ../../modules/nixos/features [
+    # keep-sorted start
+    "amd-gpu"
+    "external-speakers"
+    "gaming"
+    "link2c"
+    "plasma"
+    # keep-sorted end
+  ])
+  ++ (util.toImports ../../modules/nixos/bundles [
+    # keep-sorted start
+    "desktop"
+    "dev"
+    # keep-sorted end
+  ]);
 
   boot.initrd.luks.devices."luks-b164af31-c1c3-4b4e-83c8-eb39802c2027".device =
     "/dev/disk/by-uuid/b164af31-c1c3-4b4e-83c8-eb39802c2027";

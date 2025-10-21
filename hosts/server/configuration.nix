@@ -1,23 +1,27 @@
 {
+  # keep-sorted start
   hostName,
   userName,
+  util,
+  # keep-sorted end
   ...
 }:
 {
   imports = [
+    # keep-sorted start
     ../../modules/nixos/default.nix
     ./hardware-configuration.nix
-  ];
-
-  # reusable modules
-
-  # keep-sorted start
-  borgmatic.enable = true;
-  intel-gpu.enable = true;
-  server.enable = true;
-  # keep-sorted end
-
-  # config
+    # keep-sorted end
+  ]
+  ++ (util.toImports ../../modules/nixos/features [
+    # keep-sorted start
+    "borgmatic"
+    "intel-gpu"
+    # keep-sorted end
+  ])
+  ++ (util.toImports ../../modules/nixos/bundles [
+    "server"
+  ]);
 
   networking.hostName = "${hostName}";
 

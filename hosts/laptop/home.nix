@@ -1,18 +1,20 @@
 {
+  # keep-sorted start
   userName,
+  util,
+  # keep-sorted end
   ...
 }:
 {
-  imports = [ ../../modules/home-manager/default.nix ];
-
-  # reusable modules
-
-  # keep-sorted start
-  desktop.enable = true;
-  dev.enable = true;
-  # keep-sorted end
-
-  # config
+  imports = [
+    ../../modules/home-manager/default.nix
+  ]
+  ++ (util.toImports ../../modules/home-manager/bundles [
+    # keep-sorted start
+    "desktop"
+    "dev"
+    # keep-sorted end
+  ]);
 
   age.secrets."protonmail-laptop-password".file = ../../secrets/protonmail-laptop-password.age;
 
