@@ -7,6 +7,7 @@
     # keep-sorted start
     "agenix"
     "bat"
+    "delta"
     "direnv"
     "eza"
     "fish"
