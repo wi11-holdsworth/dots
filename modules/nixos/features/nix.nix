@@ -7,6 +7,7 @@
   nixpkgs.config.allowUnfree = true;
 
   nix = {
+    allowedUsers = [ "@wheel" ];
     gc = {
       automatic = true;
       dates = "weekly";
