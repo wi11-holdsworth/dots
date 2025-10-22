@@ -3,6 +3,9 @@
   ...
 }:
 {
+  # rip out default packages
+  environment.defaultPackages = lib.mkForce [ ];
+
   # allow packages with non-free licenses
   nixpkgs.config.allowUnfree = true;
 
