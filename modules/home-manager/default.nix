@@ -13,6 +13,7 @@
     "fish"
     "gh"
     "git"
+    "lazygit"
     "starship"
     "yazi"
     "zoxide"
