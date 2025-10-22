@@ -1,8 +1,5 @@
 {
-  # keep-sorted start
-  lib,
   pkgs,
-  # keep-sorted end
   ...
 }:
 let
@@ -18,7 +15,7 @@ in
         ${pkgs.owntracks-recorder}/bin/ot-recorder \
            --storage /var/lib/owntracks/recorder/store \
            --port 0
-           --http-port ${lib.toInt port}
+           --http-port ${port}
            --http-host https://${host}
       '';
       DynamicUser = true;
@@ -30,10 +27,15 @@ in
   services = {
     # borgbackup.jobs = owntracks { };
 
-    nginx.virtualHosts.${host} = {
-      forceSSL = true;
-      useACMEHost = "fi33.buzz";
-      locations."/".proxyPass = "http://localhost:${port}";
-    };
+    nginx.virtualHosts.${host} =
+      let
+        owntracks-frontend = pkgs.callPackage ./owntracks-frontend.nix;
+      in
+      {
+        forceSSL = true;
+        useACMEHost = "fi33.buzz";
+        root = "/var/www/html";
+        locations."/owntracks/".alias = "${owntracks-frontend}";
+      };
   };
 }
