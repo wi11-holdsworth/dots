@@ -15,6 +15,7 @@
     "miniflux"
     "nginx"
     "ntfy-sh"
+    "owntracks"
     "paperless"
     "prowlarr"
     "qbittorrent"
