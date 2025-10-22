@@ -18,6 +18,136 @@
         sort = "-r date";
       };
     };
+    extraBinds = {
+      global = {
+        # keep-sorted start
+        "<C-n>" = ":next-tab <Enter>";
+        "<C-p>" = ":prev-tab<Enter>";
+        "<C-t>" = ":term<Enter>";
+        "?" = ":help keys<Enter>";
+        # keep-sorted end
+      };
+      messages = {
+        # keep-sorted start
+        "!" = ":term<space>";
+        "$" = ":term<space>";
+        "/" = ":search<space>-a<space>";
+        "<C-b>" = ":prev 100%<Enter>";
+        "<C-d>" = ":next 50%<Enter>";
+        "<C-f>" = ":next 100%<Enter>";
+        "<C-u>" = ":prev 50%<Enter>";
+        "<Down>" = ":next<Enter>";
+        "<Enter>" = ":view<Enter>";
+        "<Esc>" = ":clear<Enter>";
+        "<PgDn>" = ":next 100%<Enter>";
+        "<PgUp>" = ":prev 100%<Enter>";
+        "<Up>" = ":prev<Enter>";
+        "\\" = ":filter <space>";
+        "|" = ":pipe<space>";
+        A = ":archive flat<Enter>";
+        C = ":compose<Enter>";
+        D = ":move Trash<Enter>";
+        G = ":select -1<Enter>";
+        H = ":collapse-folder<Enter>";
+        J = ":next-folder <Enter>";
+        K = ":prev-folder<Enter>";
+        L = ":expand-folder<Enter>";
+        N = ":prev-result<Enter>";
+        R = ":read<Enter>";
+        Rq = ":reply -q<Enter>";
+        Rr = ":reply<Enter>";
+        T = ":toggle-threads<Enter>";
+        U = ":unread<Enter>";
+        V = ":mark -v<Enter>";
+        c = ":cf<space>";
+        d = ":prompt 'Really delete this message?' 'delete-message'<Enter>";
+        g = ":select 0 <Enter>";
+        j = ":next <Enter>";
+        k = ":prev <Enter>";
+        n = ":next-result<Enter>";
+        q = ":quit<Enter>";
+        rq = ":reply -aq<Enter>";
+        rr = ":reply -a<Enter>";
+        v = ":mark -t<Enter>";
+        # keep-sorted end
+      };
+      "messages:folder=Drafts" = {
+        "<Enter>" = ":recall<Enter>";
+      };
+      view = {
+        # keep-sorted start
+        "/" = ":toggle-key-passthrough <Enter> /";
+        "<C-j>" = ":next-part<Enter>";
+        "<C-k>" = ":prev-part<Enter>";
+        "<C-l>" = ":open-link <space>";
+        "|" = ":pipe<space>";
+        A = ":archive flat<Enter>";
+        D = ":move Trash<Enter>";
+        H = ":toggle-headers<Enter>";
+        J = ":next <Enter>";
+        K = ":prev<Enter>";
+        O = ":open<Enter>";
+        R = ":read<Enter>";
+        Rq = ":reply -q<Enter>";
+        Rr = ":reply<Enter>";
+        S = ":save<space>";
+        U = ":unread<Enter>";
+        f = ":forward <Enter>";
+        q = ":close<Enter>";
+        rq = ":reply -aq<Enter>";
+        rr = ":reply -a<Enter>";
+        # keep-sorted end
+      };
+      "view::passthrough" = {
+        # keep-sorted start
+        "$ex" = "<C-x>";
+        "$noinherit" = "true";
+        "<Esc>" = ":toggle-key-passthrough<Enter>";
+        # keep-sorted end
+      };
+      compose = {
+        # keep-sorted start
+        "$ex" = "<C-x>";
+        "$noinherit" = "true";
+        "<A-n>" = ":switch-account -n<Enter>";
+        "<A-p>" = ":switch-account -p<Enter>";
+        "<C-j>" = ":next-field<Enter>";
+        "<C-k>" = ":prev-field<Enter>";
+        "<C-n>" = ":next-tab<Enter>";
+        "<C-p>" = ":prev-tab<Enter>";
+        "<tab>" = ":next-field<Enter>";
+        # keep-sorted end
+      };
+      "compose::editor" = {
+        # keep-sorted start
+        "$ex" = "<C-x>";
+        "$noinherit" = "true";
+        "<C-j>" = ":next-field<Enter>";
+        "<C-k>" = ":prev-field<Enter>";
+        "<C-n>" = ":next-tab<Enter>";
+        "<C-p>" = ":prev-tab<Enter>";
+        # keep-sorted end
+      };
+      "compose::review" = {
+        # keep-sorted start
+        a = ":attach<space>";
+        d = ":detach<space>";
+        e = ":edit<Enter>";
+        n = ":abort<Enter>";
+        p = ":postpone<Enter>";
+        q = ":choose -o d discard abort -o p postpone postpone<Enter>";
+        y = ":send <Enter>";
+        # keep-sorted end
+      };
+      terminal = {
+        # keep-sorted start
+        "$ex" = "<C-x>";
+        "$noinherit" = "true";
+        "<C-n>" = ":next-tab<Enter>";
+        "<C-p>" = ":prev-tab<Enter>";
+        # keep-sorted end
+      };
+    };
     stylesets.catppuccin-mocha = ''
       "*.default" = true
       "*.normal" = true
