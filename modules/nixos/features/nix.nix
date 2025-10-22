@@ -1,4 +1,11 @@
 {
+  lib,
+  ...
+}:
+{
+  # allow packages with non-free licenses
+  nixpkgs.config.allowUnfree = true;
+
   nix = {
     gc = {
       automatic = true;
