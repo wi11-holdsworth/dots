@@ -13,8 +13,7 @@
     "localisation"
     "network"
     "nh"
-    "nix-settings"
-    "nixpkgs"
+    "nix"
     "nixvim"
     "syncthing"
     "systemd-boot"
@@ -46,7 +45,6 @@
       hexyl # hexadecimal viewer
       hyperfine # benchmarking tool
       keep-sorted # alphabetical formatter
-      lazygit # git tui
       mprocs # run long running commands and monitor output
       navi # cheatsheet browser
       nb # note taking

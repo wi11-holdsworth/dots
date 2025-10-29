@@ -30,7 +30,7 @@ in
       ];
     };
 
-    nginx.virtualHosts."miniflux.fi33.buzz" = {
+    nginx.virtualHosts."paperless.fi33.buzz" = {
       forceSSL = true;
       useACMEHost = "fi33.buzz";
       locations."/".proxyPass = "http://localhost:${port}";

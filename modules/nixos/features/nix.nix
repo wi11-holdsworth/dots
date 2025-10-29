@@ -1,4 +1,14 @@
 {
+  lib,
+  ...
+}:
+{
+  # rip out default packages
+  environment.defaultPackages = lib.mkForce [ ];
+
+  # allow packages with non-free licenses
+  nixpkgs.config.allowUnfree = true;
+
   nix = {
     gc = {
       automatic = true;
@@ -11,6 +21,7 @@
       persistent = true;
     };
     settings = {
+      allowed-users = [ "@wheel" ];
       experimental-features = [
         "nix-command"
         "flakes"
