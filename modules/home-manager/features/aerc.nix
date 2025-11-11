@@ -49,11 +49,11 @@
         D = ":move Trash<Enter>";
         G = ":select -1<Enter>";
         H = ":collapse-folder<Enter>";
+        I = ":read<Enter>";
         J = ":next-folder <Enter>";
         K = ":prev-folder<Enter>";
         L = ":expand-folder<Enter>";
         N = ":prev-result<Enter>";
-        R = ":read<Enter>";
         Rq = ":reply -q<Enter>";
         Rr = ":reply<Enter>";
         T = ":toggle-threads<Enter>";
