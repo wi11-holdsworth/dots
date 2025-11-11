@@ -20,16 +20,21 @@
     };
     diagnostic.settings.virtual_lines = true;
     opts = {
+      # keep-sorted start
       autoindent = true;
+      colorcolumn = "80";
       expandtab = true;
       number = true;
       relativenumber = true;
       shiftwidth = 2;
+      # get suggestions by typing z=
+      spell = true;
+      spelllang = "en_au";
       tabstop = 2;
-      colorcolumn = "80";
+      # keep-sorted end
     };
     plugins = {
-      # autoclose brackets
+      # auto close brackets
       autoclose.enable = true;
 
       # completion window
