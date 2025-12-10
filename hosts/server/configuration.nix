@@ -27,9 +27,7 @@
 
   # hardened openssh
   services.openssh = {
-    passwordAuthentication = false;
-    allowSFTP = false; 
-    challengeResponseAuthentication = false;
+    allowSFTP = false;
     extraConfig = ''
       AllowTcpForwarding yes
       X11Forwarding no
@@ -37,6 +35,10 @@
       AllowStreamLocalForwarding no
       AuthenticationMethods publickey
     '';
+    settings = {
+      KbdInteractiveAuthentication = false;
+      PasswordAuthentication = false;
+    };
   };
 
   system.stateVersion = "24.11";
