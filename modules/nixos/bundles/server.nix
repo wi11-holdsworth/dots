@@ -19,6 +19,7 @@
     "prowlarr"
     "qbittorrent"
     "radarr"
+    "radicale"
     "sonarr"
     "syncthing"
     "vaultwarden"

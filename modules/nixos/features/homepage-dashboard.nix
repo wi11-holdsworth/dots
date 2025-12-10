@@ -66,6 +66,13 @@ in
               };
             }
             {
+              "Radicale" = {
+                "description" = "CalDAV/CardDAV service";
+                "icon" = "radicale.svg";
+                "href" = "https://radicale.fi33.buzz";
+              };
+            }
+            {
               "Syncthing" = {
                 "description" = "Decentralised file synchronisation";
                 "icon" = "syncthing.svg";
