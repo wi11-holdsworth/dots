@@ -13,6 +13,7 @@
     "jellyfin"
     "lidarr"
     "miniflux"
+    "radicale"
     "nginx"
     "ntfy-sh"
     "paperless"
