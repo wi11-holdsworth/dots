@@ -11,6 +11,7 @@
     "homepage-dashboard"
     "immich"
     "jellyfin"
+    "karakeep"
     "lidarr"
     "miniflux"
     "nginx"
