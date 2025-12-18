@@ -17,6 +17,10 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,10 +30,13 @@
 
   outputs =
     {
-      nixpkgs,
-      home-manager,
+      # keep-sorted start
       agenix,
+      home-manager,
+      nixpkgs,
+      nur,
       zen-browser,
+      # keep-sorted end
       ...
     }@inputs:
     let
@@ -45,6 +52,7 @@
         nixpkgs.lib.nixosSystem {
           modules = [
             ./hosts/${hostName}/configuration.nix
+            nur.modules.nixos.default
             home-manager.nixosModules.home-manager
             {
               home-manager = {
