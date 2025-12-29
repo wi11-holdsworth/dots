@@ -3,7 +3,7 @@
   ...
 }:
 let
-  port = "5003";
+  port = 5003;
 in
 {
   services = {
@@ -12,8 +12,8 @@ in
       settings = {
         server = {
           hosts = [
-            "0.0.0.0:${port}"
-            "[::]:${port}"
+            "0.0.0.0:${toString port}"
+            "[::]:${toString port}"
           ];
         };
         auth = {
@@ -30,7 +30,7 @@ in
     nginx.virtualHosts."radicale.fi33.buzz" = {
       forceSSL = true;
       useACMEHost = "fi33.buzz";
-      locations."/".proxyPass = "http://localhost:${port}";
+      locations."/".proxyPass = "http://localhost:${toString port}";
     };
   };
 

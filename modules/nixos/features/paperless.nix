@@ -1,10 +1,9 @@
 {
   config,
-  lib,
   ...
 }:
 let
-  port = "5013";
+  port = 5013;
 in
 {
   services = {
@@ -13,7 +12,7 @@ in
       dataDir = "/srv/paperless";
       database.createLocally = true;
       passwordFile = config.age.secrets.paperless.path;
-      port = lib.toInt port;
+      inherit port;
       settings = {
         PAPERLESS_URL = "https://paperless.fi33.buzz";
       };
@@ -33,7 +32,7 @@ in
     nginx.virtualHosts."paperless.fi33.buzz" = {
       forceSSL = true;
       useACMEHost = "fi33.buzz";
-      locations."/".proxyPass = "http://localhost:${port}";
+      locations."/".proxyPass = "http://localhost:${toString port}";
     };
   };
 

@@ -1,23 +1,21 @@
-{
-  lib,
-  ...
-}:
 let
-  port = "5007";
+  port = 5007;
 in
 {
   services = {
     radarr = {
       enable = true;
       dataDir = "/srv/radarr";
-      settings.server.port = lib.toInt port;
+      settings.server = {
+        inherit port;
+      };
       group = "media";
     };
 
     nginx.virtualHosts."radarr.fi33.buzz" = {
       forceSSL = true;
       useACMEHost = "fi33.buzz";
-      locations."/".proxyPass = "http://localhost:${port}";
+      locations."/".proxyPass = "http://localhost:${toString port}";
     };
   };
 }

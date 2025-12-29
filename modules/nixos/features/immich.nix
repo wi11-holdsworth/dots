@@ -1,15 +1,11 @@
-{
-  lib,
-  ...
-}:
 let
-  port = "2283";
+  port = 2283;
 in
 {
   services = {
     immich = {
       enable = true;
-      port = lib.toInt "${port}";
+      inherit port;
       mediaLocation = "/srv/immich";
     };
 
@@ -28,7 +24,7 @@ in
         forceSSL = true;
         useACMEHost = "fi33.buzz";
         locations."/" = {
-          proxyPass = "http://[::1]:${port}";
+          proxyPass = "http://[::1]:${toString port}";
           proxyWebsockets = true;
         };
       };

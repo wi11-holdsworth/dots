@@ -1,5 +1,5 @@
 let
-  port = "8096";
+  port = 8096;
 in
 {
   services = {
@@ -12,7 +12,7 @@ in
     nginx.virtualHosts."jellyfin.fi33.buzz" = {
       forceSSL = true;
       useACMEHost = "fi33.buzz";
-      locations."/".proxyPass = "http://localhost:${port}";
+      locations."/".proxyPass = "http://localhost:${toString port}";
     };
   };
 

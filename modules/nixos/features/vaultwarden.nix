@@ -3,7 +3,7 @@
   ...
 }:
 let
-  port = "5001";
+  port = 5001;
 in
 {
   services = {
@@ -11,7 +11,7 @@ in
       enable = true;
       backupDir = "/srv/vaultwarden";
       config = {
-        rocketPort = "${port}";
+        rocketPort = toString port;
         domain = "https://vaultwarden.fi33.buzz";
         signupsAllowed = false;
         invitationsAllowed = false;
@@ -26,7 +26,7 @@ in
       forceSSL = true;
       useACMEHost = "fi33.buzz";
       locations."/" = {
-        proxyPass = "http://localhost:${port}";
+        proxyPass = "http://localhost:${toString port}";
         proxyWebsockets = true;
       };
     };

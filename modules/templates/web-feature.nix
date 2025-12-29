@@ -1,5 +1,5 @@
 let
-  port = "port";
+  port = 0000;
 in
 {
   services = {
@@ -12,7 +12,7 @@ in
     nginx.virtualHosts."feature.fi33.buzz" = {
       forceSSL = true;
       useACMEHost = "fi33.buzz";
-      locations."/".proxyPass = "http://localhost:${port}";
+      locations."/".proxyPass = "http://localhost:${toString port}";
     };
   };
 }

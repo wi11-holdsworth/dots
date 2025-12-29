@@ -1,21 +1,17 @@
-{
-  lib,
-  ...
-}:
 let
-  port = "5011";
+  port = 5011;
 in
 {
   services = {
     flaresolverr = {
       enable = true;
-      port = lib.toInt port;
+      inherit port;
     };
 
     nginx.virtualHosts."flaresolverr.fi33.buzz" = {
       forceSSL = true;
       useACMEHost = "fi33.buzz";
-      locations."/".proxyPass = "http://localhost:${port}";
+      locations."/".proxyPass = "http://localhost:${toString port}";
     };
   };
 }

@@ -7,7 +7,7 @@
   ...
 }:
 let
-  port = "5004";
+  port = 5004;
   genSecrets =
     secrets:
     lib.genAttrs secrets (secret: {
@@ -38,7 +38,7 @@ in
   services = {
     homepage-dashboard = {
       enable = true;
-      listenPort = lib.toInt port;
+      listenPort = port;
       allowedHosts = "homepage-dashboard.fi33.buzz";
       services = [
         # keep-sorted start block=yes
@@ -300,7 +300,7 @@ in
     nginx.virtualHosts."homepage-dashboard.fi33.buzz" = {
       forceSSL = true;
       useACMEHost = "fi33.buzz";
-      locations."/".proxyPass = "http://localhost:${port}";
+      locations."/".proxyPass = "http://localhost:${toString port}";
     };
   };
 
