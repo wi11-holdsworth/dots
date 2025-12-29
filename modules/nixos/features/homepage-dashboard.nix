@@ -25,6 +25,7 @@ let
     # keep-sorted start
     "immich"
     "jellyfin"
+    "kavita-api"
     "lidarr"
     "miniflux"
     "paperless"
@@ -152,6 +153,18 @@ in
                   "enableUser" = true;
                   "showEpisodeNumber" = true;
                   "expandOneStreamToTwoRows" = false;
+                };
+              };
+            }
+            {
+              "Kavita" = {
+                "description" = "Book reader";
+                "icon" = "kavita.svg";
+                "href" = "https://kavita.fi33.buzz/";
+                "widget" = {
+                  "type" = "kavita";
+                  "url" = "https://kavita.fi33.buzz/";
+                  "key" = "@kavita-api@";
                 };
               };
             }

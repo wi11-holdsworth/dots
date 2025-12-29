@@ -20,6 +20,7 @@ in
   "copyparty-will.age".publicKeys = users;
   "immich.age".publicKeys = users;
   "jellyfin.age".publicKeys = users;
+  "kavita-api.age".publicKeys = users;
   "kavita.age".publicKeys = users;
   "lidarr.age".publicKeys = users;
   "miniflux-creds.age".publicKeys = users;
