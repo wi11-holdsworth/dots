@@ -12,6 +12,7 @@
     "immich"
     "jellyfin"
     "karakeep"
+    "kavita"
     "lidarr"
     "miniflux"
     "nginx"
