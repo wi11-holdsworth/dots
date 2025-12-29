@@ -30,6 +30,7 @@ let
     "paperless"
     "prowlarr"
     "radarr"
+    "readarr"
     "sonarr"
     # keep-sorted end
   ];
@@ -41,74 +42,8 @@ in
       listenPort = port;
       allowedHosts = "homepage-dashboard.fi33.buzz";
       services = [
-        # keep-sorted start block=yes
         {
           "Media Management" = [
-            {
-              "Immich" = {
-                "description" = "Photo backup";
-                "icon" = "immich.svg";
-                "href" = "https://immich.fi33.buzz/";
-                "widget" = {
-                  "type" = "immich";
-                  "fields" = [
-                    "users"
-                    "photos"
-                    "videos"
-                    "storage"
-                  ];
-                  "url" = "https://immich.fi33.buzz/";
-                  "version" = 2;
-                  "key" = "@immich@";
-                };
-              };
-            }
-            {
-              "Miniflux" = {
-                "description" = "RSS aggregator";
-                "icon" = "miniflux.svg";
-                "href" = "https://miniflux.fi33.buzz/";
-                "widget" = {
-                  "type" = "miniflux";
-                  "url" = "https://miniflux.fi33.buzz/";
-                  "key" = "@miniflux@";
-                };
-              };
-            }
-            {
-              "Paperless" = {
-                "description" = "Digital filing cabinet";
-                "icon" = "paperless.svg";
-                "href" = "https://paperless.fi33.buzz/";
-                "widget" = {
-                  "type" = "paperlessngx";
-                  "url" = "https://paperless.fi33.buzz/";
-                  "username" = "admin";
-                  "password" = "@paperless@";
-                };
-              };
-            }
-          ];
-        }
-        {
-          "Media Streaming" = [
-            {
-              "Jellyfin" = {
-                "description" = "Media streaming";
-                "icon" = "jellyfin.svg";
-                "href" = "https://jellyfin.fi33.buzz/";
-                "widget" = {
-                  "type" = "jellyfin";
-                  "url" = "https://jellyfin.fi33.buzz/";
-                  "key" = "@jellyfin@";
-                  "enableBlocks" = true;
-                  "enableNowPlaying" = true;
-                  "enableUser" = true;
-                  "showEpisodeNumber" = true;
-                  "expandOneStreamToTwoRows" = false;
-                };
-              };
-            }
             {
               "Radarr" = {
                 "description" = "Movie collection manager";
@@ -149,6 +84,19 @@ in
               };
             }
             {
+              "Readarr" = {
+                "description" = "Book collection manager";
+                "icon" = "readarr.svg";
+                "href" = "https://readarr.fi33.buzz/";
+                "widget" = {
+                  "type" = "readarr";
+                  "url" = "https://readarr.fi33.buzz/";
+                  "key" = "@readarr@";
+                  "enableQueue" = true;
+                };
+              };
+            }
+            {
               "Prowlarr" = {
                 "description" = "Indexer management tool";
                 "icon" = "prowlarr.svg";
@@ -165,6 +113,71 @@ in
                 "description" = "BitTorrent client";
                 "icon" = "qbittorrent.svg";
                 "href" = "https://qbittorrent.fi33.buzz/";
+              };
+            }
+          ];
+        }
+        {
+          "Media Streaming" = [
+            {
+              "Immich" = {
+                "description" = "Photo backup";
+                "icon" = "immich.svg";
+                "href" = "https://immich.fi33.buzz/";
+                "widget" = {
+                  "type" = "immich";
+                  "fields" = [
+                    "users"
+                    "photos"
+                    "videos"
+                    "storage"
+                  ];
+                  "url" = "https://immich.fi33.buzz/";
+                  "version" = 2;
+                  "key" = "@immich@";
+                };
+              };
+            }
+            {
+              "Jellyfin" = {
+                "description" = "Media streaming";
+                "icon" = "jellyfin.svg";
+                "href" = "https://jellyfin.fi33.buzz/";
+                "widget" = {
+                  "type" = "jellyfin";
+                  "url" = "https://jellyfin.fi33.buzz/";
+                  "key" = "@jellyfin@";
+                  "enableBlocks" = true;
+                  "enableNowPlaying" = true;
+                  "enableUser" = true;
+                  "showEpisodeNumber" = true;
+                  "expandOneStreamToTwoRows" = false;
+                };
+              };
+            }
+            {
+              "Miniflux" = {
+                "description" = "RSS aggregator";
+                "icon" = "miniflux.svg";
+                "href" = "https://miniflux.fi33.buzz/";
+                "widget" = {
+                  "type" = "miniflux";
+                  "url" = "https://miniflux.fi33.buzz/";
+                  "key" = "@miniflux@";
+                };
+              };
+            }
+            {
+              "Paperless" = {
+                "description" = "Digital filing cabinet";
+                "icon" = "paperless.svg";
+                "href" = "https://paperless.fi33.buzz/";
+                "widget" = {
+                  "type" = "paperlessngx";
+                  "url" = "https://paperless.fi33.buzz/";
+                  "username" = "admin";
+                  "password" = "@paperless@";
+                };
               };
             }
           ];
@@ -226,7 +239,6 @@ in
             }
           ];
         }
-        # keep-sorted end
       ];
       settings = {
         title = "Mission Control";
@@ -234,13 +246,6 @@ in
         color = "neutral";
         headerStyle = "clean";
         layout = [
-          {
-            "Media Management" = {
-              style = "row";
-              columns = 3;
-              useEqualHeights = true;
-            };
-          }
           {
             "Media Streaming" = {
               style = "row";
@@ -252,6 +257,13 @@ in
             "Services" = {
               style = "row";
               columns = 3;
+            };
+          }
+          {
+            "Media Management" = {
+              style = "row";
+              columns = 3;
+              useEqualHeights = true;
             };
           }
           {

@@ -30,6 +30,7 @@ in
   "prowlarr.age".publicKeys = users;
   "radarr.age".publicKeys = users;
   "radicale.age".publicKeys = users;
+  "readarr.age".publicKeys = users;
   "sonarr.age".publicKeys = users;
   "vaultwarden-admin.age".publicKeys = users;
   # keep-sorted end
