@@ -43,7 +43,134 @@ in
       services = [
         # keep-sorted start block=yes
         {
-          "Cloud Services" = [
+          "Media Management" = [
+            {
+              "Immich" = {
+                "description" = "Photo backup";
+                "icon" = "immich.svg";
+                "href" = "https://immich.fi33.buzz/";
+                "widget" = {
+                  "type" = "immich";
+                  "fields" = [
+                    "users"
+                    "photos"
+                    "videos"
+                    "storage"
+                  ];
+                  "url" = "https://immich.fi33.buzz/";
+                  "version" = 2;
+                  "key" = "@immich@";
+                };
+              };
+            }
+            {
+              "Miniflux" = {
+                "description" = "RSS aggregator";
+                "icon" = "miniflux.svg";
+                "href" = "https://miniflux.fi33.buzz/";
+                "widget" = {
+                  "type" = "miniflux";
+                  "url" = "https://miniflux.fi33.buzz/";
+                  "key" = "@miniflux@";
+                };
+              };
+            }
+            {
+              "Paperless" = {
+                "description" = "Digital filing cabinet";
+                "icon" = "paperless.svg";
+                "href" = "https://paperless.fi33.buzz/";
+                "widget" = {
+                  "type" = "paperlessngx";
+                  "url" = "https://paperless.fi33.buzz/";
+                  "username" = "admin";
+                  "password" = "@paperless@";
+                };
+              };
+            }
+          ];
+        }
+        {
+          "Media Streaming" = [
+            {
+              "Jellyfin" = {
+                "description" = "Media streaming";
+                "icon" = "jellyfin.svg";
+                "href" = "https://jellyfin.fi33.buzz/";
+                "widget" = {
+                  "type" = "jellyfin";
+                  "url" = "https://jellyfin.fi33.buzz/";
+                  "key" = "@jellyfin@";
+                  "enableBlocks" = true;
+                  "enableNowPlaying" = true;
+                  "enableUser" = true;
+                  "showEpisodeNumber" = true;
+                  "expandOneStreamToTwoRows" = false;
+                };
+              };
+            }
+            {
+              "Radarr" = {
+                "description" = "Movie collection manager";
+                "icon" = "radarr.svg";
+                "href" = "https://radarr.fi33.buzz/";
+                "widget" = {
+                  "type" = "radarr";
+                  "url" = "https://radarr.fi33.buzz/";
+                  "key" = "@radarr@";
+                  "enableQueue" = true;
+                };
+              };
+            }
+            {
+              "Sonarr" = {
+                "description" = "TV show collection manager";
+                "icon" = "sonarr.svg";
+                "href" = "https://sonarr.fi33.buzz/";
+                "widget" = {
+                  "type" = "sonarr";
+                  "url" = "https://sonarr.fi33.buzz/";
+                  "key" = "@sonarr@";
+                  "enableQueue" = true;
+                };
+              };
+            }
+            {
+              "Lidarr" = {
+                "description" = "Music collection manager";
+                "icon" = "lidarr.svg";
+                "href" = "https://lidarr.fi33.buzz/";
+                "widget" = {
+                  "type" = "lidarr";
+                  "url" = "https://lidarr.fi33.buzz/";
+                  "key" = "@lidarr@";
+                  "enableQueue" = true;
+                };
+              };
+            }
+            {
+              "Prowlarr" = {
+                "description" = "Indexer management tool";
+                "icon" = "prowlarr.svg";
+                "href" = "https://prowlarr.fi33.buzz/";
+                "widget" = {
+                  "type" = "prowlarr";
+                  "url" = "https://prowlarr.fi33.buzz/";
+                  "key" = "@prowlarr@";
+                };
+              };
+            }
+            {
+              "qBittorrent" = {
+                "description" = "BitTorrent client";
+                "icon" = "qbittorrent.svg";
+                "href" = "https://qbittorrent.fi33.buzz/";
+              };
+            }
+          ];
+        }
+        {
+          "Services" = [
             {
               "copyparty" = {
                 "description" = "Cloud file manager";
@@ -80,137 +207,10 @@ in
               };
             }
             {
-              "qBittorrent" = {
-                "description" = "BitTorrent client";
-                "icon" = "qbittorrent.svg";
-                "href" = "https://qbittorrent.fi33.buzz/";
-              };
-            }
-            {
               "Vaultwarden" = {
                 "description" = "Password manager";
                 "icon" = "vaultwarden.svg";
                 "href" = "https://vaultwarden.fi33.buzz/";
-              };
-            }
-          ];
-        }
-        {
-          "Media Management" = [
-            {
-              "Lidarr" = {
-                "description" = "Music collection manager";
-                "icon" = "lidarr.svg";
-                "href" = "https://lidarr.fi33.buzz/";
-                "widget" = {
-                  "type" = "lidarr";
-                  "url" = "https://lidarr.fi33.buzz/";
-                  "key" = "@lidarr@";
-                  "enableQueue" = true;
-                };
-              };
-            }
-            {
-              "Prowlarr" = {
-                "description" = "Indexer management tool";
-                "icon" = "prowlarr.svg";
-                "href" = "https://prowlarr.fi33.buzz/";
-                "widget" = {
-                  "type" = "prowlarr";
-                  "url" = "https://prowlarr.fi33.buzz/";
-                  "key" = "@prowlarr@";
-                };
-              };
-            }
-            {
-              "Radarr" = {
-                "description" = "Movie collection manager";
-                "icon" = "radarr.svg";
-                "href" = "https://radarr.fi33.buzz/";
-                "widget" = {
-                  "type" = "radarr";
-                  "url" = "https://radarr.fi33.buzz/";
-                  "key" = "@radarr@";
-                  "enableQueue" = true;
-                };
-              };
-            }
-            {
-              "Sonarr" = {
-                "description" = "TV show collection manager";
-                "icon" = "sonarr.svg";
-                "href" = "https://sonarr.fi33.buzz/";
-                "widget" = {
-                  "type" = "sonarr";
-                  "url" = "https://sonarr.fi33.buzz/";
-                  "key" = "@sonarr@";
-                  "enableQueue" = true;
-                };
-              };
-            }
-          ];
-        }
-        {
-          "Media Streaming" = [
-            {
-              "Immich" = {
-                "description" = "Photo backup";
-                "icon" = "immich.svg";
-                "href" = "https://immich.fi33.buzz/";
-                "widget" = {
-                  "type" = "immich";
-                  "fields" = [
-                    "users"
-                    "photos"
-                    "videos"
-                    "storage"
-                  ];
-                  "url" = "https://immich.fi33.buzz/";
-                  "version" = 2;
-                  "key" = "@immich@";
-                };
-              };
-            }
-            {
-              "Jellyfin" = {
-                "description" = "Media streaming";
-                "icon" = "jellyfin.svg";
-                "href" = "https://jellyfin.fi33.buzz/";
-                "widget" = {
-                  "type" = "jellyfin";
-                  "url" = "https://jellyfin.fi33.buzz/";
-                  "key" = "@jellyfin@";
-                  "enableBlocks" = true;
-                  "enableNowPlaying" = true;
-                  "enableUser" = true;
-                  "showEpisodeNumber" = true;
-                  "expandOneStreamToTwoRows" = false;
-                };
-              };
-            }
-            {
-              "Miniflux" = {
-                "description" = "RSS aggregator";
-                "icon" = "miniflux.svg";
-                "href" = "https://miniflux.fi33.buzz/";
-                "widget" = {
-                  "type" = "miniflux";
-                  "url" = "https://miniflux.fi33.buzz/";
-                  "key" = "@miniflux@";
-                };
-              };
-            }
-            {
-              "Paperless" = {
-                "description" = "Digital filing cabinet";
-                "icon" = "paperless.svg";
-                "href" = "https://paperless.fi33.buzz/";
-                "widget" = {
-                  "type" = "paperlessngx";
-                  "url" = "https://paperless.fi33.buzz/";
-                  "username" = "admin";
-                  "password" = "@paperless@";
-                };
               };
             }
           ];
@@ -235,21 +235,21 @@ in
         headerStyle = "clean";
         layout = [
           {
-            "Media Streaming" = {
-              style = "row";
-              columns = 4;
-              useEqualHeights = true;
-            };
-          }
-          {
             "Media Management" = {
               style = "row";
-              columns = 4;
+              columns = 3;
               useEqualHeights = true;
             };
           }
           {
-            "Cloud Services" = {
+            "Media Streaming" = {
+              style = "row";
+              columns = 3;
+              useEqualHeights = true;
+            };
+          }
+          {
+            "Services" = {
               style = "row";
               columns = 3;
             };
