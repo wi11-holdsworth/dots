@@ -23,6 +23,7 @@ let
 
   secrets = [
     # keep-sorted start
+    "bazarr"
     "immich"
     "jellyfin"
     "karakeep"
@@ -95,6 +96,18 @@ in
                   "url" = "https://readarr.fi33.buzz/";
                   "key" = "@readarr@";
                   "enableQueue" = true;
+                };
+              };
+            }
+            {
+              "Bazarr" = {
+                "description" = "Subtitle downloader and manager";
+                "icon" = "bazarr.svg";
+                "href" = "https://bazarr.fi33.buzz/";
+                "widget" = {
+                  "type" = "bazarr";
+                  "url" = "https://bazarr.fi33.buzz/";
+                  "key" = "@bazarr@";
                 };
               };
             }

@@ -15,6 +15,7 @@ let
 in
 {
   # keep-sorted start
+  "bazarr.age".publicKeys = users;
   "borgmatic-pg.age".publicKeys = users;
   "borgmatic.age".publicKeys = users;
   "copyparty-will.age".publicKeys = users;
