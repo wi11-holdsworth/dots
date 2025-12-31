@@ -98,6 +98,18 @@ in
               };
             }
             {
+              "Bazarr" = {
+                "description" = "Subtitle downloader and manager";
+                "icon" = "bazarr.svg";
+                "href" = "https://bazarr.fi33.buzz/";
+                "widget" = {
+                  "type" = "bazarr";
+                  "url" = "https://bazarr.fi33.buzz/";
+                  "key" = "@bazarr@";
+                };
+              };
+            }
+            {
               "Prowlarr" = {
                 "description" = "Indexer management tool";
                 "icon" = "prowlarr.svg";
