@@ -3,7 +3,7 @@
   ...
 }:
 let
-  port = "5010";
+  port = 5010;
 in
 {
   services = {
@@ -12,7 +12,7 @@ in
       adminCredentialsFile = config.age.secrets.miniflux-creds.path;
       config = {
         BASE_URL = "https://miniflux.fi33.buzz";
-        LISTEN_ADDR = "localhost:${port}";
+        LISTEN_ADDR = "localhost:${toString port}";
       };
     };
 
@@ -28,7 +28,7 @@ in
     nginx.virtualHosts."miniflux.fi33.buzz" = {
       forceSSL = true;
       useACMEHost = "fi33.buzz";
-      locations."/".proxyPass = "http://localhost:${port}";
+      locations."/".proxyPass = "http://localhost:${toString port}";
     };
   };
 

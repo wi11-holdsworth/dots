@@ -2,12 +2,11 @@
   # keep-sorted start
   config,
   inputs,
-  lib,
   # keep-sorted end
   ...
 }:
 let
-  port = "5000";
+  port = 5000;
 in
 {
   imports = [ inputs.copyparty.nixosModules.default ];
@@ -20,7 +19,7 @@ in
         e2dsa = true;
         e2ts = true;
         e2vu = true;
-        p = lib.toInt port;
+        p = port;
       };
 
       accounts.will.passwordFile = config.age.secrets.copyparty-will.path;
@@ -37,7 +36,7 @@ in
     nginx.virtualHosts."copyparty.fi33.buzz" = {
       forceSSL = true;
       useACMEHost = "fi33.buzz";
-      locations."/".proxyPass = "http://localhost:${port}";
+      locations."/".proxyPass = "http://localhost:${toString port}";
     };
   };
 

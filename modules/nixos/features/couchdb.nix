@@ -1,9 +1,5 @@
-{
-  lib,
-  ...
-}:
 let
-  port = "5984";
+  port = 5984;
 in
 {
   services = {
@@ -12,7 +8,7 @@ in
       databaseDir = "/srv/couchdb";
       viewIndexDir = "/srv/couchdb";
       configFile = "/srv/couchdb";
-      port = lib.toInt port;
+      inherit port;
       extraConfig = {
         chttpd = {
           require_valid_user = true;
@@ -41,7 +37,7 @@ in
     nginx.virtualHosts."couchdb.fi33.buzz" = {
       forceSSL = true;
       useACMEHost = "fi33.buzz";
-      locations."/".proxyPass = "http://localhost:${port}";
+      locations."/".proxyPass = "http://localhost:${toString port}";
     };
   };
 }

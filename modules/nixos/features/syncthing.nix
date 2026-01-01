@@ -4,7 +4,7 @@
   ...
 }:
 let
-  port = "5008";
+  port = 5008;
   devicesList = [
     # keep-sorted start block=yes
     {
@@ -45,7 +45,7 @@ in
   services = {
     syncthing = {
       enable = true;
-      guiAddress = "0.0.0.0:${port}";
+      guiAddress = "0.0.0.0:${toString port}";
       openDefaultPorts = true;
       user = "${userName}";
       dataDir = "/home/${userName}";
@@ -69,7 +69,7 @@ in
     nginx.virtualHosts."syncthing.fi33.buzz" = {
       forceSSL = true;
       useACMEHost = "fi33.buzz";
-      locations."/".proxyPass = "http://localhost:${port}";
+      locations."/".proxyPass = "http://localhost:${toString port}";
     };
   };
 }

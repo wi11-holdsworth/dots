@@ -1,12 +1,12 @@
 let
-  port = "5014";
+  port = 5014;
 in
 {
   services = {
     karakeep = {
       enable = true;
       extraEnvironment = {
-        PORT = port;
+        PORT = toString port;
         DISABLE_NEW_RELEASE_CHECK = "true";
       };
     };
@@ -14,7 +14,7 @@ in
     nginx.virtualHosts."karakeep.fi33.buzz" = {
       forceSSL = true;
       useACMEHost = "fi33.buzz";
-      locations."/".proxyPass = "http://localhost:${port}";
+      locations."/".proxyPass = "http://localhost:${toString port}";
     };
   };
 }

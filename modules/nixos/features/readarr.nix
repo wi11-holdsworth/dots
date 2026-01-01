@@ -1,17 +1,22 @@
 let
-  port = 0000;
+  port = 5016;
 in
 {
   services = {
-    feature = {
+    readarr = {
       enable = true;
+      dataDir = "/srv/readarr";
+      settings.server = {
+        inherit port;
+      };
+      group = "media";
     };
 
     # borgmatic.settings = {
     #   source_directories = [ ];
     #   postgresql_databases = [
     #     {
-    #       name = "feature";
+    #       name = "readarr";
     #       hostname = "localhost";
     #       username = "root";
     #       password = "{credential systemd borgmatic-pg}";
@@ -19,7 +24,7 @@ in
     #   ];
     # };
 
-    nginx.virtualHosts."feature.fi33.buzz" = {
+    nginx.virtualHosts."readarr.fi33.buzz" = {
       forceSSL = true;
       useACMEHost = "fi33.buzz";
       locations."/".proxyPass = "http://localhost:${toString port}";

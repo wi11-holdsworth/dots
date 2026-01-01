@@ -7,7 +7,7 @@
   ...
 }:
 let
-  port = "5004";
+  port = 5004;
   genSecrets =
     secrets:
     lib.genAttrs secrets (secret: {
@@ -25,11 +25,13 @@ let
     # keep-sorted start
     "immich"
     "jellyfin"
+    "kavita-api"
     "lidarr"
     "miniflux"
     "paperless"
     "prowlarr"
     "radarr"
+    "readarr"
     "sonarr"
     # keep-sorted end
   ];
@@ -38,90 +40,11 @@ in
   services = {
     homepage-dashboard = {
       enable = true;
-      listenPort = lib.toInt port;
+      listenPort = port;
       allowedHosts = "homepage-dashboard.fi33.buzz";
       services = [
-        # keep-sorted start block=yes
-        {
-          "Cloud Services" = [
-            {
-              "copyparty" = {
-                "description" = "Cloud file manager";
-                "icon" = "sh-copyparty.svg";
-                "href" = "https://copyparty.fi33.buzz/";
-              };
-            }
-            {
-              "CouchDB" = {
-                "description" = "Obsidian sync database";
-                "icon" = "couchdb.svg";
-                "href" = "https://couchdb.fi33.buzz/_utils/";
-              };
-            }
-            {
-              "ntfy" = {
-                "description" = "Notification service";
-                "icon" = "ntfy.svg";
-                "href" = "https://ntfy-sh.fi33.buzz/";
-              };
-            }
-            {
-              "Radicale" = {
-                "description" = "CalDAV/CardDAV service";
-                "icon" = "radicale.svg";
-                "href" = "https://radicale.fi33.buzz";
-              };
-            }
-            {
-              "Syncthing" = {
-                "description" = "Decentralised file synchronisation";
-                "icon" = "syncthing.svg";
-                "href" = "https://syncthing.fi33.buzz/";
-              };
-            }
-            {
-              "qBittorrent" = {
-                "description" = "BitTorrent client";
-                "icon" = "qbittorrent.svg";
-                "href" = "https://qbittorrent.fi33.buzz/";
-              };
-            }
-            {
-              "Vaultwarden" = {
-                "description" = "Password manager";
-                "icon" = "vaultwarden.svg";
-                "href" = "https://vaultwarden.fi33.buzz/";
-              };
-            }
-          ];
-        }
         {
           "Media Management" = [
-            {
-              "Lidarr" = {
-                "description" = "Music collection manager";
-                "icon" = "lidarr.svg";
-                "href" = "https://lidarr.fi33.buzz/";
-                "widget" = {
-                  "type" = "lidarr";
-                  "url" = "https://lidarr.fi33.buzz/";
-                  "key" = "@lidarr@";
-                  "enableQueue" = true;
-                };
-              };
-            }
-            {
-              "Prowlarr" = {
-                "description" = "Indexer management tool";
-                "icon" = "prowlarr.svg";
-                "href" = "https://prowlarr.fi33.buzz/";
-                "widget" = {
-                  "type" = "prowlarr";
-                  "url" = "https://prowlarr.fi33.buzz/";
-                  "key" = "@prowlarr@";
-                };
-              };
-            }
             {
               "Radarr" = {
                 "description" = "Movie collection manager";
@@ -146,6 +69,51 @@ in
                   "key" = "@sonarr@";
                   "enableQueue" = true;
                 };
+              };
+            }
+            {
+              "Lidarr" = {
+                "description" = "Music collection manager";
+                "icon" = "lidarr.svg";
+                "href" = "https://lidarr.fi33.buzz/";
+                "widget" = {
+                  "type" = "lidarr";
+                  "url" = "https://lidarr.fi33.buzz/";
+                  "key" = "@lidarr@";
+                  "enableQueue" = true;
+                };
+              };
+            }
+            {
+              "Readarr" = {
+                "description" = "Book collection manager";
+                "icon" = "readarr.svg";
+                "href" = "https://readarr.fi33.buzz/";
+                "widget" = {
+                  "type" = "readarr";
+                  "url" = "https://readarr.fi33.buzz/";
+                  "key" = "@readarr@";
+                  "enableQueue" = true;
+                };
+              };
+            }
+            {
+              "Prowlarr" = {
+                "description" = "Indexer management tool";
+                "icon" = "prowlarr.svg";
+                "href" = "https://prowlarr.fi33.buzz/";
+                "widget" = {
+                  "type" = "prowlarr";
+                  "url" = "https://prowlarr.fi33.buzz/";
+                  "key" = "@prowlarr@";
+                };
+              };
+            }
+            {
+              "qBittorrent" = {
+                "description" = "BitTorrent client";
+                "icon" = "qbittorrent.svg";
+                "href" = "https://qbittorrent.fi33.buzz/";
               };
             }
           ];
@@ -189,6 +157,18 @@ in
               };
             }
             {
+              "Kavita" = {
+                "description" = "Book reader";
+                "icon" = "kavita.svg";
+                "href" = "https://kavita.fi33.buzz/";
+                "widget" = {
+                  "type" = "kavita";
+                  "url" = "https://kavita.fi33.buzz/";
+                  "key" = "@kavita-api@";
+                };
+              };
+            }
+            {
               "Miniflux" = {
                 "description" = "RSS aggregator";
                 "icon" = "miniflux.svg";
@@ -216,6 +196,52 @@ in
           ];
         }
         {
+          "Services" = [
+            {
+              "copyparty" = {
+                "description" = "Cloud file manager";
+                "icon" = "sh-copyparty.svg";
+                "href" = "https://copyparty.fi33.buzz/";
+              };
+            }
+            {
+              "CouchDB" = {
+                "description" = "Obsidian sync database";
+                "icon" = "couchdb.svg";
+                "href" = "https://couchdb.fi33.buzz/_utils/";
+              };
+            }
+            {
+              "ntfy" = {
+                "description" = "Notification service";
+                "icon" = "ntfy.svg";
+                "href" = "https://ntfy-sh.fi33.buzz/";
+              };
+            }
+            {
+              "Radicale" = {
+                "description" = "CalDAV/CardDAV service";
+                "icon" = "radicale.svg";
+                "href" = "https://radicale.fi33.buzz";
+              };
+            }
+            {
+              "Syncthing" = {
+                "description" = "Decentralised file synchronisation";
+                "icon" = "syncthing.svg";
+                "href" = "https://syncthing.fi33.buzz/";
+              };
+            }
+            {
+              "Vaultwarden" = {
+                "description" = "Password manager";
+                "icon" = "vaultwarden.svg";
+                "href" = "https://vaultwarden.fi33.buzz/";
+              };
+            }
+          ];
+        }
+        {
           "Utilities" = [
             {
               "NanoKVM" = {
@@ -226,7 +252,6 @@ in
             }
           ];
         }
-        # keep-sorted end
       ];
       settings = {
         title = "Mission Control";
@@ -237,21 +262,21 @@ in
           {
             "Media Streaming" = {
               style = "row";
-              columns = 4;
+              columns = 3;
               useEqualHeights = true;
+            };
+          }
+          {
+            "Services" = {
+              style = "row";
+              columns = 3;
             };
           }
           {
             "Media Management" = {
               style = "row";
-              columns = 4;
-              useEqualHeights = true;
-            };
-          }
-          {
-            "Cloud Services" = {
-              style = "row";
               columns = 3;
+              useEqualHeights = true;
             };
           }
           {
@@ -300,7 +325,7 @@ in
     nginx.virtualHosts."homepage-dashboard.fi33.buzz" = {
       forceSSL = true;
       useACMEHost = "fi33.buzz";
-      locations."/".proxyPass = "http://localhost:${port}";
+      locations."/".proxyPass = "http://localhost:${toString port}";
     };
   };
 

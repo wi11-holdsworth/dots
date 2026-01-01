@@ -1,15 +1,11 @@
-{
-  lib,
-  ...
-}:
 let
-  port = "5005";
+  port = 5005;
 in
 {
   services = {
     qbittorrent = {
       enable = true;
-      webuiPort = lib.toInt port;
+      webuiPort = port;
       profileDir = "/srv";
       group = "media";
       extraArgs = [
@@ -20,7 +16,7 @@ in
     nginx.virtualHosts."qbittorrent.fi33.buzz" = {
       forceSSL = true;
       useACMEHost = "fi33.buzz";
-      locations."/".proxyPass = "http://localhost:${port}";
+      locations."/".proxyPass = "http://localhost:${toString port}";
     };
   };
 
