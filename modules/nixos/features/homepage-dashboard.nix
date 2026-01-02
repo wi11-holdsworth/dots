@@ -25,6 +25,7 @@ let
     # keep-sorted start
     "immich"
     "jellyfin"
+    "karakeep"
     "kavita-api"
     "lidarr"
     "miniflux"
@@ -165,6 +166,18 @@ in
                   "type" = "kavita";
                   "url" = "https://kavita.fi33.buzz/";
                   "key" = "@kavita-api@";
+                };
+              };
+            }
+            {
+              "Karakeep" = {
+                "description" = "Web clipper";
+                "icon" = "karakeep.svg";
+                "href" = "https://karakeep.fi33.buzz/";
+                "widget" = {
+                  "type" = "karakeep";
+                  "url" = "https://karakeep.fi33.buzz/";
+                  "key" = "@karakeep@";
                 };
               };
             }
