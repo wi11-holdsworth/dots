@@ -11,7 +11,6 @@
     "mail"
     "obsidian"
     "zellij"
-    "zen-browser"
     # keep-sorted end
   ];
 }

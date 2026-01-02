@@ -165,7 +165,6 @@
     "home-manager_3": {
       "inputs": {
         "nixpkgs": [
-          "zen-browser",
           "nixpkgs"
         ]
       },
@@ -265,7 +264,6 @@
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
         "nur": "nur",
-        "zen-browser": "zen-browser"
       }
     },
     "systems": {
@@ -295,27 +293,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "zen-browser": {
-      "inputs": {
-        "home-manager": "home-manager_3",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1766897152,
-        "narHash": "sha256-mD1GDg1eIHYUwk536j4uJX1IfQArsLQm2SL7rTQwAPI=",
-        "owner": "0xc000022070",
-        "repo": "zen-browser-flake",
-        "rev": "fe8d1a61a904b336f453d7ab5ae7d691a21c5cbf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "0xc000022070",
-        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

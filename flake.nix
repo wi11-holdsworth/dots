@@ -21,10 +21,6 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # keep-sorted end
   };
 
@@ -35,7 +31,6 @@
       home-manager,
       nixpkgs,
       nur,
-      zen-browser,
       # keep-sorted end
       ...
     }@inputs:
@@ -59,7 +54,6 @@
                 users.${userName}.imports = [
                   ./hosts/${hostName}/home.nix
                   agenix.homeManagerModules.default
-                  zen-browser.homeModules.twilight
                 ];
                 backupFileExtension = "backup";
                 extraSpecialArgs = {
