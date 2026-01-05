@@ -5,17 +5,19 @@
 {
   imports = util.toImports ./features [
     # keep-sorted start
+    "aerc"
     "agenix"
     "bat"
     "delta"
-    "direnv"
     "eza"
-    "fish"
+    # "fish"
     "gh"
     "git"
     "lazygit"
+    "mail"
     "starship"
     "yazi"
+    "zellij"
     "zoxide"
     # keep-sorted end
   ];
