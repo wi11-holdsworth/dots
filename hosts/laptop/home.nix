@@ -11,8 +11,8 @@
   ]
   ++ (util.toImports ../../modules/home-manager/bundles [
     # keep-sorted start
-    "desktop"
-    "dev"
+    # "desktop"
+    # "dev"
     # keep-sorted end
   ]);
 

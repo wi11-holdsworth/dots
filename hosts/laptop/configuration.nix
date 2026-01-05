@@ -15,14 +15,14 @@
   ++ (util.toImports ../../modules/nixos/features [
     # keep-sorted start
     "amd-gpu"
-    "gnome"
+    # "gnome"
     "tlp"
     # keep-sorted end
   ])
   ++ (util.toImports ../../modules/nixos/bundles [
     # keep-sorted start
-    "desktop"
-    "dev"
+    # "desktop"
+    # "dev"
     # keep-sorted end
   ]);
 
