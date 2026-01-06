@@ -9,7 +9,6 @@
   imports = util.toImports ./features [
     # keep-sorted start
     "agenix"
-    "fonts"
     "localisation"
     "network"
     "nh"

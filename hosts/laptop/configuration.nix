@@ -23,6 +23,7 @@
     # keep-sorted start
     "desktop"
     "dev"
+    "gui"
     # keep-sorted end
   ]);
 
