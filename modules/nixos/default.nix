@@ -31,7 +31,7 @@
       circumflex # hacker news browsing
       cointop # crypto ticker
       ddgr # web search
-      dogdns # dns
+      doggo # dns
       dua # du
       duf # df
       epy # ebook reading
