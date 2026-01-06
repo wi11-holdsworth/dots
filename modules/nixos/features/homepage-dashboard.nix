@@ -322,7 +322,7 @@ in
             memory = true;
             disk = [
               "/"
-              "/backup"
+              "/mnt/external"
             ];
             cputemp = true;
             tempmin = 0;

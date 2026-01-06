@@ -23,6 +23,22 @@
     "server"
   ]);
 
+  # external drive
+  services.udisks2.enable = true;
+  fileSystems."/mnt/external" = {
+    device = "/dev/disk/by-uuid/d3b3d7dc-d634-4327-9ea2-9d8daa4ecf4e";
+    fsType = "ext4";
+    options = [
+      "nofail"
+      "defaults"
+      "user"
+      "rw"
+      "utf8"
+      "noauto"
+      "umask=000"
+    ];
+  };
+
   networking.hostName = "${hostName}";
 
   # hardened openssh
