@@ -35,6 +35,7 @@
           "fail"
         ];
       };
+      relocated_repo_access_is_ok = true;
       repositories = [
         {
           path = "/mnt/external/backup/repo";
