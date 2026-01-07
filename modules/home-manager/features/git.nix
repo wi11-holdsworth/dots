@@ -5,7 +5,7 @@
       init.defaultBranch = "main";
       core.editor = "nvim";
       push.autoSetupRemote = true;
-      pull.rebase = false;
+      pull.rebase = true;
       user = {
         name = "wi11-holdsworth";
         email = "83637728+wi11-holdsworth@users.noreply.github.com";
