@@ -8,7 +8,7 @@
     "firefox"
     "kitty"
     "obsidian"
-    "zen-browser"
+    # "zen-browser"
     # keep-sorted end
   ];
 }

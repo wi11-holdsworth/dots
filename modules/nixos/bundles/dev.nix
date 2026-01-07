@@ -10,7 +10,7 @@
     devenv
     just
     mask
-    rusty-man
+    # rusty-man
     vscode
     # keep-sorted end
   ];
