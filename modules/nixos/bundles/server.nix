@@ -29,7 +29,5 @@
     # keep-sorted end
   ];
 
-  users.groups.media = { };
-
   services.borgmatic.settings.source_directories = [ "/srv" ];
 }

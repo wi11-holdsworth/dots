@@ -6,7 +6,7 @@ in
     jellyfin = {
       enable = true;
       dataDir = "/srv/jellyfin";
-      group = "media";
+      group = "srv";
     };
 
     nginx.virtualHosts."jellyfin.fi33.buzz" = {

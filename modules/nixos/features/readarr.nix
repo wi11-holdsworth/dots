@@ -9,20 +9,8 @@ in
       settings.server = {
         inherit port;
       };
-      group = "media";
+      group = "srv";
     };
-
-    # borgmatic.settings = {
-    #   source_directories = [ ];
-    #   postgresql_databases = [
-    #     {
-    #       name = "readarr";
-    #       hostname = "localhost";
-    #       username = "root";
-    #       password = "{credential systemd borgmatic-pg}";
-    #     }
-    #   ];
-    # };
 
     nginx.virtualHosts."readarr.fi33.buzz" = {
       forceSSL = true;

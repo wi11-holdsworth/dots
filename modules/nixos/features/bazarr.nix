@@ -6,7 +6,7 @@ in
     bazarr = {
       enable = true;
       dataDir = "/srv/bazarr";
-      group = "media";
+      group = "srv";
       listenPort = port;
     };
 

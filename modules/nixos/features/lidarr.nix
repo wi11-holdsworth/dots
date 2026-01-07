@@ -9,7 +9,7 @@ in
       settings.server = {
         inherit port;
       };
-      group = "media";
+      group = "srv";
     };
 
     nginx.virtualHosts."lidarr.fi33.buzz" = {

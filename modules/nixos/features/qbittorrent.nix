@@ -7,7 +7,7 @@ in
       enable = true;
       webuiPort = port;
       profileDir = "/srv";
-      group = "media";
+      group = "srv";
       extraArgs = [
         "--confirm-legal-notice"
       ];
@@ -19,6 +19,4 @@ in
       locations."/".proxyPass = "http://localhost:${toString port}";
     };
   };
-
-  users.users.qbittorrent.extraGroups = [ "media" ];
 }
