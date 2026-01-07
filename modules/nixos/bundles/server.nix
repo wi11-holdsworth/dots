@@ -8,7 +8,6 @@
     "bazarr"
     "copyparty"
     "couchdb"
-    "flaresolverr"
     "homepage-dashboard"
     "immich"
     "jellyfin"
