@@ -30,6 +30,7 @@ let
     "kavita-api"
     "lidarr"
     "miniflux"
+    "nzbget"
     "paperless"
     "prowlarr"
     "radarr"
@@ -120,6 +121,19 @@ in
                   "type" = "prowlarr";
                   "url" = "https://prowlarr.fi33.buzz/";
                   "key" = "@prowlarr@";
+                };
+              };
+            }
+            {
+              "NZBget" = {
+                "description" = "Usenet client";
+                "icon" = "nzbget.svg";
+                "href" = "https://nzbget.fi33.buzz/";
+                "widget" = {
+                  "type" = "nzbget";
+                  "url" = "https://nzbget.fi33.buzz/";
+                  "username" = "will";
+                  "password" = "@nzbget@";
                 };
               };
             }
@@ -301,7 +315,7 @@ in
           {
             "Media Management" = {
               style = "row";
-              columns = 3;
+              columns = 4;
               useEqualHeights = true;
             };
           }

@@ -17,6 +17,7 @@
     "miniflux"
     "nginx"
     "ntfy-sh"
+    "nzbget"
     "paperless"
     "prowlarr"
     "qbittorrent"
