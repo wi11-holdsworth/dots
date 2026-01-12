@@ -1,3 +1,7 @@
+{
+  pkgs,
+  ...
+}:
 let
   port = 5018;
 in
@@ -18,4 +22,6 @@ in
       locations."/".proxyPass = "http://localhost:${toString port}";
     };
   };
+
+  environment.systemPackages = with pkgs; [ unrar ];
 }
