@@ -132,7 +132,7 @@ in
                 "widget" = {
                   "type" = "nzbget";
                   "url" = "https://nzbget.fi33.buzz/";
-                  "username" = "will";
+                  "username" = "nzbget";
                   "password" = "@nzbget@";
                 };
               };
