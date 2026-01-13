@@ -5,6 +5,7 @@
 {
   imports = util.toImports ../features [
     # keep-sorted start
+    "alacritty"
     "firefox"
     "kitty"
     "obsidian"
