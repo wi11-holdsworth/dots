@@ -21,6 +21,7 @@
     "paperless"
     "prowlarr"
     "qbittorrent"
+    "qui"
     "radarr"
     "radicale"
     "readarr"

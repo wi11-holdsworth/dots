@@ -138,6 +138,13 @@ in
               };
             }
             {
+              "qui" = {
+                "description" = "qBittorrent front end";
+                "icon" = "qui.svg";
+                "href" = "https://qui.fi33.buzz/";
+              };
+            }
+            {
               "qBittorrent" = {
                 "description" = "BitTorrent client";
                 "icon" = "qbittorrent.svg";
@@ -315,7 +322,7 @@ in
           {
             "Media Management" = {
               style = "row";
-              columns = 4;
+              columns = 3;
               useEqualHeights = true;
             };
           }
