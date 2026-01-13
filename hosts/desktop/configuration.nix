@@ -18,6 +18,7 @@
     "external-speakers"
     "gaming"
     "link2c"
+    "llm"
     "plasma"
     # keep-sorted end
   ])
