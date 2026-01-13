@@ -49,7 +49,7 @@
       nb # note taking
       nil # nix language server
       nixd # nix language server
-      nixfmt-rfc-style # nix file formatting
+      nixfmt # nix file formatting
       nom # stylistic nix dependency graphs
       pastel # colour generation
       pdd # datetime calculations
