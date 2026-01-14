@@ -46,6 +46,24 @@ in
           docker build -t compose2nix/upbank2firefly .
         '';
       };
+      "upbank2firefly-getall" = {
+        script = ''
+          cd /srv/upbank2firefly
+          docker container exec -e FLASK_APP=main upbank2firefly flask getall --since "$(date -d "1 hour ago" +"%Y-%m-%d %H:%M:%S")"
+        '';
+        serviceConfig = {
+          Type = "oneshot";
+          User = "root";
+        };
+      };
+    };
+    timers."upbank2firefly-getall" = {
+      wantedBy = [ "timers.target" ];
+      timerConfig = {
+        Unit = "upbank2firefly-getall.service";
+        OnCalendar = "hourly";
+        Persistent = true;
+      };
     };
   };
 
