@@ -5,6 +5,4 @@
       "--accept-dns=true"
     ];
   };
-
-  networking.firewall.trustedInterfaces = [ "tailscale0" ];
 }
