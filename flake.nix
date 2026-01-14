@@ -12,6 +12,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-citizen = {
+      url = "github:LovingMelody/nix-citizen";
+      inputs.nix-gaming.follows = "nix-gaming";
+    };
+    nix-gaming.url = "github:fufexan/nix-gaming";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -63,7 +68,13 @@
                 ];
                 backupFileExtension = "backup";
                 extraSpecialArgs = {
-                  inherit userName hostName util;
+                  inherit
+                    inputs
+                    hostName
+                    userName
+                    system
+                    util
+                    ;
                 };
                 useGlobalPkgs = true;
                 useUserPackages = true;

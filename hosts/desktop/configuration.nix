@@ -20,6 +20,7 @@
     "link2c"
     "llm"
     "plasma"
+    "star-citizen"
     # keep-sorted end
   ])
   ++ (util.toImports ../../modules/nixos/bundles [
