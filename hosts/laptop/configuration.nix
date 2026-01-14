@@ -32,8 +32,6 @@
 
   system.stateVersion = "24.11";
 
-  i18n.extraLocaleSettings.LC_ALL = "en_AU.UTF-8";
-
   users.users.${userName} = {
     extraGroups = [
       # keep-sorted start
