@@ -6,7 +6,6 @@
   environment.systemPackages = with pkgs; [
     # keep-sorted start
     heroic
-    lutris
     mangohud
     nexusmods-app
     prismlauncher
