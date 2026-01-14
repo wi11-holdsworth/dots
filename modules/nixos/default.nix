@@ -59,6 +59,7 @@
       ripunzip # unzip
       sd # sed
       slides # presentations
+      snitch # netstat
       ticker # stock ticker
       tldr # cheat sheets
       tmpmail # temporary email address
