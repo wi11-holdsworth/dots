@@ -24,7 +24,6 @@
     with pkgs;
     [
       # keep-sorted start
-      bottom # top
       broot # large directory browser
       choose # cut
       circumflex # hacker news browsing
