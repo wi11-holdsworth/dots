@@ -39,6 +39,7 @@ in
   "radicale.age".publicKeys = users;
   "readarr.age".publicKeys = users;
   "sonarr.age".publicKeys = users;
+  "upbank2firefly.age".publicKeys = users;
   "vaultwarden-admin.age".publicKeys = users;
   # keep-sorted end
 }
