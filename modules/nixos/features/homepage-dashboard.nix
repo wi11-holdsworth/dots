@@ -259,6 +259,13 @@ in
               };
             }
             {
+              "Firefly" = {
+                "description" = "Budget Planner";
+                "icon" = "firefly-iii.svg";
+                "href" = "https://firefly.fi33.buzz/";
+              };
+            }
+            {
               "ntfy" = {
                 "description" = "Notification service";
                 "icon" = "ntfy.svg";
@@ -316,7 +323,7 @@ in
           {
             "Services" = {
               style = "row";
-              columns = 3;
+              columns = 4;
             };
           }
           {
