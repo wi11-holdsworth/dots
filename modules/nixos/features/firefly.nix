@@ -2,12 +2,15 @@
   config,
   ...
 }:
+let
+  certloc = "/var/lib/acme/fi33.buzz";
+in
 {
   services = {
     firefly-iii = {
       enable = true;
       dataDir = "/srv/firefly";
-      group = "nginx";
+      group = config.services.caddy.group;
       settings = {
         # keep-sorted start
         ALLOW_WEBHOOKS = "true";
@@ -28,28 +31,17 @@
       }
     ];
 
-    nginx.virtualHosts."firefly.fi33.buzz" = {
-      forceSSL = true;
-      useACMEHost = "fi33.buzz";
-      root = "${config.services.firefly-iii.package}/public";
-      locations = {
-        "/" = {
-          tryFiles = "$uri $uri/ /index.php?$query_string";
-          index = "index.php";
-          extraConfig = ''
-            sendfile off;
-          '';
-        };
-        "~ \\.php$" = {
-          extraConfig = ''
-            include ${config.services.nginx.package}/conf/fastcgi_params ;
-            fastcgi_param SCRIPT_FILENAME $request_filename;
-            fastcgi_param modHeadersAvailable true; #Avoid sending the security headers twice
-            fastcgi_pass unix:${config.services.phpfpm.pools.firefly-iii.socket};
-          '';
-        };
-      };
-    };
+    caddy.virtualHosts."firefly.fi33.buzz".extraConfig = ''
+      root * ${config.services.firefly-iii.package}/public
+      php_fastcgi unix//${config.services.phpfpm.pools.firefly-iii.socket}
+      try_files {path} {path}/ /index.php?{query}
+      file_server {
+        index index.php
+      }
+      tls ${certloc}/cert.pem ${certloc}/key.pem {
+        protocols tls1.3
+      }
+    '';
   };
 
   age.secrets = {

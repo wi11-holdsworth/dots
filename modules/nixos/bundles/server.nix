@@ -6,6 +6,7 @@
   imports = util.toImports ../features [
     # keep-sorted start
     "bazarr"
+    "caddy"
     "copyparty"
     "couchdb"
     "firefly"
@@ -16,7 +17,6 @@
     "kavita"
     "lidarr"
     "miniflux"
-    "nginx"
     "ntfy-sh"
     "nzbget"
     "paperless"

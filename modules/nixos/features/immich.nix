@@ -1,5 +1,6 @@
 let
   port = 2283;
+  certloc = "/var/lib/acme/fi33.buzz";
 in
 {
   services = {
@@ -18,16 +19,11 @@ in
       }
     ];
 
-    nginx = {
-      clientMaxBodySize = "50000M";
-      virtualHosts."immich.fi33.buzz" = {
-        forceSSL = true;
-        useACMEHost = "fi33.buzz";
-        locations."/" = {
-          proxyPass = "http://[::1]:${toString port}";
-          proxyWebsockets = true;
-        };
-      };
-    };
+    caddy.virtualHosts."immich.fi33.buzz".extraConfig = ''
+      reverse_proxy localhost:${toString port}
+      tls ${certloc}/cert.pem ${certloc}/key.pem {
+        protocols tls1.3
+      }
+    '';
   };
 }
