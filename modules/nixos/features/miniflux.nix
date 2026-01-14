@@ -4,6 +4,7 @@
 }:
 let
   port = 5010;
+  certloc = "/var/lib/acme/fi33.buzz";
 in
 {
   services = {
@@ -25,11 +26,12 @@ in
       }
     ];
 
-    nginx.virtualHosts."miniflux.fi33.buzz" = {
-      forceSSL = true;
-      useACMEHost = "fi33.buzz";
-      locations."/".proxyPass = "http://localhost:${toString port}";
-    };
+    caddy.virtualHosts."miniflux.fi33.buzz".extraConfig = ''
+      reverse_proxy localhost:${toString port}
+      tls ${certloc}/cert.pem ${certloc}/key.pem {
+        protocols tls1.3
+      }
+    '';
   };
 
   age.secrets."miniflux-creds".file = ../../../secrets/miniflux-creds.age;

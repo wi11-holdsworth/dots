@@ -4,6 +4,7 @@
 }:
 let
   port = 5013;
+  certloc = "/var/lib/acme/fi33.buzz";
 in
 {
   services = {
@@ -29,11 +30,12 @@ in
       ];
     };
 
-    nginx.virtualHosts."paperless.fi33.buzz" = {
-      forceSSL = true;
-      useACMEHost = "fi33.buzz";
-      locations."/".proxyPass = "http://localhost:${toString port}";
-    };
+caddy.virtualHosts."paperless.fi33.buzz".extraConfig = ''
+      reverse_proxy localhost:${toString port}
+      tls ${certloc}/cert.pem ${certloc}/key.pem {
+        protocols tls1.3
+      }
+    '';
   };
 
   age.secrets."paperless" = {
