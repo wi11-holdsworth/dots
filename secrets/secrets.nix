@@ -19,6 +19,8 @@ in
   "borgmatic-pg.age".publicKeys = users;
   "borgmatic.age".publicKeys = users;
   "copyparty-will.age".publicKeys = users;
+  "firefly-db.age".publicKeys = users;
+  "firefly.age".publicKeys = users;
   "immich.age".publicKeys = users;
   "jellyfin.age".publicKeys = users;
   "karakeep.age".publicKeys = users;

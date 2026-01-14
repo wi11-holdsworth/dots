@@ -8,6 +8,7 @@
     "bazarr"
     "copyparty"
     "couchdb"
+    "firefly"
     "homepage-dashboard"
     "immich"
     "jellyfin"
