@@ -17,7 +17,7 @@ let
     }
     {
       device = "phone";
-      id = "DF56S5M-2EDKAML-LZBB35J-MNNK7UE-WAYE2QW-EKUGKXN-U5JW3RX-S3FUGA4";
+      id = "KAZ3SOB-SSJHY33-6JF64KW-VF3CPSP-565565I-YXOJHU6-E273VR5-CKQFNQ6";
     }
     {
       device = "server";
