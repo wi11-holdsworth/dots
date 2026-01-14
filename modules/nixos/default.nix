@@ -33,7 +33,6 @@
       dua # du
       duf # df
       epy # ebook reading
-      fd # find
       fselect # find with sql syntax
       fx # json processor and viewer
       fzf # fuzzy finder

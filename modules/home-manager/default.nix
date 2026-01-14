@@ -10,6 +10,7 @@
     "bottom"
     "delta"
     "eza"
+    "fd"
     "fish"
     "gh"
     "git"
