@@ -7,6 +7,7 @@
 }:
 let
   port = 5019;
+  certloc = "/var/lib/acme/fi33.buzz";
 in
 {
   environment.systemPackages = [ pkgs.qui ];
@@ -22,9 +23,10 @@ in
     };
   };
 
-  services.nginx.virtualHosts."qui.fi33.buzz" = {
-    forceSSL = true;
-    useACMEHost = "fi33.buzz";
-    locations."/".proxyPass = "http://localhost:${toString port}";
-  };
+  services.caddy.virtualHosts."qui.fi33.buzz".extraConfig = ''
+    reverse_proxy localhost:${toString port}
+    tls ${certloc}/cert.pem ${certloc}/key.pem {
+      protocols tls1.3
+    }
+  '';
 }

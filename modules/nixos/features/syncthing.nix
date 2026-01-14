@@ -40,6 +40,7 @@ let
       }
     ) (builtins.filter (deviceSet: deviceSet.device != hostName) devicesList)
   );
+  certloc = "/var/lib/acme/fi33.buzz";
 in
 {
   services = {
@@ -66,10 +67,11 @@ in
       else
         null;
 
-    nginx.virtualHosts."syncthing.fi33.buzz" = {
-      forceSSL = true;
-      useACMEHost = "fi33.buzz";
-      locations."/".proxyPass = "http://localhost:${toString port}";
-    };
+    caddy.virtualHosts."syncthing.fi33.buzz".extraConfig = ''
+      reverse_proxy http://localhost:${toString port}
+      tls ${certloc}/cert.pem ${certloc}/key.pem {
+        protocols tls1.3
+      }
+    '';
   };
 }
