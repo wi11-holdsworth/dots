@@ -28,6 +28,7 @@
     "readarr"
     "sonarr"
     "syncthing"
+    "upbank2firefly"
     "vaultwarden"
     # keep-sorted end
   ];
