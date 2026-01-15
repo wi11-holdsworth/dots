@@ -9,31 +9,6 @@
     interactiveShellInit = ''
       set fish_greeting
     '';
-    shellAliases = {
-      # keep-sorted start
-      ",cat" = "bat";
-      ",curl" = "xh";
-      ",cut" = "choose";
-      ",df" = "duf";
-      ",diff" = "delta";
-      ",du" = "dua";
-      ",find" = "fd";
-      ",grep" = "rga";
-      ",ping" = "gping";
-      ",ps" = "procs";
-      ",sed" = "sd";
-      ",ss" = "snitch";
-      ",top" = "btm";
-      ",unzip" = "ripunzip";
-      "g" = "lazygit";
-      "l" = "eza";
-      "la" = "eza -a";
-      "ls" = "eza";
-      "ns" = "nh os switch";
-      "vi" = "nvim";
-      "vim" = "nvim";
-      # keep-sorted end
-    };
     plugins = [
       # INFO: Using this to get shell completion for programs added to the path through nix+direnv.
       # Issue to upstream into direnv:Add commentMore actions
