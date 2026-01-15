@@ -15,6 +15,7 @@
     "gh"
     "git"
     "lazygit"
+    "shell-aliases"
     "starship"
     "yazi"
     "zoxide"
