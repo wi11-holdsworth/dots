@@ -13,6 +13,13 @@ in
       group = "srv";
     };
 
+    borgmatic.settings.sqlite_databases = [
+      {
+        name = "sonarr";
+        path = "/srv/sonarr/sonarr.db";
+      }
+    ];
+
     caddy.virtualHosts."sonarr.fi33.buzz".extraConfig = ''
       reverse_proxy localhost:${toString port}
       tls ${certloc}/cert.pem ${certloc}/key.pem {

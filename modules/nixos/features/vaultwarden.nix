@@ -23,6 +23,13 @@ in
       };
     };
 
+    borgmatic.settings.sqlite_databases = [
+      {
+        name = "vaultwarden";
+        path = "/srv/vaultwarden/db.sqlite3";
+      }
+    ];
+
     caddy.virtualHosts."vaultwarden.fi33.buzz".extraConfig = ''
       reverse_proxy localhost:${toString port}
       tls ${certloc}/cert.pem ${certloc}/key.pem {

@@ -13,6 +13,13 @@ in
       group = "srv";
     };
 
+    borgmatic.settings.sqlite_databases = [
+      {
+        name = "lidarr";
+        path = "/srv/lidarr/lidarr.db";
+      }
+    ];
+
     caddy.virtualHosts."lidarr.fi33.buzz".extraConfig = ''
       reverse_proxy localhost:${toString port}
       tls ${certloc}/cert.pem ${certloc}/key.pem {

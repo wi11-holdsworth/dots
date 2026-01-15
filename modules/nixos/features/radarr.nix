@@ -13,6 +13,13 @@ in
       group = "srv";
     };
 
+    borgmatic.settings.sqlite_databases = [
+      {
+        name = "radarr";
+        path = "/srv/radarr/radarr.db";
+      }
+    ];
+
     caddy.virtualHosts."radarr.fi33.buzz".extraConfig = ''
       reverse_proxy localhost:${toString port}
       tls ${certloc}/cert.pem ${certloc}/key.pem {

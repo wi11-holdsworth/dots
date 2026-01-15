@@ -30,7 +30,7 @@ in
       ];
     };
 
-caddy.virtualHosts."paperless.fi33.buzz".extraConfig = ''
+    caddy.virtualHosts."paperless.fi33.buzz".extraConfig = ''
       reverse_proxy localhost:${toString port}
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
