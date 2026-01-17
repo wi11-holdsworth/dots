@@ -9,6 +9,7 @@
     "caddy"
     "copyparty"
     "couchdb"
+    "ddns-updater"
     "firefly"
     "homepage-dashboard"
     "immich"
