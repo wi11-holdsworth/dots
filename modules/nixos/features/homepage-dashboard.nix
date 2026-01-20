@@ -192,18 +192,18 @@ in
                 };
               };
             }
-            {
-              "Kavita" = {
-                "description" = "Book reader";
-                "icon" = "kavita.svg";
-                "href" = "https://kavita.fi33.buzz/";
-                "widget" = {
-                  "type" = "kavita";
-                  "url" = "https://kavita.fi33.buzz/";
-                  "key" = "@kavita-api@";
-                };
-              };
-            }
+            # {
+            #   "Kavita" = {
+            #     "description" = "Book reader";
+            #     "icon" = "kavita.svg";
+            #     "href" = "https://kavita.fi33.buzz/";
+            #     "widget" = {
+            #       "type" = "kavita";
+            #       "url" = "https://kavita.fi33.buzz/";
+            #       "key" = "@kavita-api@";
+            #     };
+            #   };
+            # }
             {
               "Karakeep" = {
                 "description" = "Web clipper";

@@ -15,7 +15,6 @@
     "immich"
     "jellyfin"
     "karakeep"
-    "kavita"
     "lidarr"
     "miniflux"
     "ntfy-sh"
