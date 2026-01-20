@@ -50,106 +50,106 @@ in
         {
           "Media Management" = [
             {
-              "Radarr" = {
-                "description" = "Movie collection manager";
-                "icon" = "radarr.svg";
-                "href" = "https://radarr.fi33.buzz/";
-                "widget" = {
-                  "type" = "radarr";
-                  "url" = "https://radarr.fi33.buzz/";
-                  "key" = "@radarr@";
-                  "enableQueue" = true;
+              Radarr = {
+                description = "Movie collection manager";
+                icon = "radarr.svg";
+                href = "https://radarr.fi33.buzz/";
+                widget = {
+                  type = "radarr";
+                  url = "https://radarr.fi33.buzz/";
+                  key = "@radarr@";
+                  enableQueue = true;
                 };
               };
             }
             {
-              "Sonarr" = {
-                "description" = "TV show collection manager";
-                "icon" = "sonarr.svg";
-                "href" = "https://sonarr.fi33.buzz/";
-                "widget" = {
-                  "type" = "sonarr";
-                  "url" = "https://sonarr.fi33.buzz/";
-                  "key" = "@sonarr@";
-                  "enableQueue" = true;
+              Sonarr = {
+                description = "TV show collection manager";
+                icon = "sonarr.svg";
+                href = "https://sonarr.fi33.buzz/";
+                widget = {
+                  type = "sonarr";
+                  url = "https://sonarr.fi33.buzz/";
+                  key = "@sonarr@";
+                  enableQueue = true;
                 };
               };
             }
             {
-              "Lidarr" = {
-                "description" = "Music collection manager";
-                "icon" = "lidarr.svg";
-                "href" = "https://lidarr.fi33.buzz/";
-                "widget" = {
-                  "type" = "lidarr";
-                  "url" = "https://lidarr.fi33.buzz/";
-                  "key" = "@lidarr@";
-                  "enableQueue" = true;
+              Lidarr = {
+                description = "Music collection manager";
+                icon = "lidarr.svg";
+                href = "https://lidarr.fi33.buzz/";
+                widget = {
+                  type = "lidarr";
+                  url = "https://lidarr.fi33.buzz/";
+                  key = "@lidarr@";
+                  enableQueue = true;
                 };
               };
             }
             {
-              "Readarr" = {
-                "description" = "Book collection manager";
-                "icon" = "readarr.svg";
-                "href" = "https://readarr.fi33.buzz/";
-                "widget" = {
-                  "type" = "readarr";
-                  "url" = "https://readarr.fi33.buzz/";
-                  "key" = "@readarr@";
-                  "enableQueue" = true;
+              Readarr = {
+                description = "Book collection manager";
+                icon = "readarr.svg";
+                href = "https://readarr.fi33.buzz/";
+                widget = {
+                  type = "readarr";
+                  url = "https://readarr.fi33.buzz/";
+                  key = "@readarr@";
+                  enableQueue = true;
                 };
               };
             }
             {
-              "Bazarr" = {
-                "description" = "Subtitle downloader and manager";
-                "icon" = "bazarr.svg";
-                "href" = "https://bazarr.fi33.buzz/";
-                "widget" = {
-                  "type" = "bazarr";
-                  "url" = "https://bazarr.fi33.buzz/";
-                  "key" = "@bazarr@";
+              Bazarr = {
+                description = "Subtitle downloader and manager";
+                icon = "bazarr.svg";
+                href = "https://bazarr.fi33.buzz/";
+                widget = {
+                  type = "bazarr";
+                  url = "https://bazarr.fi33.buzz/";
+                  key = "@bazarr@";
                 };
               };
             }
             {
-              "Prowlarr" = {
-                "description" = "Indexer management tool";
-                "icon" = "prowlarr.svg";
-                "href" = "https://prowlarr.fi33.buzz/";
-                "widget" = {
-                  "type" = "prowlarr";
-                  "url" = "https://prowlarr.fi33.buzz/";
-                  "key" = "@prowlarr@";
+              Prowlarr = {
+                description = "Indexer management tool";
+                icon = "prowlarr.svg";
+                href = "https://prowlarr.fi33.buzz/";
+                widget = {
+                  type = "prowlarr";
+                  url = "https://prowlarr.fi33.buzz/";
+                  key = "@prowlarr@";
                 };
               };
             }
             {
-              "NZBget" = {
-                "description" = "Usenet client";
-                "icon" = "nzbget.svg";
-                "href" = "https://nzbget.fi33.buzz/";
-                "widget" = {
-                  "type" = "nzbget";
-                  "url" = "https://nzbget.fi33.buzz/";
-                  "username" = "nzbget";
-                  "password" = "@nzbget@";
+              NZBget = {
+                description = "Usenet client";
+                icon = "nzbget.svg";
+                href = "https://nzbget.fi33.buzz/";
+                widget = {
+                  type = "nzbget";
+                  url = "https://nzbget.fi33.buzz/";
+                  username = "nzbget";
+                  password = "@nzbget@";
                 };
               };
             }
             {
-              "qui" = {
-                "description" = "qBittorrent front end";
-                "icon" = "qui.svg";
-                "href" = "https://qui.fi33.buzz/";
+              qui = {
+                description = "qBittorrent front end";
+                icon = "qui.svg";
+                href = "https://qui.fi33.buzz/";
               };
             }
             {
-              "qBittorrent" = {
-                "description" = "BitTorrent client";
-                "icon" = "qbittorrent.svg";
-                "href" = "https://qbittorrent.fi33.buzz/";
+              qBittorrent = {
+                description = "BitTorrent client";
+                icon = "qbittorrent.svg";
+                href = "https://qbittorrent.fi33.buzz/";
               };
             }
           ];
@@ -157,38 +157,38 @@ in
         {
           "Media Streaming" = [
             {
-              "Immich" = {
-                "description" = "Photo backup";
-                "icon" = "immich.svg";
-                "href" = "https://immich.fi33.buzz/";
-                "widget" = {
-                  "type" = "immich";
-                  "fields" = [
+              Immich = {
+                description = "Photo backup";
+                icon = "immich.svg";
+                href = "https://immich.fi33.buzz/";
+                widget = {
+                  type = "immich";
+                  fields = [
                     "users"
                     "photos"
                     "videos"
                     "storage"
                   ];
-                  "url" = "https://immich.fi33.buzz/";
-                  "version" = 2;
-                  "key" = "@immich@";
+                  url = "https://immich.fi33.buzz/";
+                  version = 2;
+                  key = "@immich@";
                 };
               };
             }
             {
-              "Jellyfin" = {
-                "description" = "Media streaming";
-                "icon" = "jellyfin.svg";
-                "href" = "https://jellyfin.fi33.buzz/";
-                "widget" = {
-                  "type" = "jellyfin";
-                  "url" = "https://jellyfin.fi33.buzz/";
-                  "key" = "@jellyfin@";
-                  "enableBlocks" = true;
-                  "enableNowPlaying" = true;
-                  "enableUser" = true;
-                  "showEpisodeNumber" = true;
-                  "expandOneStreamToTwoRows" = false;
+              Jellyfin = {
+                description = "Media streaming";
+                icon = "jellyfin.svg";
+                href = "https://jellyfin.fi33.buzz/";
+                widget = {
+                  type = "jellyfin";
+                  url = "https://jellyfin.fi33.buzz/";
+                  key = "@jellyfin@";
+                  enableBlocks = true;
+                  enableNowPlaying = true;
+                  enableUser = true;
+                  showEpisodeNumber = true;
+                  expandOneStreamToTwoRows = false;
                 };
               };
             }
@@ -205,46 +205,46 @@ in
               };
             }
             {
-              "Karakeep" = {
-                "description" = "Web clipper";
-                "icon" = "karakeep.svg";
-                "href" = "https://karakeep.fi33.buzz/";
-                "widget" = {
-                  "type" = "karakeep";
-                  "url" = "https://karakeep.fi33.buzz/";
-                  "key" = "@karakeep@";
+              Karakeep = {
+                description = "Web clipper";
+                icon = "karakeep.svg";
+                href = "https://karakeep.fi33.buzz/";
+                widget = {
+                  type = "karakeep";
+                  url = "https://karakeep.fi33.buzz/";
+                  key = "@karakeep@";
                 };
               };
             }
             {
-              "Miniflux" = {
-                "description" = "RSS aggregator";
-                "icon" = "miniflux.svg";
-                "href" = "https://miniflux.fi33.buzz/";
-                "widget" = {
-                  "type" = "miniflux";
-                  "url" = "https://miniflux.fi33.buzz/";
-                  "key" = "@miniflux@";
+              Miniflux = {
+                description = "RSS aggregator";
+                icon = "miniflux.svg";
+                href = "https://miniflux.fi33.buzz/";
+                widget = {
+                  type = "miniflux";
+                  url = "https://miniflux.fi33.buzz/";
+                  key = "@miniflux@";
                 };
               };
             }
             {
-              "Paperless" = {
-                "description" = "Digital filing cabinet";
-                "icon" = "paperless.svg";
-                "href" = "https://paperless.fi33.buzz/";
-                "widget" = {
-                  "type" = "paperlessngx";
-                  "url" = "https://paperless.fi33.buzz/";
-                  "username" = "admin";
-                  "password" = "@paperless@";
+              Paperless = {
+                description = "Digital filing cabinet";
+                icon = "paperless.svg";
+                href = "https://paperless.fi33.buzz/";
+                widget = {
+                  type = "paperlessngx";
+                  url = "https://paperless.fi33.buzz/";
+                  username = "admin";
+                  password = "@paperless@";
                 };
               };
             }
           ];
         }
         {
-          "Services" = [
+          Services = [
             {
               "copyparty" = {
                 "description" = "Cloud file manager";
@@ -253,56 +253,56 @@ in
               };
             }
             {
-              "CouchDB" = {
-                "description" = "Obsidian sync database";
-                "icon" = "couchdb.svg";
-                "href" = "https://couchdb.fi33.buzz/_utils/";
+              CouchDB = {
+                description = "Obsidian sync database";
+                icon = "couchdb.svg";
+                href = "https://couchdb.fi33.buzz/_utils/";
               };
             }
             {
-              "Firefly" = {
-                "description" = "Budget Planner";
-                "icon" = "firefly-iii.svg";
-                "href" = "https://firefly.fi33.buzz/";
+              Firefly = {
+                description = "Budget Planner";
+                icon = "firefly-iii.svg";
+                href = "https://firefly.fi33.buzz/";
               };
             }
             {
-              "ntfy" = {
-                "description" = "Notification service";
-                "icon" = "ntfy.svg";
-                "href" = "https://ntfy-sh.fi33.buzz/";
+              ntfy = {
+                description = "Notification service";
+                icon = "ntfy.svg";
+                href = "https://ntfy-sh.fi33.buzz/";
               };
             }
             {
-              "Radicale" = {
-                "description" = "CalDAV/CardDAV service";
-                "icon" = "radicale.svg";
-                "href" = "https://radicale.fi33.buzz";
+              Radicale = {
+                description = "CalDAV/CardDAV service";
+                icon = "radicale.svg";
+                href = "https://radicale.fi33.buzz";
               };
             }
             {
-              "Syncthing" = {
-                "description" = "Decentralised file synchronisation";
-                "icon" = "syncthing.svg";
-                "href" = "https://syncthing.fi33.buzz/";
+              Syncthing = {
+                description = "Decentralised file synchronisation";
+                icon = "syncthing.svg";
+                href = "https://syncthing.fi33.buzz/";
               };
             }
             {
-              "Vaultwarden" = {
-                "description" = "Password manager";
-                "icon" = "vaultwarden.svg";
-                "href" = "https://vaultwarden.fi33.buzz/";
+              Vaultwarden = {
+                description = "Password manager";
+                icon = "vaultwarden.svg";
+                href = "https://vaultwarden.fi33.buzz/";
               };
             }
           ];
         }
         {
-          "Utilities" = [
+          Utilities = [
             {
-              "NanoKVM" = {
-                "description" = "Remote KVM switch";
-                "icon" = "mdi-console.svg";
-                "href" = "http://nano-kvm/";
+              NanoKVM = {
+                description = "Remote KVM switch";
+                icon = "mdi-console.svg";
+                href = "http://nano-kvm/";
               };
             }
           ];
@@ -322,7 +322,7 @@ in
             };
           }
           {
-            "Services" = {
+            Services = {
               style = "row";
               columns = 4;
               useEqualHeights = true;
@@ -336,7 +336,7 @@ in
             };
           }
           {
-            "Utilities" = {
+            Utilities = {
               style = "row";
               columns = 3;
               useEqualHeights = true;
