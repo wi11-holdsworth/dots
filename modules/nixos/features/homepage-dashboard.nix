@@ -246,6 +246,13 @@ in
         {
           "Services" = [
             {
+              "Calibre Server" = {
+                "description" = "Calibre library manager";
+                "icon" = "calibre.svg";
+                "href" = "https://calibre.fi33.buzz/";
+              };
+            }
+            {
               "copyparty" = {
                 "description" = "Cloud file manager";
                 "icon" = "sh-copyparty.svg";

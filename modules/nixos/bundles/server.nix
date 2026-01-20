@@ -7,6 +7,7 @@
     # keep-sorted start
     "bazarr"
     "caddy"
+    "calibre-server"
     "copyparty"
     "couchdb"
     "firefly"
