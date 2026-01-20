@@ -325,6 +325,7 @@ in
             "Services" = {
               style = "row";
               columns = 4;
+              useEqualHeights = true;
             };
           }
           {
@@ -338,6 +339,7 @@ in
             "Utilities" = {
               style = "row";
               columns = 3;
+              useEqualHeights = true;
             };
           }
         ];
