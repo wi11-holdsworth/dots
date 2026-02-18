@@ -7,7 +7,6 @@
     # keep-sorted start
     heroic
     mangohud
-    nexusmods-app
     prismlauncher
     protonup-qt
     wine
