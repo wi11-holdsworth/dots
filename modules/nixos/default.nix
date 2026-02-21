@@ -26,8 +26,6 @@
       # keep-sorted start
       broot # large directory browser
       choose # cut
-      circumflex # hacker news browsing
-      cointop # crypto ticker
       ddgr # web search
       doggo # dns
       dua # du

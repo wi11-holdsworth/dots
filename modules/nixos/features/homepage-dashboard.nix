@@ -26,7 +26,6 @@ let
     "bazarr"
     "immich"
     "jellyfin"
-    "karakeep"
     "kavita-api"
     "lidarr"
     "miniflux"
@@ -139,13 +138,6 @@ in
               };
             }
             {
-              qui = {
-                description = "qBittorrent front end";
-                icon = "qui.svg";
-                href = "https://qui.fi33.buzz/";
-              };
-            }
-            {
               qBittorrent = {
                 description = "BitTorrent client";
                 icon = "qbittorrent.svg";
@@ -205,18 +197,6 @@ in
               };
             }
             {
-              Karakeep = {
-                description = "Web clipper";
-                icon = "karakeep.svg";
-                href = "https://karakeep.fi33.buzz/";
-                widget = {
-                  type = "karakeep";
-                  url = "https://karakeep.fi33.buzz/";
-                  key = "@karakeep@";
-                };
-              };
-            }
-            {
               Miniflux = {
                 description = "RSS aggregator";
                 icon = "miniflux.svg";
@@ -257,13 +237,6 @@ in
                 description = "Obsidian sync database";
                 icon = "couchdb.svg";
                 href = "https://couchdb.fi33.buzz/_utils/";
-              };
-            }
-            {
-              Firefly = {
-                description = "Budget Planner";
-                icon = "firefly-iii.svg";
-                href = "https://firefly.fi33.buzz/";
               };
             }
             {
@@ -324,7 +297,7 @@ in
           {
             Services = {
               style = "row";
-              columns = 4;
+              columns = 3;
               useEqualHeights = true;
             };
           }

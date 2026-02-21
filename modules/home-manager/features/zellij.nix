@@ -4,7 +4,6 @@
     settings = {
       theme = "catppuccin-mocha";
       show_startup_tips = false;
-      default_shell = "fish";
     };
   };
 }

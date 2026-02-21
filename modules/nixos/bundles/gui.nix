@@ -14,10 +14,10 @@
 
   environment.systemPackages = with pkgs; [
     # keep-sorted start
-    beeper
     cameractrls-gtk3
     jellyfin-desktop
-    onlyoffice-desktopeditors
+    libreoffice
+    signal-desktop
     textsnatcher
     # keep-sorted end
   ];

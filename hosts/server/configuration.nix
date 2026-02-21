@@ -30,12 +30,6 @@
     fsType = "ext4";
     options = [
       "nofail"
-      "defaults"
-      "user"
-      "rw"
-      "utf8"
-      "noauto"
-      "umask=000"
     ];
   };
 

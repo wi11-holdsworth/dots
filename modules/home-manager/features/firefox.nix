@@ -75,7 +75,6 @@
           # detect-cloudflare
           bitwarden
           dearrow
-          floccus
           nixpkgs-pr-tracker
           react-devtools
           return-youtube-dislikes

@@ -18,7 +18,6 @@
     "external-speakers"
     "gaming"
     "link2c"
-    "llm"
     "plasma"
     "star-citizen"
     # keep-sorted end

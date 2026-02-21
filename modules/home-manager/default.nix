@@ -6,13 +6,12 @@
   imports = util.toImports ./features [
     # keep-sorted start
     "agenix"
+    "bash"
     "bat"
     "bottom"
     "delta"
     "eza"
     "fd"
-    "fish"
-    "gh"
     "git"
     "lazygit"
     "shell-aliases"
