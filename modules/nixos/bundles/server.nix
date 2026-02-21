@@ -24,7 +24,6 @@
     "radicale"
     "readarr"
     "sonarr"
-    "syncthing"
     "vaultwarden"
     # keep-sorted end
   ];
