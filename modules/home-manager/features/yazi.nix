@@ -5,6 +5,7 @@
 {
   programs.yazi = {
     enable = true;
+    shellWrapperName = "y";
     plugins = {
       # keep-sorted start
       diff = pkgs.yaziPlugins.diff;
