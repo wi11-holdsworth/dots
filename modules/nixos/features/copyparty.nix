@@ -25,12 +25,12 @@ in
         rproxy = 1;
       };
 
-      accounts.will.passwordFile = config.age.secrets.copyparty-will.path;
+      accounts.Impatient7119.passwordFile = config.age.secrets.copyparty.path;
 
       volumes."/" = {
         path = "/srv/copyparty";
         access = {
-          A = [ "will" ];
+          A = [ "Impatient7119" ];
         };
       };
     };
@@ -44,8 +44,8 @@ in
   };
 
   # secrets
-  age.secrets."copyparty-will" = {
-    file = ../../../secrets/copyparty-will.age;
+  age.secrets."copyparty" = {
+    file = ../../../secrets/copyparty.age;
     owner = "copyparty";
   };
 

@@ -9,6 +9,7 @@
     globalConfig = ''
       auto_https disable_redirects
     '';
+    openFirewall = true;
   };
 
   security.acme = {

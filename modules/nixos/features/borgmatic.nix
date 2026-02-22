@@ -20,6 +20,8 @@
       ntfy = {
         topic = "backups";
         server = config.services.ntfy-sh.settings.base-url;
+        username = "borgmatic";
+        password = "{credential file ${config.age.secrets.borgmatic-ntfy.path}}";
         finish = {
           title = "Ping!";
           message = "Your backups have succeeded :)";
@@ -78,6 +80,7 @@
   # secrets
   age.secrets = {
     "borgmatic".file = ../../../secrets/borgmatic.age;
+    "borgmatic-ntfy".file = ../../../secrets/borgmatic-ntfy.age;
     "borgmatic-pg".file = ../../../secrets/borgmatic-pg.age;
   };
 }

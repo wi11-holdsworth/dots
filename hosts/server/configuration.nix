@@ -33,7 +33,13 @@
     ];
   };
 
-  networking.hostName = "${hostName}";
+  networking = {
+    hostName = "${hostName}";
+    firewall.interfaces."enp2s0".allowedTCPPorts = [
+      80
+      443
+    ];
+  };
 
   # hardened openssh
   services.openssh = {

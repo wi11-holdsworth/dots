@@ -16,9 +16,10 @@ in
 {
   # keep-sorted start
   "bazarr.age".publicKeys = users;
+  "borgmatic-ntfy.age".publicKeys = users;
   "borgmatic-pg.age".publicKeys = users;
   "borgmatic.age".publicKeys = users;
-  "copyparty-will.age".publicKeys = users;
+  "copyparty.age".publicKeys = users;
   "firefly-db.age".publicKeys = users;
   "firefly.age".publicKeys = users;
   "immich.age".publicKeys = users;
