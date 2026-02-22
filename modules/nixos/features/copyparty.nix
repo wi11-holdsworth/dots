@@ -21,6 +21,8 @@ in
         e2ts = true;
         e2vu = true;
         p = port;
+        xff-hdr = "x-forwarded-for";
+        rproxy = 1;
       };
 
       accounts.will.passwordFile = config.age.secrets.copyparty-will.path;
