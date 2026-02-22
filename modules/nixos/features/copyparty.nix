@@ -30,7 +30,6 @@ in
       volumes."/" = {
         path = "/srv/copyparty";
         access = {
-          r = "*";
           A = [ "will" ];
         };
       };
