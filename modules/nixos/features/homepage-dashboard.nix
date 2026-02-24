@@ -23,7 +23,6 @@ let
 
   secrets = [
     # keep-sorted start
-    "bazarr"
     "immich"
     "jellyfin"
     "kavita-api"
@@ -35,6 +34,7 @@ let
     "radarr"
     "readarr"
     "sonarr"
+    "subtitles"
     # keep-sorted end
   ];
   certloc = "/var/lib/acme/fi33.buzz";
@@ -108,7 +108,7 @@ in
                 widget = {
                   type = "bazarr";
                   url = "https://bazarr.fi33.buzz/";
-                  key = "@bazarr@";
+                  key = "@subtitles@";
                 };
               };
             }

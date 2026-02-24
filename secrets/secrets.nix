@@ -15,7 +15,6 @@ let
 in
 {
   # keep-sorted start
-  "bazarr.age".publicKeys = users;
   "borgmatic-ntfy.age".publicKeys = users;
   "borgmatic-pg.age".publicKeys = users;
   "borgmatic.age".publicKeys = users;
@@ -40,6 +39,7 @@ in
   "radicale.age".publicKeys = users;
   "readarr.age".publicKeys = users;
   "sonarr.age".publicKeys = users;
+  "subtitles.age".publicKeys = users;
   "upbank2firefly.age".publicKeys = users;
   "vaultwarden-admin.age".publicKeys = users;
   # keep-sorted end
