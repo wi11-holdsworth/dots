@@ -21,6 +21,8 @@ in
   "copyparty.age".publicKeys = users;
   "firefly-db.age".publicKeys = users;
   "firefly.age".publicKeys = users;
+  "git_signing_key.age".publicKeys = users;
+  "git_signing_key.pub.age".publicKeys = users;
   "immich.age".publicKeys = users;
   "jellyfin.age".publicKeys = users;
   "karakeep.age".publicKeys = users;

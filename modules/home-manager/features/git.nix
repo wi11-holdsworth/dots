@@ -1,15 +1,12 @@
 {
+  userName,
+  ...
+}:
+{
   programs.git = {
     enable = true;
     settings = {
-      init.defaultBranch = "main";
-      core.editor = "nvim";
-      push.autoSetupRemote = true;
-      pull.rebase = true;
-      user = {
-        name = "wi11-holdsworth";
-        email = "83637728+wi11-holdsworth@users.noreply.github.com";
-      };
+      # keep-sorted start block=yes
       aliases = {
         # keep-sorted start
         a = "add";
@@ -30,6 +27,20 @@
         s = "status -s";
         # keep-sorted end
       };
+      core.editor = "nvim";
+      init.defaultBranch = "main";
+      pull.rebase = true;
+      push.autoSetupRemote = true;
+      user = {
+        name = "Will Holdsworth";
+        email = "me@fi33.buzz";
+      };
+      # keep-sorted end
+    };
+    signing = {
+      key = "/home/${userName}/.ssh/git_signature.pub";
+      format = "ssh";
+      signByDefault = true;
     };
   };
 }
