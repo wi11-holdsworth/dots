@@ -19,13 +19,10 @@ in
   "borgmatic-pg.age".publicKeys = users;
   "borgmatic.age".publicKeys = users;
   "copyparty.age".publicKeys = users;
-  "firefly-db.age".publicKeys = users;
-  "firefly.age".publicKeys = users;
   "git_signing_key.age".publicKeys = users;
   "git_signing_key.pub.age".publicKeys = users;
   "immich.age".publicKeys = users;
   "jellyfin.age".publicKeys = users;
-  "karakeep.age".publicKeys = users;
   "kavita-api.age".publicKeys = users;
   "kavita.age".publicKeys = users;
   "lidarr.age".publicKeys = users;
@@ -35,14 +32,12 @@ in
   "porkbun-api.age".publicKeys = users;
   "protonmail-cert.age".publicKeys = users;
   "protonmail-desktop-password.age".publicKeys = users;
-  "protonmail-laptop-password.age".publicKeys = users;
   "prowlarr.age".publicKeys = users;
   "radarr.age".publicKeys = users;
   "radicale.age".publicKeys = users;
   "readarr.age".publicKeys = users;
   "sonarr.age".publicKeys = users;
   "subtitles.age".publicKeys = users;
-  "upbank2firefly.age".publicKeys = users;
   "vaultwarden-admin.age".publicKeys = users;
   # keep-sorted end
 }
