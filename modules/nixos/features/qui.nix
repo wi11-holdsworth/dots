@@ -23,13 +23,6 @@ in
     };
   };
 
-  services.borgmatic.settings.sqlite_databases = [
-    {
-      name = "qui";
-      path = "/srv/qui/qui.db";
-    }
-  ];
-
   services.caddy.virtualHosts."qui.fi33.buzz".extraConfig = ''
     reverse_proxy localhost:${toString port}
     tls ${certloc}/cert.pem ${certloc}/key.pem {

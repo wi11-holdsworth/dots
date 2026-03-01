@@ -15,13 +15,6 @@ in
       tokenKeyFile = config.age.secrets.kavita.path;
     };
 
-    borgmatic.settings.sqlite_databases = [
-      {
-        name = "kavita";
-        path = "/srv/kavita/config/kavita.db";
-      }
-    ];
-
     caddy.virtualHosts."kavita.fi33.buzz".extraConfig = ''
       reverse_proxy localhost:${toString port}
       tls ${certloc}/cert.pem ${certloc}/key.pem {

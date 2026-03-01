@@ -12,13 +12,6 @@ in
       };
     };
 
-    borgmatic.settings.sqlite_databases = [
-      {
-        name = "karakeep";
-        path = "/var/lib/karakeep/db.db";
-      }
-    ];
-
     caddy.virtualHosts."karakeep.fi33.buzz".extraConfig = ''
       reverse_proxy localhost:${toString port}
       tls ${certloc}/cert.pem ${certloc}/key.pem {

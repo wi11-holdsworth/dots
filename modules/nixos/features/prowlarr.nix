@@ -12,13 +12,6 @@ in
       };
     };
 
-    borgmatic.settings.sqlite_databases = [
-      {
-        name = "prowlarr";
-        path = "/srv/prowlarr/prowlarr.db";
-      }
-    ];
-
     caddy.virtualHosts."prowlarr.fi33.buzz".extraConfig = ''
       reverse_proxy localhost:${toString port}
       tls ${certloc}/cert.pem ${certloc}/key.pem {
