@@ -6,11 +6,12 @@ in
   services = {
     prowlarr = {
       enable = true;
-      dataDir = "/srv/prowlarr";
       settings.server = {
         inherit port;
       };
     };
+
+    borgmatic.settings.source_directories = [ "/var/lib/prowlarr" ];
 
     caddy.virtualHosts."prowlarr.fi33.buzz".extraConfig = ''
       reverse_proxy localhost:${toString port}
