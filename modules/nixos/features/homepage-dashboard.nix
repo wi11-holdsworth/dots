@@ -56,6 +56,13 @@ in
               };
             }
             {
+              LibreTranslate = {
+                description = "Machine Translation API";
+                icon = "libretranslate.svg";
+                href = "https://translate.fi33.buzz/";
+              };
+            }
+            {
               Send = {
                 description = "Simple, private file sharing";
                 icon = "send.svg";
