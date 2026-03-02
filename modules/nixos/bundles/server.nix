@@ -10,6 +10,7 @@
     "copyparty"
     "couchdb"
     "cryptpad"
+    "gatus"
     "homepage-dashboard"
     "immich"
     "jellyfin"
