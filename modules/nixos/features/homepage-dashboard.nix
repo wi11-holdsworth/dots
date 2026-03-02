@@ -47,6 +47,17 @@ in
       allowedHosts = "homepage-dashboard.fi33.buzz";
       services = [
         {
+          "Public Services" = [
+            {
+              Send = {
+                description = " Simple, private file sharing";
+                icon = "send.svg";
+                href = "https://send.fi33.buzz/";
+              };
+            }
+          ];
+        }
+        {
           "Media Management" = [
             {
               Radarr = {
@@ -147,6 +158,52 @@ in
           ];
         }
         {
+          "Private Services" = [
+            {
+              "copyparty" = {
+                "description" = "Cloud file manager";
+                "icon" = "sh-copyparty.svg";
+                "href" = "https://copyparty.fi33.buzz/";
+              };
+            }
+            {
+              CouchDB = {
+                description = "Obsidian sync database";
+                icon = "couchdb.svg";
+                href = "https://couchdb.fi33.buzz/_utils/";
+              };
+            }
+            {
+              ntfy = {
+                description = "Notification service";
+                icon = "ntfy.svg";
+                href = "https://ntfy-sh.fi33.buzz/";
+              };
+            }
+            {
+              Radicale = {
+                description = "CalDAV/CardDAV service";
+                icon = "radicale.svg";
+                href = "https://radicale.fi33.buzz";
+              };
+            }
+            {
+              Syncthing = {
+                description = "Decentralised file synchronisation";
+                icon = "syncthing.svg";
+                href = "https://syncthing.fi33.buzz/";
+              };
+            }
+            {
+              Vaultwarden = {
+                description = "Password manager";
+                icon = "vaultwarden.svg";
+                href = "https://vaultwarden.fi33.buzz/";
+              };
+            }
+          ];
+        }
+        {
           "Media Streaming" = [
             {
               Immich = {
@@ -223,52 +280,7 @@ in
             }
           ];
         }
-        {
-          Services = [
-            {
-              "copyparty" = {
-                "description" = "Cloud file manager";
-                "icon" = "sh-copyparty.svg";
-                "href" = "https://copyparty.fi33.buzz/";
-              };
-            }
-            {
-              CouchDB = {
-                description = "Obsidian sync database";
-                icon = "couchdb.svg";
-                href = "https://couchdb.fi33.buzz/_utils/";
-              };
-            }
-            {
-              ntfy = {
-                description = "Notification service";
-                icon = "ntfy.svg";
-                href = "https://ntfy-sh.fi33.buzz/";
-              };
-            }
-            {
-              Radicale = {
-                description = "CalDAV/CardDAV service";
-                icon = "radicale.svg";
-                href = "https://radicale.fi33.buzz";
-              };
-            }
-            {
-              Syncthing = {
-                description = "Decentralised file synchronisation";
-                icon = "syncthing.svg";
-                href = "https://syncthing.fi33.buzz/";
-              };
-            }
-            {
-              Vaultwarden = {
-                description = "Password manager";
-                icon = "vaultwarden.svg";
-                href = "https://vaultwarden.fi33.buzz/";
-              };
-            }
-          ];
-        }
+
         {
           Utilities = [
             {
@@ -288,14 +300,21 @@ in
         headerStyle = "clean";
         layout = [
           {
-            "Media Streaming" = {
+            "Public Services" = {
               style = "row";
               columns = 3;
               useEqualHeights = true;
             };
           }
           {
-            Services = {
+            "Private Services" = {
+              style = "row";
+              columns = 3;
+              useEqualHeights = true;
+            };
+          }
+          {
+            "Media Streaming" = {
               style = "row";
               columns = 3;
               useEqualHeights = true;
