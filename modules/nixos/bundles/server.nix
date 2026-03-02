@@ -23,6 +23,7 @@
     "radarr"
     "radicale"
     "readarr"
+    "send"
     "sonarr"
     "vaultwarden"
     # keep-sorted end
