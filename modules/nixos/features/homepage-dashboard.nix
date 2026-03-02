@@ -68,7 +68,7 @@ in
           "Media Management" = [
             {
               Radarr = {
-                description = "Movie collection manager";
+                description = "Movie organizer/manager";
                 icon = "radarr.svg";
                 href = "https://radarr.fi33.buzz/";
                 widget = {
@@ -81,7 +81,7 @@ in
             }
             {
               Sonarr = {
-                description = "TV show collection manager";
+                description = "Smart PVR";
                 icon = "sonarr.svg";
                 href = "https://sonarr.fi33.buzz/";
                 widget = {
@@ -94,7 +94,7 @@ in
             }
             {
               Lidarr = {
-                description = "Music collection manager";
+                description = "Like Sonarr but made for music";
                 icon = "lidarr.svg";
                 href = "https://lidarr.fi33.buzz/";
                 widget = {
@@ -107,7 +107,7 @@ in
             }
             {
               Readarr = {
-                description = "Book collection manager";
+                description = "Book Manager and Automation";
                 icon = "readarr.svg";
                 href = "https://readarr.fi33.buzz/";
                 widget = {
@@ -120,7 +120,7 @@ in
             }
             {
               Bazarr = {
-                description = "Subtitle downloader and manager";
+                description = "Subtitle manager and downloader";
                 icon = "bazarr.svg";
                 href = "https://bazarr.fi33.buzz/";
                 widget = {
@@ -132,7 +132,7 @@ in
             }
             {
               Prowlarr = {
-                description = "Indexer management tool";
+                description = "Indexer manager/proxy";
                 icon = "prowlarr.svg";
                 href = "https://prowlarr.fi33.buzz/";
                 widget = {
@@ -144,7 +144,7 @@ in
             }
             {
               NZBget = {
-                description = "Usenet client";
+                description = "Usenet Downloader";
                 icon = "nzbget.svg";
                 href = "https://nzbget.fi33.buzz/";
                 widget = {
@@ -167,43 +167,43 @@ in
         {
           "Private Services" = [
             {
-              "copyparty" = {
-                "description" = "Cloud file manager";
-                "icon" = "sh-copyparty.svg";
-                "href" = "https://copyparty.fi33.buzz/";
+              copyparty = {
+                description = "Portable file server";
+                icon = "sh-copyparty.svg";
+                href = "https://copyparty.fi33.buzz/";
               };
             }
             {
               CouchDB = {
-                description = "Obsidian sync database";
+                description = "Syncing database";
                 icon = "couchdb.svg";
                 href = "https://couchdb.fi33.buzz/_utils/";
               };
             }
             {
               ntfy = {
-                description = "Notification service";
+                description = "Send push notifications using PUT/POST";
                 icon = "ntfy.svg";
                 href = "https://ntfy-sh.fi33.buzz/";
               };
             }
             {
               Radicale = {
-                description = "CalDAV/CardDAV service";
+                description = "A simple CalDAV (calendar) and CardDAV (contact) server";
                 icon = "radicale.svg";
                 href = "https://radicale.fi33.buzz";
               };
             }
             {
               Syncthing = {
-                description = "Decentralised file synchronisation";
+                description = "Open Source Continuous File Synchronization";
                 icon = "syncthing.svg";
                 href = "https://syncthing.fi33.buzz/";
               };
             }
             {
               Vaultwarden = {
-                description = "Password manager";
+                description = "Unofficial Bitwarden compatible server";
                 icon = "vaultwarden.svg";
                 href = "https://vaultwarden.fi33.buzz/";
               };
@@ -214,7 +214,7 @@ in
           "Media Streaming" = [
             {
               Immich = {
-                description = "Photo backup";
+                description = "Photo and video management solution";
                 icon = "immich.svg";
                 href = "https://immich.fi33.buzz/";
                 widget = {
@@ -233,7 +233,7 @@ in
             }
             {
               Jellyfin = {
-                description = "Media streaming";
+                description = "Media System";
                 icon = "jellyfin.svg";
                 href = "https://jellyfin.fi33.buzz/";
                 widget = {
@@ -249,20 +249,20 @@ in
               };
             }
             {
-              "Kavita" = {
-                "description" = "Book reader";
-                "icon" = "kavita.svg";
-                "href" = "https://kavita.fi33.buzz/";
-                "widget" = {
-                  "type" = "kavita";
-                  "url" = "https://kavita.fi33.buzz/";
-                  "key" = "@kavita-api@";
+              Kavita = {
+                description = "Reading server";
+                icon = "kavita.svg";
+                href = "https://kavita.fi33.buzz/";
+                widget = {
+                  type = "kavita";
+                  url = "https://kavita.fi33.buzz/";
+                  key = "@kavita-api@";
                 };
               };
             }
             {
               Miniflux = {
-                description = "RSS aggregator";
+                description = "Feed reader";
                 icon = "miniflux.svg";
                 href = "https://miniflux.fi33.buzz/";
                 widget = {
@@ -274,7 +274,7 @@ in
             }
             {
               Paperless = {
-                description = "Digital filing cabinet";
+                description = "Document management system";
                 icon = "paperless.svg";
                 href = "https://paperless.fi33.buzz/";
                 widget = {
@@ -287,7 +287,6 @@ in
             }
           ];
         }
-
         {
           Utilities = [
             {
