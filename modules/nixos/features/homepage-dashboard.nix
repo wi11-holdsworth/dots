@@ -333,6 +333,7 @@ in
         theme = "dark";
         color = "neutral";
         headerStyle = "clean";
+        hideVersion = true;
         layout = [
           {
             "Public Services" = {
@@ -367,6 +368,7 @@ in
               style = "row";
               columns = 3;
               useEqualHeights = true;
+              initiallyCollapsed = true;
             };
           }
         ];
