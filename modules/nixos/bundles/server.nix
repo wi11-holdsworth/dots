@@ -9,6 +9,7 @@
     "caddy"
     "copyparty"
     "couchdb"
+    "cryptpad"
     "homepage-dashboard"
     "immich"
     "jellyfin"
