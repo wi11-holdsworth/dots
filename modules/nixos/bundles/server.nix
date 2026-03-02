@@ -14,6 +14,7 @@
     "immich"
     "jellyfin"
     "kavita"
+    "libretranslate"
     "lidarr"
     "miniflux"
     "ntfy-sh"
