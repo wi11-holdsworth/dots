@@ -49,6 +49,13 @@ in
         {
           "Public Services" = [
             {
+              CryptPad = {
+                description = "Collaborative office suite";
+                icon = "cryptpad.svg";
+                href = "https://cryptpad.fi33.buzz/";
+              };
+            }
+            {
               Send = {
                 description = "Simple, private file sharing";
                 icon = "send.svg";
