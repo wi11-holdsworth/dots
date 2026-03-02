@@ -53,6 +53,7 @@ in
                 description = "Collaborative office suite";
                 icon = "cryptpad.svg";
                 href = "https://cryptpad.fi33.buzz/";
+                siteMonitor = "https://cryptpad.fi33.buzz/";
               };
             }
             {
@@ -60,6 +61,7 @@ in
                 description = "Machine Translation API";
                 icon = "libretranslate.svg";
                 href = "https://translate.fi33.buzz/";
+                siteMonitor = "https://translate.fi33.buzz/";
               };
             }
             {
@@ -67,6 +69,7 @@ in
                 description = "Simple, private file sharing";
                 icon = "send.svg";
                 href = "https://send.fi33.buzz/";
+                siteMonitor = "https://send.fi33.buzz/";
               };
             }
           ];
@@ -78,6 +81,7 @@ in
                 description = "Movie organizer/manager";
                 icon = "radarr.svg";
                 href = "https://radarr.fi33.buzz/";
+                siteMonitor = "https://radarr.fi33.buzz/";
                 widget = {
                   type = "radarr";
                   url = "https://radarr.fi33.buzz/";
@@ -91,6 +95,7 @@ in
                 description = "Smart PVR";
                 icon = "sonarr.svg";
                 href = "https://sonarr.fi33.buzz/";
+                siteMonitor = "https://sonarr.fi33.buzz/";
                 widget = {
                   type = "sonarr";
                   url = "https://sonarr.fi33.buzz/";
@@ -104,6 +109,7 @@ in
                 description = "Like Sonarr but made for music";
                 icon = "lidarr.svg";
                 href = "https://lidarr.fi33.buzz/";
+                siteMonitor = "https://lidarr.fi33.buzz/";
                 widget = {
                   type = "lidarr";
                   url = "https://lidarr.fi33.buzz/";
@@ -117,6 +123,7 @@ in
                 description = "Book Manager and Automation";
                 icon = "readarr.svg";
                 href = "https://readarr.fi33.buzz/";
+                siteMonitor = "https://readarr.fi33.buzz/";
                 widget = {
                   type = "readarr";
                   url = "https://readarr.fi33.buzz/";
@@ -130,6 +137,7 @@ in
                 description = "Subtitle manager and downloader";
                 icon = "bazarr.svg";
                 href = "https://bazarr.fi33.buzz/";
+                siteMonitor = "https://bazarr.fi33.buzz/";
                 widget = {
                   type = "bazarr";
                   url = "https://bazarr.fi33.buzz/";
@@ -142,6 +150,7 @@ in
                 description = "Indexer manager/proxy";
                 icon = "prowlarr.svg";
                 href = "https://prowlarr.fi33.buzz/";
+                siteMonitor = "https://prowlarr.fi33.buzz/";
                 widget = {
                   type = "prowlarr";
                   url = "https://prowlarr.fi33.buzz/";
@@ -154,6 +163,7 @@ in
                 description = "Usenet Downloader";
                 icon = "nzbget.svg";
                 href = "https://nzbget.fi33.buzz/";
+                siteMonitor = "https://nzbget.fi33.buzz/";
                 widget = {
                   type = "nzbget";
                   url = "https://nzbget.fi33.buzz/";
@@ -167,6 +177,7 @@ in
                 description = "BitTorrent client";
                 icon = "qbittorrent.svg";
                 href = "https://qbittorrent.fi33.buzz/";
+                siteMonitor = "https://qbittorrent.fi33.buzz/";
               };
             }
           ];
@@ -178,6 +189,7 @@ in
                 description = "Portable file server";
                 icon = "sh-copyparty.svg";
                 href = "https://copyparty.fi33.buzz/";
+                siteMonitor = "https://copyparty.fi33.buzz/";
               };
             }
             {
@@ -185,6 +197,7 @@ in
                 description = "Syncing database";
                 icon = "couchdb.svg";
                 href = "https://couchdb.fi33.buzz/_utils/";
+                siteMonitor = "https://couchdb.fi33.buzz/_utils/";
               };
             }
             {
@@ -192,6 +205,7 @@ in
                 description = "Send push notifications using PUT/POST";
                 icon = "ntfy.svg";
                 href = "https://ntfy-sh.fi33.buzz/";
+                siteMonitor = "https://ntfy-sh.fi33.buzz/";
               };
             }
             {
@@ -199,6 +213,7 @@ in
                 description = "A simple CalDAV (calendar) and CardDAV (contact) server";
                 icon = "radicale.svg";
                 href = "https://radicale.fi33.buzz";
+                siteMonitor = "https://radicale.fi33.buzz";
               };
             }
             {
@@ -206,6 +221,7 @@ in
                 description = "Open Source Continuous File Synchronization";
                 icon = "syncthing.svg";
                 href = "https://syncthing.fi33.buzz/";
+                siteMonitor = "https://syncthing.fi33.buzz/";
               };
             }
             {
@@ -213,6 +229,7 @@ in
                 description = "Unofficial Bitwarden compatible server";
                 icon = "vaultwarden.svg";
                 href = "https://vaultwarden.fi33.buzz/";
+                siteMonitor = "https://vaultwarden.fi33.buzz/";
               };
             }
           ];
@@ -224,6 +241,7 @@ in
                 description = "Photo and video management solution";
                 icon = "immich.svg";
                 href = "https://immich.fi33.buzz/";
+                siteMonitor = "https://immich.fi33.buzz/";
                 widget = {
                   type = "immich";
                   fields = [
@@ -243,6 +261,7 @@ in
                 description = "Media System";
                 icon = "jellyfin.svg";
                 href = "https://jellyfin.fi33.buzz/";
+                siteMonitor = "https://jellyfin.fi33.buzz/";
                 widget = {
                   type = "jellyfin";
                   url = "https://jellyfin.fi33.buzz/";
@@ -260,6 +279,7 @@ in
                 description = "Reading server";
                 icon = "kavita.svg";
                 href = "https://kavita.fi33.buzz/";
+                siteMonitor = "https://kavita.fi33.buzz/";
                 widget = {
                   type = "kavita";
                   url = "https://kavita.fi33.buzz/";
@@ -272,6 +292,7 @@ in
                 description = "Feed reader";
                 icon = "miniflux.svg";
                 href = "https://miniflux.fi33.buzz/";
+                siteMonitor = "https://miniflux.fi33.buzz/";
                 widget = {
                   type = "miniflux";
                   url = "https://miniflux.fi33.buzz/";
@@ -284,6 +305,7 @@ in
                 description = "Document management system";
                 icon = "paperless.svg";
                 href = "https://paperless.fi33.buzz/";
+                siteMonitor = "https://paperless.fi33.buzz/";
                 widget = {
                   type = "paperlessngx";
                   url = "https://paperless.fi33.buzz/";
@@ -351,7 +373,6 @@ in
         quicklaunch.searchDescriptions = true;
         disableUpdateCheck = true;
         showStats = true;
-        statusStyle = "dot";
       };
       widgets = [
         {
