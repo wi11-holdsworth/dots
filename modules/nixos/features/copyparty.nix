@@ -8,6 +8,8 @@
 let
   port = 5000;
   certloc = "/var/lib/acme/fi33.buzz";
+  hostname = "files.fi33.buzz";
+  url = "https://${hostname}";
 in
 {
   imports = [ inputs.copyparty.nixosModules.default ];
@@ -35,7 +37,21 @@ in
       };
     };
 
-    caddy.virtualHosts."copyparty.fi33.buzz".extraConfig = ''
+    gatus.settings.endpoints = [
+      {
+        name = "copyparty";
+        group = "Private Services";
+        inherit url;
+        interval = "5m";
+        conditions = [
+          "[STATUS] == 200"
+          "[CONNECTED] == true"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
+
+    caddy.virtualHosts.${hostname}.extraConfig = ''
       reverse_proxy localhost:${toString port}
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3

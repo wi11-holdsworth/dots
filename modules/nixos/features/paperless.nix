@@ -5,6 +5,8 @@
 let
   port = 5013;
   certloc = "/var/lib/acme/fi33.buzz";
+  hostname = "documents.fi33.buzz";
+  url = "https://${hostname}";
 in
 {
   services = {
@@ -15,9 +17,23 @@ in
       passwordFile = config.age.secrets.paperless.path;
       inherit port;
       settings = {
-        PAPERLESS_URL = "https://paperless.fi33.buzz";
+        PAPERLESS_URL = url;
       };
     };
+
+    gatus.settings.endpoints = [
+      {
+        name = "Paperless";
+        group = "Media Streaming";
+        inherit url;
+        interval = "5m";
+        conditions = [
+          "[STATUS] == 200"
+          "[CONNECTED] == true"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
 
     borgmatic.settings = {
       postgresql_databases = [
@@ -30,7 +46,7 @@ in
       ];
     };
 
-    caddy.virtualHosts."paperless.fi33.buzz".extraConfig = ''
+    caddy.virtualHosts.${hostname}.extraConfig = ''
       reverse_proxy localhost:${toString port}
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3

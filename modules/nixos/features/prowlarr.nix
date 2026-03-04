@@ -1,6 +1,8 @@
 let
   port = 5009;
   certloc = "/var/lib/acme/fi33.buzz";
+  hostname = "prowlarr.fi33.buzz";
+  url = "https://${hostname}";
 in
 {
   services = {
@@ -11,9 +13,23 @@ in
       };
     };
 
+    gatus.settings.endpoints = [
+      {
+        name = "Prowlarr";
+        group = "Media Management";
+        inherit url;
+        interval = "5m";
+        conditions = [
+          "[STATUS] == 200"
+          "[CONNECTED] == true"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
+
     borgmatic.settings.source_directories = [ "/var/lib/prowlarr" ];
 
-    caddy.virtualHosts."prowlarr.fi33.buzz".extraConfig = ''
+    caddy.virtualHosts.${hostname}.extraConfig = ''
       reverse_proxy localhost:${toString port}
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3

@@ -41,6 +41,8 @@ let
     ) (builtins.filter (deviceSet: deviceSet.device != hostName) devicesList)
   );
   certloc = "/var/lib/acme/fi33.buzz";
+  hostname = "sync.fi33.buzz";
+  url = "https://${hostname}";
 in
 {
   services = {
@@ -56,6 +58,20 @@ in
       };
     };
 
+    gatus.settings.endpoints = [
+      {
+        name = "Syncthing";
+        group = "Private Services";
+        inherit url;
+        interval = "5m";
+        conditions = [
+          "[STATUS] == 200"
+          "[CONNECTED] == true"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
+
     borgmatic.settings =
       if userName == "srv" then
         {
@@ -67,7 +83,7 @@ in
       else
         null;
 
-    caddy.virtualHosts."syncthing.fi33.buzz".extraConfig = ''
+    caddy.virtualHosts.${hostname}.extraConfig = ''
       reverse_proxy http://localhost:${toString port}
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3

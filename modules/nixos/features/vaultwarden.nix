@@ -5,6 +5,8 @@
 let
   port = 5001;
   certloc = "/var/lib/acme/fi33.buzz";
+  hostname = "vault.fi33.buzz";
+  url = "https://${hostname}";
 in
 {
   services = {
@@ -13,7 +15,7 @@ in
       backupDir = "/srv/vaultwarden";
       config = {
         rocketPort = toString port;
-        domain = "https://vaultwarden.fi33.buzz";
+        domain = url;
         signupsAllowed = false;
         invitationsAllowed = false;
         showPasswordHint = false;
@@ -23,7 +25,21 @@ in
       };
     };
 
-    caddy.virtualHosts."vaultwarden.fi33.buzz".extraConfig = ''
+    gatus.settings.endpoints = [
+      {
+        name = "Vaultwarden";
+        group = "Private Services";
+        inherit url;
+        interval = "5m";
+        conditions = [
+          "[STATUS] == 200"
+          "[CONNECTED] == true"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
+
+    caddy.virtualHosts.${hostname}.extraConfig = ''
       reverse_proxy localhost:${toString port}
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
