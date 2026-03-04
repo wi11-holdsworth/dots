@@ -1,13 +1,15 @@
 let
   port = 5002;
   certloc = "/var/lib/acme/fi33.buzz";
+  hostname = "notify.fi33.buzz";
+  url = "https://${hostname}";
 in
 {
   services = {
     ntfy-sh = {
       enable = true;
       settings = {
-        base-url = "https://ntfy-sh.fi33.buzz";
+        base-url = url;
         listen-http = ":${toString port}";
         behind-proxy = true;
         auth-default-access = "deny-all";
@@ -19,13 +21,27 @@ in
       };
     };
 
+    gatus.settings.endpoints = [
+      {
+        name = "ntfy";
+        group = "Private Services";
+        inherit url;
+        interval = "5m";
+        conditions = [
+          "[STATUS] == 200"
+          "[CONNECTED] == true"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
+
     borgmatic.settings = {
       source_directories = [
         "/var/lib/ntfy-sh/user.db"
       ];
     };
 
-    caddy.virtualHosts."ntfy-sh.fi33.buzz".extraConfig = ''
+    caddy.virtualHosts.${hostname}.extraConfig = ''
       reverse_proxy localhost:${toString port}
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3

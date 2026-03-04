@@ -1,6 +1,8 @@
 let
   port = 5984;
   certloc = "/var/lib/acme/fi33.buzz";
+  hostname = "couchdb.fi33.buzz";
+  url = "https://${hostname}";
 in
 {
   services = {
@@ -29,13 +31,27 @@ in
         cors = {
           credentials = true;
           origins = ''
-            app://obsidian.md,capacitor://localhost,http://localhost,https://localhost,capacitor://couchdb.fi33.buzz,http://couchdb.fi33.buzz,https://couchdb.fi33.buzz
+            app://obsidian.md,capacitor://localhost,http://localhost,https://localhost,capacitor://${hostname},http://${hostname},${url}
           '';
         };
       };
     };
 
-    caddy.virtualHosts."couchdb.fi33.buzz".extraConfig = ''
+    gatus.settings.endpoints = [
+      {
+        name = "CouchDB";
+        group = "Private Services";
+        inherit url;
+        interval = "5m";
+        conditions = [
+          "[STATUS] == 401"
+          "[CONNECTED] == true"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
+
+    caddy.virtualHosts.${hostname}.extraConfig = ''
       reverse_proxy localhost:${toString port}
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3

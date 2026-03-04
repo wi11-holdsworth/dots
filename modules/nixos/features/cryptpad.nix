@@ -2,6 +2,8 @@ let
   httpPort = 5022;
   websocketPort = 5024;
   certloc = "/var/lib/acme/fi33.buzz";
+  hostname = "cryptpad.fi33.buzz";
+  url = "https://${hostname}";
 in
 {
   services = {
@@ -10,7 +12,7 @@ in
       settings = {
         inherit httpPort;
         inherit websocketPort;
-        httpUnsafeOrigin = "https://cryptpad.fi33.buzz";
+        httpUnsafeOrigin = url;
         httpSafeOrigin = "https://cryptpad-ui.fi33.buzz";
         inactiveTime = 7;
         archiveRetentionTime = 7;
@@ -18,7 +20,21 @@ in
       };
     };
 
-    caddy.virtualHosts."cryptpad.fi33.buzz, cryptpad-ui.fi33.buzz".extraConfig = ''
+    gatus.settings.endpoints = [
+      {
+        name = "CryptPad";
+        group = "Public Services";
+        inherit url;
+        interval = "5m";
+        conditions = [
+          "[STATUS] == 200"
+          "[CONNECTED] == true"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
+
+    caddy.virtualHosts."${hostname} cryptpad-ui.fi33.buzz".extraConfig = ''
       header Strict-Transport-Security "includeSubDomains; preload"
 
       handle /cryptpad_websocket* {
@@ -36,7 +52,7 @@ in
       }
 
       @register {
-        host cryptpad.fi33.buzz
+        host ${hostname} 
         path /register*
       }
       respond @register 403

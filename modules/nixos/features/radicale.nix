@@ -5,6 +5,8 @@
 let
   port = 5003;
   certloc = "/var/lib/acme/fi33.buzz";
+  hostname = "caldav.fi33.buzz";
+  url = "https://${hostname}";
 in
 {
   services = {
@@ -28,7 +30,21 @@ in
       };
     };
 
-    caddy.virtualHosts."radicale.fi33.buzz".extraConfig = ''
+    gatus.settings.endpoints = [
+      {
+        name = "Radicale";
+        group = "Private Services";
+        inherit url;
+        interval = "5m";
+        conditions = [
+          "[STATUS] == 200"
+          "[CONNECTED] == true"
+          "[RESPONSE_TIME] < 500"
+        ];
+      }
+    ];
+
+    caddy.virtualHosts.${hostname}.extraConfig = ''
       reverse_proxy localhost:${toString port}
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
