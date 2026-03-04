@@ -1,7 +1,7 @@
 let
   # keep-sorted start
   desktop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPHAnTQP77HQ/8nbf1oX7xftfKYtbH6MSh83wic0qdBy";
-  laptop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOeu5HwuRayiXIZE35AxX6PmxHxbXZ8NTlTgHrcPwhcQ";
+  laptop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOmM4LEjGPJbcUeG5363NpB3XJUyn/4B+eBCFzzuC/Td";
   srv = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOeV0NxqIGIXXgLYE6ntkHE4PARceZBp1FTI7kKLBbk8";
   # keep-sorted end
 
