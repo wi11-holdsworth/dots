@@ -1,3 +1,7 @@
+{
+  config,
+  ...
+}:
 let
   port = 5025;
   certloc = "/var/lib/acme/fi33.buzz";
@@ -8,7 +12,24 @@ in
   services = {
     gatus = {
       enable = true;
+      environmentFile = config.age.secrets.gatus.path;
       settings = {
+        alerting = {
+          ntfy = {
+            topic = "services";
+            url = config.services.ntfy-sh.settings.base-url;
+            token = "$NTFY_TOKEN";
+            click = url;
+            default-alert = {
+              description = "Health Check Failed";
+              send-on-resolved = true;
+            };
+          };
+        };
+        connectivity.checker = {
+          target = "1.1.1.1:53";
+          interval = "60s";
+        };
         ui = {
           title = "Health Dashboard | Fi33Buzz";
           description = "Fi33Buzz health dashboard";
@@ -29,4 +50,6 @@ in
       }
     '';
   };
+
+  age.secrets.gatus.file = ../../../secrets/gatus.age;
 }
