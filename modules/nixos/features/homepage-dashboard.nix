@@ -27,6 +27,7 @@ let
     "jellyfin"
     "kavita-api"
     "lidarr"
+    "mealie"
     "miniflux"
     "nzbget"
     "paperless"
@@ -200,6 +201,20 @@ in
                 icon = "couchdb.svg";
                 href = "https://couchdb.fi33.buzz/_utils/";
                 siteMonitor = "https://couchdb.fi33.buzz/_utils/";
+              };
+            }
+            {
+              Mealie = {
+                description = "Recipe manager and meal planner";
+                icon = "mealie.svg";
+                href = "https://mealie.fi33.buzz/";
+                siteMonitor = "https://mealie.fi33.buzz/";
+                widget = {
+                  type = "mealie";
+                  url = "https://mealie.fi33.buzz/";
+                  version = 2;
+                  key = "@mealie@";
+                };
               };
             }
             {
