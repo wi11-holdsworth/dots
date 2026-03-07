@@ -9,6 +9,18 @@ in
     gatus = {
       enable = true;
       settings.web.port = port;
+      settings = {
+        ui = {
+          title = "Health Dashboard | Fi33Buzz";
+          description = "Fi33Buzz health dashboard";
+          dashboard-heading = "";
+          dashboard-subheading = "";
+          header = "Fi33Buzz Status";
+          link = "https://home.fi33.buzz/";
+          default-sort-by = "group";
+        };
+        web.port = port;
+      };
     };
 
     caddy.virtualHosts.${hostname}.extraConfig = ''
