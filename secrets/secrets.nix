@@ -19,6 +19,7 @@ in
   "borgmatic-pg.age".publicKeys = users;
   "borgmatic.age".publicKeys = users;
   "copyparty.age".publicKeys = users;
+  "gatus.age".publicKeys = users;
   "git_signing_key.age".publicKeys = users;
   "git_signing_key.pub.age".publicKeys = users;
   "immich.age".publicKeys = users;
@@ -27,6 +28,7 @@ in
   "kavita.age".publicKeys = users;
   "lidarr.age".publicKeys = users;
   "miniflux-creds.age".publicKeys = users;
+  "ntfy.age".publicKeys = users;
   "nzbget.age".publicKeys = users;
   "paperless.age".publicKeys = users;
   "porkbun-api.age".publicKeys = users;
