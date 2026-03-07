@@ -10,6 +10,7 @@
     "copyparty"
     "couchdb"
     "cryptpad"
+    "fi33.buzz"
     "gatus"
     "homepage-dashboard"
     "immich"
