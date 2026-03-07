@@ -18,6 +18,7 @@
     "kavita"
     "libretranslate"
     "lidarr"
+    "mealie"
     "miniflux"
     "ntfy-sh"
     "nzbget"
