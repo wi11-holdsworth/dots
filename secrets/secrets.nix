@@ -27,6 +27,7 @@ in
   "kavita-api.age".publicKeys = users;
   "kavita.age".publicKeys = users;
   "lidarr.age".publicKeys = users;
+  "mealie.age".publicKeys = users;
   "miniflux-creds.age".publicKeys = users;
   "ntfy.age".publicKeys = users;
   "nzbget.age".publicKeys = users;
