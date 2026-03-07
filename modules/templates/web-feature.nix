@@ -10,6 +10,21 @@ in
       enable = true;
     };
 
+    gatus.settings.endpoints = [
+      {
+        name = "feature";
+        group = "";
+        inherit url;
+        interval = "5m";
+        conditions = [
+          "[STATUS] == 200"
+          "[CONNECTED] == true"
+          "[RESPONSE_TIME] < 500"
+        ];
+        alerts = [ { type = "ntfy"; } ];
+      }
+    ];
+
     # borgmatic.settings = {
     #   source_directories = [ ];
     #   postgresql_databases = [

@@ -24,6 +24,7 @@ in
           "[CONNECTED] == true"
           "[RESPONSE_TIME] < 500"
         ];
+        alerts = [ { type = "ntfy"; } ];
       }
     ];
 

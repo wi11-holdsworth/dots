@@ -1,3 +1,7 @@
+{
+  config,
+  ...
+}:
 let
   port = 5002;
   certloc = "/var/lib/acme/fi33.buzz";
@@ -8,6 +12,7 @@ in
   services = {
     ntfy-sh = {
       enable = true;
+      environmentFile = config.age.secrets.ntfy.path;
       settings = {
         base-url = url;
         listen-http = ":${toString port}";
@@ -16,8 +21,12 @@ in
         auth-users = [
           "Debit3885:$2a$12$ZeFimzdifNFSmf0W2oi.vuZfsqae75md9nhC/Q2BcKMyvDO8T.uEK:admin"
           "borgmatic:$2a$12$ZeFimzdifNFSmf0W2oi.vuZfsqae75md9nhC/Q2BcKMyvDO8T.uEK:user"
+          "gatus:$2a$12$OswG3sB8oDaB.KpawKM3P.78dID.Tj/0y5qeVD5BE6EH5bpGKe.na:user"
         ];
-        auth-access = [ "borgmatic:backups:wo" ];
+        auth-access = [
+          "borgmatic:backups:wo"
+          "gatus:services:wo"
+        ];
       };
     };
 
@@ -48,4 +57,6 @@ in
       }
     '';
   };
+
+  age.secrets.ntfy.file = ../../../secrets/ntfy.age;
 }
