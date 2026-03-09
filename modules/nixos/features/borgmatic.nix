@@ -42,12 +42,10 @@
         {
           path = "/mnt/external/backup/repo";
           label = "onsite";
-          # encryption = "repokey-blake2";
         }
         {
           path = "ssh://vuc5c3xq@vuc5c3xq.repo.borgbase.com/./repo";
           label = "offsite";
-          # encryption = "repokey-blake2";
         }
       ];
       retries = 3;
@@ -74,8 +72,6 @@
   systemd.services.borgmatic.serviceConfig.LoadCredential = [
     "borgmatic-pg:${config.age.secrets.borgmatic-pg.path}"
   ];
-
-  # onsite drive
 
   # secrets
   age.secrets = {

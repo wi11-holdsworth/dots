@@ -15,9 +15,8 @@ let
 in
 {
   # keep-sorted start
-  "borgmatic-ntfy.age".publicKeys = users;
-  "borgmatic-pg.age".publicKeys = users;
-  "borgmatic.age".publicKeys = users;
+  "borgbackup-offsite.age".publicKeys = users;
+  "borgbackup-onsite.age".publicKeys = users;
   "copyparty.age".publicKeys = users;
   "gatus.age".publicKeys = users;
   "git_signing_key.age".publicKeys = users;

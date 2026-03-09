@@ -15,7 +15,7 @@
   ]
   ++ (util.toImports ../../modules/nixos/features [
     # keep-sorted start
-    "borgmatic"
+    "borgbackup"
     "intel-gpu"
     # keep-sorted end
   ])

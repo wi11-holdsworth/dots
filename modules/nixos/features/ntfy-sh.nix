@@ -20,11 +20,9 @@ in
         auth-default-access = "deny-all";
         auth-users = [
           "Debit3885:$2a$12$ZeFimzdifNFSmf0W2oi.vuZfsqae75md9nhC/Q2BcKMyvDO8T.uEK:admin"
-          "borgmatic:$2a$12$ZeFimzdifNFSmf0W2oi.vuZfsqae75md9nhC/Q2BcKMyvDO8T.uEK:user"
           "gatus:$2a$12$OswG3sB8oDaB.KpawKM3P.78dID.Tj/0y5qeVD5BE6EH5bpGKe.na:user"
         ];
         auth-access = [
-          "borgmatic:backups:wo"
           "gatus:services:wo"
         ];
       };
@@ -44,10 +42,9 @@ in
       }
     ];
 
-    borgmatic.settings = {
-      source_directories = [
-        "/var/lib/ntfy-sh/user.db"
-      ];
+    borgbackup.jobs = {
+      onsite.paths = [ "/var/lib/ntfy-sh" ];
+      offsite.paths = [ "/var/lib/ntfy-sh" ];
     };
 
     caddy.virtualHosts.${hostname}.extraConfig = ''

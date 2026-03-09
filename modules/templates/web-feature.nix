@@ -25,17 +25,10 @@ in
       }
     ];
 
-    # borgmatic.settings = {
-    #   source_directories = [ ];
-    #   postgresql_databases = [
-    #     {
-    #       name = "feature";
-    #       hostname = "localhost";
-    #       username = "root";
-    #       password = "{credential systemd borgmatic-pg}";
-    #     }
-    #   ];
-    # };
+    borgbackup.jobs = {
+      onsite.paths = [ "" ];
+      offsite.paths = [ "" ];
+    };
 
     caddy.virtualHosts.${hostname}.extraConfig = ''
       reverse_proxy localhost:${toString port}

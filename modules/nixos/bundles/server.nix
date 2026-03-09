@@ -34,5 +34,8 @@
     # keep-sorted end
   ];
 
-  services.borgmatic.settings.source_directories = [ "/srv" ];
+  services.borgbackup.jobs = {
+    onsite.paths = [ "/srv" ];
+    offsite.paths = [ "/srv" ];
+  };
 }

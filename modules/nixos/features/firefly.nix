@@ -24,13 +24,6 @@ in
       };
     };
 
-    borgmatic.settings.sqlite_databases = [
-      {
-        name = "firefly";
-        path = "/srv/firefly/storage/database/database.sqlite";
-      }
-    ];
-
     caddy.virtualHosts."firefly.fi33.buzz".extraConfig = ''
       root * ${config.services.firefly-iii.package}/public
       php_fastcgi unix//${config.services.phpfpm.pools.firefly-iii.socket}

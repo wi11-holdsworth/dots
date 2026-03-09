@@ -1,3 +1,7 @@
+{
+  pkgs,
+  ...
+}:
 let
   port = 5009;
   certloc = "/var/lib/acme/fi33.buzz";
@@ -28,7 +32,14 @@ in
       }
     ];
 
-    borgmatic.settings.source_directories = [ "/var/lib/prowlarr" ];
+    borgbackup.jobs = {
+      onsite = {
+        paths = [ "/var/lib/prowlarr" ];
+      };
+      offsite = {
+        paths = [ "/var/lib/prowlarr" ];
+      };
+    };
 
     caddy.virtualHosts.${hostname}.extraConfig = ''
       reverse_proxy localhost:${toString port}

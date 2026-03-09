@@ -73,12 +73,16 @@ in
       }
     ];
 
-    borgmatic.settings =
+    borgbackup.jobs =
       if userName == "srv" then
         {
-          source_directories = [
+          onsite.paths = [
             "/home/srv/.config/syncthing"
-            "/home/srv/Sync"
+            "/home/srv/Sync/"
+          ];
+          offsite.paths = [
+            "/home/srv/.config/syncthing"
+            "/home/srv/Sync/"
           ];
         }
       else

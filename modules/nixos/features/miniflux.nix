@@ -34,15 +34,6 @@ in
       }
     ];
 
-    borgmatic.settings.postgresql_databases = [
-      {
-        name = "miniflux";
-        hostname = "localhost";
-        username = "root";
-        password = "{credential systemd borgmatic-pg}";
-      }
-    ];
-
     caddy.virtualHosts.${hostname}.extraConfig = ''
       reverse_proxy localhost:${toString port}
       tls ${certloc}/cert.pem ${certloc}/key.pem {

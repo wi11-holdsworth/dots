@@ -1,5 +1,5 @@
 {
-  config,
+  pkgs,
   ...
 }:
 let
@@ -34,17 +34,14 @@ in
       }
     ];
 
-    # borgmatic.settings = {
-    #   source_directories = [ ];
-    #   postgresql_databases = [
-    #     {
-    #       name = "mealie";
-    #       hostname = "localhost";
-    #       username = "root";
-    #       password = "{credential systemd borgmatic-pg}";
-    #     }
-    #   ];
-    # };
+    borgbackup.jobs = {
+      onsite = {
+        paths = [ "/var/lib/mealie" ];
+      };
+      offsite = {
+        paths = [ "/var/lib/mealie" ];
+      };
+    };
 
     caddy.virtualHosts.${hostname}.extraConfig = ''
       reverse_proxy localhost:${toString port}
